@@ -19,7 +19,7 @@ const initialValues: RecipeForm = {
 const validationSchema = Yup.object().shape({ name: Yup.string().required() })
 
 const NewRecipe = () => (
-  <section>
+  <section data-testid="new-recipe">
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}

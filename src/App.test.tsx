@@ -1,11 +1,20 @@
 import React from 'react'
-import { fullRender } from '@testing'
+
 import { waitForElement } from '@testing-library/react'
+import { fullRender } from '@testing'
 
 import App from './App'
 
-it('renders without crashing', async () => {
-  const { getByTestId } = fullRender(<App />)
+describe('App', () => {
+  it('renders without crashing', async () => {
+    const { getByTestId } = fullRender(<App />)
 
-  await waitForElement(() => getByTestId('app'))
+    await waitForElement(() => getByTestId('app'))
+  })
+
+  it('renders new recipe form', async () => {
+    const { getByTestId } = fullRender(<App />, { route: '/recipes/new' })
+
+    await waitForElement(() => getByTestId('new-recipe'))
+  })
 })
