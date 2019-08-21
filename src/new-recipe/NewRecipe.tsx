@@ -13,15 +13,7 @@ import {
 import { TextField } from 'formik-material-ui'
 
 import validationSchema from './schema'
-
-interface StepForm {
-  description: string
-  duration: number
-}
-interface RecipeForm {
-  name: string
-  steps: StepForm[]
-}
+import { RecipeForm } from './types'
 
 const initialValues: RecipeForm = {
   name: '',
