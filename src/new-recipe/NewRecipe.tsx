@@ -22,6 +22,21 @@ const initialValues: RecipeForm = {
   steps: [emptyStep()]
 }
 
+const field = (
+  id: string,
+  { label = undefined, type = 'text' }: { label?: string; type?: string } = {}
+) => (
+  <Field
+    id={id}
+    name={id}
+    label={label || id}
+    type={type}
+    variant="outlined"
+    fullWidth
+    component={TextField}
+  />
+)
+
 const NewRecipe = () => (
   <section data-testid="new-recipe">
     <Formik
@@ -33,14 +48,7 @@ const NewRecipe = () => (
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Field
-                id="name"
-                name="name"
-                label="name"
-                variant="outlined"
-                fullWidth
-                component={TextField}
-              />
+              {field('name')}
             </Grid>
 
             <Grid item xs={12}>
@@ -53,22 +61,14 @@ const NewRecipe = () => (
                     <ul>
                       {values.steps.map((step, index) => (
                         <li key={index}>
-                          <Field
-                            id={`steps.${index}.description`}
-                            name={`steps.${index}.description`}
-                            variant="outlined"
-                            fullWidth
-                            component={TextField}
-                          />
+                          {field(`steps.${index}.description`, {
+                            label: 'description'
+                          })}
 
-                          <Field
-                            id={`steps.${index}.duration`}
-                            name={`steps.${index}.duration`}
-                            type="number"
-                            variant="outlined"
-                            fullWidth
-                            component={TextField}
-                          />
+                          {field(`steps.${index}.duration`, {
+                            label: 'duration',
+                            type: 'number'
+                          })}
 
                           <Button onClick={() => remove(index)}>Delete</Button>
                         </li>
