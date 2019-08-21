@@ -30,9 +30,11 @@ const NewRecipe = () => (
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <Field
+                id="name"
                 name="name"
                 label="name"
                 variant="outlined"
+                fullWidth
                 component={TextField}
               />
             </Grid>
