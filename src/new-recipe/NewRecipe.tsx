@@ -12,7 +12,7 @@ import {
 } from 'formik'
 import { TextField } from 'formik-material-ui'
 
-import * as Yup from 'yup'
+import validationSchema from './schema'
 
 interface StepForm {
   description: string
@@ -27,20 +27,6 @@ const initialValues: RecipeForm = {
   name: '',
   steps: [{ description: '', duration: 0 }]
 }
-
-const validationSchema = Yup.object().shape({
-  name: Yup.string().required(),
-  steps: Yup.array()
-    .of(
-      Yup.object().shape({
-        description: Yup.string().required(),
-        duration: Yup.number()
-          .min(1)
-          .required()
-      })
-    )
-    .min(1)
-})
 
 const NewRecipe = () => (
   <section data-testid="new-recipe">
