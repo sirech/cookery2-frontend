@@ -13,11 +13,13 @@ import {
 import { TextField } from 'formik-material-ui'
 
 import validationSchema from './schema'
-import { RecipeForm } from './types'
+import { RecipeForm, StepForm } from './types'
+
+const emptyStep = (): StepForm => ({ description: '', duration: 0 })
 
 const initialValues: RecipeForm = {
   name: '',
-  steps: [{ description: '', duration: 0 }]
+  steps: [emptyStep()]
 }
 
 const NewRecipe = () => (
@@ -47,11 +49,7 @@ const NewRecipe = () => (
                 render={({ push, remove }: FieldArrayRenderProps) => (
                   <>
                     <h3>Steps</h3>
-                    <Button
-                      onClick={() => push({ description: '', duration: 0 })}
-                    >
-                      Add Step
-                    </Button>
+                    <Button onClick={() => push(emptyStep())}>Add Step</Button>
                     <ul>
                       {values.steps.map((step, index) => (
                         <li key={index}>
