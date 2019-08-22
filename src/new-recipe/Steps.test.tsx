@@ -1,0 +1,60 @@
+import React from 'react'
+import { Formik } from 'formik'
+
+import {
+  waitForElement,
+  waitForElementToBeRemoved,
+  wait
+} from '@testing-library/react'
+import { fullRender } from '@testing'
+import userEvent from '@testing-library/user-event'
+
+import Steps from './Steps'
+
+describe('Steps', () => {
+  const onSubmit = jest.fn()
+  const StepsInForm = () => (
+    <Formik initialValues={{ steps: [] }} onSubmit={onSubmit}>
+      {({ handleSubmit, values }) => (
+        <form onSubmit={handleSubmit}>
+          <Steps steps={values.steps} />
+          <button type="submit">Submit</button>
+        </form>
+      )}
+    </Formik>
+  )
+  it('renders without crashing', async () => {
+    const { getByTestId } = fullRender(<StepsInForm />)
+
+    await waitForElement(() => getByTestId('steps'))
+  })
+
+  it('adds steps', async () => {
+    const { getByTestId, getByLabelText, getByText } = fullRender(
+      <StepsInForm />
+    )
+
+    userEvent.click(getByTestId('add-step'))
+    userEvent.type(getByLabelText('description'), 'Shake it shake it')
+    userEvent.type(getByLabelText('duration'), '10')
+
+    userEvent.click(getByText('Submit'))
+
+    await wait()
+
+    expect(onSubmit).toHaveBeenCalledTimes(1)
+    expect(onSubmit.mock.calls[0][0].steps).toStrictEqual([
+      { duration: 10, description: 'Shake it shake it' }
+    ])
+  })
+
+  it('removes steps', async () => {
+    const { getByTestId, queryByTestId } = fullRender(<StepsInForm />)
+
+    userEvent.click(getByTestId('add-step'))
+    await waitForElement(() => getByTestId('step'))
+    userEvent.click(getByTestId('remove-step'))
+
+    expect(queryByTestId('step')).toBeNull()
+  })
+})

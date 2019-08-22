@@ -18,11 +18,12 @@ interface Props {
 }
 
 const Step = ({ index, remove }: Props) => (
-  <Card key={index}>
+  <Card data-testid="step" key={index}>
     <CardHeader
-      title={`Step ${index + 1}`}
+      subheader={`Step ${index + 1}`}
       action={
         <IconButton
+          data-testid="remove-step"
           edge="start"
           color="secondary"
           onClick={() => remove(index)}
