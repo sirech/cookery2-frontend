@@ -10,20 +10,15 @@ import {
   CardHeader
 } from '@material-ui/core'
 
-import ClearIcon from '@material-ui/icons/Clear'
 import AddIcon from '@material-ui/icons/Add'
 
-import {
-  Formik,
-  Field,
-  FieldArray,
-  FormikProps,
-  FieldArrayRenderProps
-} from 'formik'
-import { TextField } from 'formik-material-ui'
+import { Formik, FieldArray, FormikProps, FieldArrayRenderProps } from 'formik'
 
 import validationSchema from './schema'
 import { RecipeForm, StepForm } from './types'
+
+import Step from './Step'
+import field from './field'
 
 const emptyStep = (): StepForm => ({ description: '', duration: 0 })
 
@@ -31,58 +26,6 @@ const initialValues: RecipeForm = {
   name: '',
   steps: [emptyStep()]
 }
-
-const field = (
-  id: string,
-  { label = undefined, type = 'text' }: { label?: string; type?: string } = {}
-) => (
-  <Field
-    id={id}
-    name={id}
-    label={label || id}
-    type={type}
-    variant="outlined"
-    fullWidth
-    component={TextField}
-  />
-)
-
-interface StepProps {
-  index: number
-  remove: (index: number) => void
-}
-
-const Step = ({ index, remove }: StepProps) => (
-  <Card key={index}>
-    <CardHeader
-      title={`Step ${index + 1}`}
-      action={
-        <IconButton
-          edge="start"
-          color="secondary"
-          onClick={() => remove(index)}
-        >
-          <ClearIcon />
-        </IconButton>
-      }
-    />
-    <CardContent>
-      <Grid container spacing={1}>
-        <Grid item xs={10}>
-          {field(`steps.${index}.description`, {
-            label: 'description'
-          })}
-        </Grid>
-        <Grid item xs={2}>
-          {field(`steps.${index}.duration`, {
-            label: 'duration',
-            type: 'number'
-          })}
-        </Grid>
-      </Grid>
-    </CardContent>
-  </Card>
-)
 
 const NewRecipe = () => (
   <section data-testid="new-recipe">
