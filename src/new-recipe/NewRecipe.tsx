@@ -13,6 +13,7 @@ import field from './field'
 
 const initialValues: RecipeForm = {
   name: '',
+  servings: 0,
   steps: [emptyStep()],
   ingredients: [emptyIngredient()]
 }
@@ -29,7 +30,12 @@ const NewRecipe = () => (
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <Card>
-                <CardContent>{field('name')}</CardContent>
+                <CardContent>
+                  <Grid container direction="column" spacing={1}>
+                    <Grid item>{field('name')}</Grid>
+                    <Grid item>{field('servings', { type: 'number' })}</Grid>
+                  </Grid>
+                </CardContent>
               </Card>
             </Grid>
 

@@ -19,6 +19,7 @@ export interface IngredientForm {
 
 export interface RecipeForm {
   name: string
+  servings: number
   steps: StepForm[]
   ingredients: IngredientForm[]
 }

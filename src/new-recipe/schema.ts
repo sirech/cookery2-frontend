@@ -25,6 +25,7 @@ const ingredients = Yup.array()
 
 export default Yup.object().shape({
   name: Yup.string().required(),
+  servings: Yup.number().min(1),
   steps,
   ingredients
 })
