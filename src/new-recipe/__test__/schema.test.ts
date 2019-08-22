@@ -1,4 +1,4 @@
-import schema from './schema'
+import schema from '../schema'
 import * as Yup from 'yup'
 
 describe('validationSchema', () => {

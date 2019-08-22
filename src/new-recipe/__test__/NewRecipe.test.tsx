@@ -4,7 +4,7 @@ import { waitForElement } from '@testing-library/react'
 import { fullRender } from '@testing'
 import userEvent from '@testing-library/user-event'
 
-import NewRecipe from './NewRecipe'
+import NewRecipe from '../NewRecipe'
 
 describe('NewRecipe', () => {
   it('renders without crashing', async () => {

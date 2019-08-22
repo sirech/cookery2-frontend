@@ -5,7 +5,7 @@ import { waitForElement, wait } from '@testing-library/react'
 import { fullRender } from '@testing'
 import userEvent from '@testing-library/user-event'
 
-import Ingredients from './Ingredients'
+import Ingredients from '../Ingredients'
 
 describe('Ingredients', () => {
   const onSubmit = jest.fn()
