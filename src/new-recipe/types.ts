@@ -3,7 +3,13 @@ export interface StepForm {
   duration: number
 }
 
-type IngredientUnit = 'ml' | 'gr' | 'pinch'
+export const ingredientList = ['ml', 'gr', 'pinch'] as const
+type IngredientUnit = typeof ingredientList[number]
+
+export interface Option {
+  value: string
+  label: string
+}
 
 export interface IngredientForm {
   name: string

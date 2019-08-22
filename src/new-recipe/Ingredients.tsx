@@ -6,10 +6,11 @@ import { FieldArray, FieldArrayRenderProps } from 'formik'
 
 import { IngredientForm } from './types'
 
+import Ingredient from './Ingredient'
 import HeaderWithButton from './HeaderWithButton'
 
 export const emptyIngredient = (): IngredientForm => ({
-  name: '0',
+  name: '',
   quantity: 0,
   unit: 'gr'
 })
@@ -28,6 +29,14 @@ const Ingredients = ({ list }: Props) => (
           testid="add-ingredient"
           onClick={() => push(emptyIngredient())}
         />
+
+        <CardContent>
+          {list.map((_step, index) => (
+            <Box key={index} m={2}>
+              <Ingredient index={index} remove={remove} />
+            </Box>
+          ))}
+        </CardContent>
       </Card>
     )}
   />
