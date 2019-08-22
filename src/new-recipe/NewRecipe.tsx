@@ -1,7 +1,17 @@
 import React from 'react'
 
-import Button from '@material-ui/core/Button'
-import Grid from '@material-ui/core/Grid'
+import {
+  IconButton,
+  Button,
+  Box,
+  Grid,
+  Card,
+  CardContent,
+  CardHeader
+} from '@material-ui/core'
+
+import ClearIcon from '@material-ui/icons/Clear'
+import AddIcon from '@material-ui/icons/Add'
 
 import {
   Formik,
@@ -37,6 +47,43 @@ const field = (
   />
 )
 
+interface StepProps {
+  index: number
+  remove: (index: number) => void
+}
+
+const Step = ({ index, remove }: StepProps) => (
+  <Card key={index}>
+    <CardHeader
+      title={`Step ${index + 1}`}
+      action={
+        <IconButton
+          edge="start"
+          color="secondary"
+          onClick={() => remove(index)}
+        >
+          <ClearIcon />
+        </IconButton>
+      }
+    />
+    <CardContent>
+      <Grid container spacing={1}>
+        <Grid item xs={10}>
+          {field(`steps.${index}.description`, {
+            label: 'description'
+          })}
+        </Grid>
+        <Grid item xs={2}>
+          {field(`steps.${index}.duration`, {
+            label: 'duration',
+            type: 'number'
+          })}
+        </Grid>
+      </Grid>
+    </CardContent>
+  </Card>
+)
+
 const NewRecipe = () => (
   <section data-testid="new-recipe">
     <Formik
@@ -48,39 +95,42 @@ const NewRecipe = () => (
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              {field('name')}
+              <Card>
+                <CardContent>{field('name')}</CardContent>
+              </Card>
             </Grid>
 
             <Grid item xs={12}>
               <FieldArray
                 name="steps"
                 render={({ push, remove }: FieldArrayRenderProps) => (
-                  <>
-                    <h3>Steps</h3>
-                    <Button onClick={() => push(emptyStep())}>Add Step</Button>
-                    <ul>
-                      {values.steps.map((step, index) => (
-                        <li key={index}>
-                          {field(`steps.${index}.description`, {
-                            label: 'description'
-                          })}
-
-                          {field(`steps.${index}.duration`, {
-                            label: 'duration',
-                            type: 'number'
-                          })}
-
-                          <Button onClick={() => remove(index)}>Delete</Button>
-                        </li>
+                  <Card>
+                    <CardHeader
+                      title="Steps"
+                      action={
+                        <IconButton
+                          edge="start"
+                          color="secondary"
+                          onClick={() => push(emptyStep())}
+                        >
+                          <AddIcon />
+                        </IconButton>
+                      }
+                    />
+                    <CardContent>
+                      {values.steps.map((_step, index) => (
+                        <Box key={index} m={2}>
+                          <Step index={index} remove={remove} />
+                        </Box>
                       ))}
-                    </ul>
-                  </>
+                    </CardContent>
+                  </Card>
                 )}
               />
             </Grid>
 
             <Grid item xs={12}>
-              <Button variant="contained" color="primary" type="submit">
+              <Button color="primary" variant="contained" type="submit">
                 Create
               </Button>
             </Grid>
