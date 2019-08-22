@@ -12,10 +12,10 @@ import HeaderWithButton from './HeaderWithButton'
 export const emptyStep = (): StepForm => ({ description: '', duration: 0 })
 
 interface Props {
-  steps: StepForm[]
+  list: StepForm[]
 }
 
-const Steps = ({ steps }: Props) => (
+const Steps = ({ list }: Props) => (
   <FieldArray
     name="steps"
     render={({ push, remove }: FieldArrayRenderProps) => (
@@ -27,7 +27,7 @@ const Steps = ({ steps }: Props) => (
         />
 
         <CardContent>
-          {steps.map((_step, index) => (
+          {list.map((_step, index) => (
             <Box key={index} m={2}>
               <Step index={index} remove={remove} />
             </Box>

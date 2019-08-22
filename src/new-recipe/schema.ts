@@ -11,7 +11,20 @@ const steps = Yup.array()
   )
   .min(1)
 
+const ingredients = Yup.array()
+  .of(
+    Yup.object().shape({
+      name: Yup.string().required(),
+      quantity: Yup.number()
+        .min(1)
+        .required(),
+      unit: Yup.string().required()
+    })
+  )
+  .min(0)
+
 export default Yup.object().shape({
   name: Yup.string().required(),
-  steps
+  steps,
+  ingredients
 })

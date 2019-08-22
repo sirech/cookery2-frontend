@@ -8,11 +8,13 @@ import validationSchema from './schema'
 import { RecipeForm } from './types'
 
 import Steps, { emptyStep } from './Steps'
+import Ingredients, { emptyIngredient } from './Ingredients'
 import field from './field'
 
 const initialValues: RecipeForm = {
   name: '',
-  steps: [emptyStep()]
+  steps: [emptyStep()],
+  ingredients: [emptyIngredient()]
 }
 
 const NewRecipe = () => (
@@ -32,7 +34,11 @@ const NewRecipe = () => (
             </Grid>
 
             <Grid item xs={12}>
-              <Steps steps={values.steps} />
+              <Steps list={values.steps} />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Ingredients list={values.ingredients} />
             </Grid>
 
             <Grid item xs={12}>

@@ -1,11 +1,7 @@
 import React from 'react'
 import { Formik } from 'formik'
 
-import {
-  waitForElement,
-  waitForElementToBeRemoved,
-  wait
-} from '@testing-library/react'
+import { waitForElement, wait } from '@testing-library/react'
 import { fullRender } from '@testing'
 import userEvent from '@testing-library/user-event'
 
@@ -17,12 +13,13 @@ describe('Steps', () => {
     <Formik initialValues={{ steps: [] }} onSubmit={onSubmit}>
       {({ handleSubmit, values }) => (
         <form onSubmit={handleSubmit}>
-          <Steps steps={values.steps} />
+          <Steps list={values.steps} />
           <button type="submit">Submit</button>
         </form>
       )}
     </Formik>
   )
+
   it('renders without crashing', async () => {
     const { getByTestId } = fullRender(<StepsInForm />)
 

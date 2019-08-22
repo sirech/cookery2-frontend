@@ -3,7 +3,16 @@ export interface StepForm {
   duration: number
 }
 
+type IngredientUnit = 'ml' | 'gr' | 'pinch'
+
+export interface IngredientForm {
+  name: string
+  quantity: number
+  unit: IngredientUnit
+}
+
 export interface RecipeForm {
   name: string
   steps: StepForm[]
+  ingredients: IngredientForm[]
 }
