@@ -34,12 +34,12 @@ const Step = ({ index, remove }: Props) => (
     />
     <CardContent>
       <Grid container spacing={1}>
-        <Grid item xs={10}>
+        <Grid item xs={12} sm={10}>
           {field(`steps.${index}.description`, {
             label: 'description'
           })}
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={12} sm={2}>
           {field(`steps.${index}.duration`, {
             label: 'duration',
             type: 'number'

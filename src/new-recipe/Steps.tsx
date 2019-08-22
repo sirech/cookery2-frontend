@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Box, Card, CardContent } from '@material-ui/core'
+import { Box, Card, CardContent, Grid } from '@material-ui/core'
 
 import { FieldArray, FieldArrayRenderProps } from 'formik'
 
@@ -27,11 +27,13 @@ const Steps = ({ list }: Props) => (
         />
 
         <CardContent>
-          {list.map((_step, index) => (
-            <Box key={index} m={2}>
-              <Step index={index} remove={remove} />
-            </Box>
-          ))}
+          <Grid container direction="column" spacing={1}>
+            {list.map((_step, index) => (
+              <Grid item key={index}>
+                <Step index={index} remove={remove} />
+              </Grid>
+            ))}
+          </Grid>
         </CardContent>
       </Card>
     )}
