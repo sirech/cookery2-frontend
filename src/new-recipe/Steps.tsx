@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Box, Card, CardContent, Grid } from '@material-ui/core'
+import { Card, CardContent, Grid } from '@material-ui/core'
 
 import { FieldArray, FieldArrayRenderProps } from 'formik'
 

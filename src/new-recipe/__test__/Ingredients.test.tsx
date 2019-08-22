@@ -27,7 +27,7 @@ describe('Ingredients', () => {
   })
 
   it('adds ingredients', async () => {
-    const { getByTestId, getByLabelText, getByText, getByRole } = fullRender(
+    const { getByTestId, getByLabelText, getByText } = fullRender(
       <IngredientsInForm />
     )
 
