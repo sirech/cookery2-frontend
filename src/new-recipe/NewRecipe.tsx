@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Grid, Card, CardContent } from '@material-ui/core'
+import { Button, Grid, Card, CardContent } from '@material-ui/core'
 
 import { Formik, FormikProps } from 'formik'
 
@@ -27,7 +27,7 @@ const NewRecipe = () => (
       validationSchema={validationSchema}
       onSubmit={values => newRecipe(values)}
     >
-      {({ handleSubmit, values }: FormikProps<RecipeForm>) => (
+      {({ handleSubmit, submitForm, values }: FormikProps<RecipeForm>) => (
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -50,7 +50,14 @@ const NewRecipe = () => (
             </Grid>
 
             <Grid item xs={12}>
-              <button type="submit">Create</button>
+              <Button
+                color="primary"
+                variant="contained"
+                type="submit"
+                onClick={submitForm}
+              >
+                Create
+              </Button>
             </Grid>
           </Grid>
         </form>
