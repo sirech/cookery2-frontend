@@ -1,10 +1,13 @@
 import React from 'react'
 
-import { waitForElement } from '@testing-library/react'
+import { waitForElement, wait } from '@testing-library/react'
 import { fullRender } from '@testing'
 import userEvent from '@testing-library/user-event'
 
 import NewRecipe from '../NewRecipe'
+
+import { newRecipe } from '../newRecipe.service'
+jest.mock('../newRecipe.service')
 
 describe('NewRecipe', () => {
   it('renders without crashing', async () => {
@@ -17,6 +20,18 @@ describe('NewRecipe', () => {
     const { getByText, getByLabelText } = fullRender(<NewRecipe />)
 
     userEvent.type(getByLabelText('name'), 'Lasagna')
+    userEvent.type(getByLabelText('servings'), '3')
+
+    userEvent.type(getByLabelText('description'), 'Shake it shake it')
+    userEvent.type(getByLabelText('duration'), '10')
+
+    userEvent.type(getByLabelText('ingredient'), 'Salt')
+    userEvent.type(getByLabelText('quantity'), '10')
+
     userEvent.click(getByText('Create'))
+
+    await wait()
+
+    expect(newRecipe).toHaveBeenCalled()
   })
 })

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Button, Grid, Card, CardContent } from '@material-ui/core'
+import { Grid, Card, CardContent } from '@material-ui/core'
 
 import { Formik, FormikProps } from 'formik'
 
@@ -10,6 +10,8 @@ import { RecipeForm } from './types'
 import Steps, { emptyStep } from './Steps'
 import Ingredients, { emptyIngredient } from './Ingredients'
 import field from './field'
+
+import { newRecipe } from './newRecipe.service'
 
 const initialValues: RecipeForm = {
   name: '',
@@ -23,7 +25,7 @@ const NewRecipe = () => (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={values => console.log(values)}
+      onSubmit={values => newRecipe(values)}
     >
       {({ handleSubmit, values }: FormikProps<RecipeForm>) => (
         <form onSubmit={handleSubmit}>
@@ -48,9 +50,7 @@ const NewRecipe = () => (
             </Grid>
 
             <Grid item xs={12}>
-              <Button color="primary" variant="contained" type="submit">
-                Create
-              </Button>
+              <button type="submit">Create</button>
             </Grid>
           </Grid>
         </form>
