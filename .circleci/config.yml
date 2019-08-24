@@ -1,0 +1,52 @@
+version: 2
+jobs:
+  check:
+    working_directory: ~/app
+
+    docker:
+      - image: circleci/node:12.4
+
+    steps:
+      - checkout
+      - run: yarn
+      - run: yarn run linter:js
+      - run: yarn test --coverage --runInBand
+      - run:
+          name: Upload coverage results
+          command: |
+            cat coverage/lcov.info | node_modules/.bin/coveralls
+          when: always
+      - run: yarn audit
+      - run:
+          name: Build and package
+          command: |
+            REACT_APP_HOST=$SITE_URL INLINE_RUNTIME_CHUNK=false yarn run build
+            find build/static -regextype posix-basic -regex '.*\.\(js\|css\)\(.map\)\?$' -print0 | xargs --null -I@ sh -c "gzip -c @ > @.gz"
+
+      - persist_to_workspace:
+          root: build
+          paths:
+            - '*'
+
+  deploy:
+    docker:
+      - image: circleci/node:12.4
+
+    steps:
+      - add_ssh_keys:
+      - attach_workspace:
+          at: build
+      - run: scp -o StrictHostKeyChecking=no -r build $DEPLOY_USER@$DEPLOY_HOST:/tmp/cookery2-${CIRCLE_BUILD_NUM}
+      - run: ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "sh ${DEPLOY_PATH}/bin/promote /tmp/cookery2-${CIRCLE_BUILD_NUM} /srv/cookery2_public"
+
+workflows:
+  version: 2
+  cd_pipeline:
+    jobs:
+      - check
+      - deploy:
+          filters:
+            branches:
+              only: master
+          requires:
+            - check
