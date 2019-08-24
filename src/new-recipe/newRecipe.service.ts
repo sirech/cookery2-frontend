@@ -1,6 +1,11 @@
+import axios from 'rest'
 import { RecipeForm } from './types'
+import { AxiosResponse } from 'axios'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const newRecipe = async (form: RecipeForm) => {
-  console.log('stuff: ', form)
+export const newRecipe = async (form: RecipeForm): Promise<AxiosResponse> => {
+  const url = '/recipes'
+  const method = 'POST'
+  const data = { ...form }
+
+  return axios(url, { method, data })
 }

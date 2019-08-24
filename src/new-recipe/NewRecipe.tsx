@@ -27,8 +27,8 @@ const NewRecipe = () => (
       validationSchema={validationSchema}
       onSubmit={values => newRecipe(values)}
     >
-      {({ handleSubmit, submitForm, values }: FormikProps<RecipeForm>) => (
-        <form onSubmit={handleSubmit}>
+      {({ submitForm, values }: FormikProps<RecipeForm>) => (
+        <form>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <Card>
@@ -50,12 +50,7 @@ const NewRecipe = () => (
             </Grid>
 
             <Grid item xs={12}>
-              <Button
-                color="primary"
-                variant="contained"
-                type="submit"
-                onClick={submitForm}
-              >
+              <Button color="primary" variant="contained" onClick={submitForm}>
                 Create
               </Button>
             </Grid>

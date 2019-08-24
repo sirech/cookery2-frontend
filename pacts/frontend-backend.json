@@ -1,0 +1,68 @@
+{
+  "consumer": {
+    "name": "frontend"
+  },
+  "provider": {
+    "name": "backend"
+  },
+  "interactions": [
+    {
+      "description": "a request to create a recipe",
+      "providerState": "i am logged in",
+      "request": {
+        "method": "POST",
+        "path": "/rest/recipes",
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "body": {
+          "name": "carbonara",
+          "servings": 2,
+          "steps": [
+            {
+              "description": "cook the pasta",
+              "duration": 15
+            },
+            {
+              "description": "fry the bacon",
+              "duration": 5
+            }
+          ],
+          "ingredients": [
+            {
+              "name": "pasta",
+              "quantity": 300,
+              "unit": "gr"
+            },
+            {
+              "name": "guanciale",
+              "quantity": 150,
+              "unit": "gr"
+            }
+          ]
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "id": 1
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
