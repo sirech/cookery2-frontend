@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -9,6 +9,7 @@ import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
 
 import NewRecipe from 'new-recipe'
+import RecipeList from 'recipe-list'
 
 const App = () => (
   <div data-testid="app">
@@ -22,7 +23,10 @@ const App = () => (
 
     <Box mt={12}>
       <Container component="main">
-        <Route path="/recipes/new" component={NewRecipe} />
+        <Switch>
+          <Route path="/recipes/new" component={NewRecipe} />
+          <Route path="/recipes" component={RecipeList} />
+        </Switch>
       </Container>
     </Box>
   </div>

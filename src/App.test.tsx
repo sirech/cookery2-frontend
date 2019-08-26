@@ -17,4 +17,10 @@ describe('App', () => {
 
     await waitForElement(() => getByTestId('new-recipe'))
   })
+
+  it('renders recipe list', async () => {
+    const { getByTestId } = fullRender(<App />, { route: '/recipes' })
+
+    await waitForElement(() => getByTestId('recipe-list'))
+  })
 })
