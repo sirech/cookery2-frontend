@@ -75,6 +75,7 @@
     "stylelint": "^10.1.0",
     "stylelint-config-recommended": "^2.2.0"
   },
+  "proxy": "http://localhost:4003",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
