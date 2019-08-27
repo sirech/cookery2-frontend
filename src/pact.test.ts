@@ -2,7 +2,9 @@ import { provider as createProvider } from '@testing'
 import { recipeForm } from '@testing/__fixtures__'
 
 import { Matchers } from 'pact'
+
 import { newRecipe } from 'new-recipe/newRecipe.service'
+import { recipeList } from 'recipe-list/recipeList.service'
 
 describe('pacts', () => {
   const provider = createProvider()
@@ -39,6 +41,49 @@ describe('pacts', () => {
 
     it('works', async () => {
       await newRecipe(recipe)
+    })
+  })
+
+  describe('list recipes', () => {
+    beforeAll(async () => {
+      const interaction = {
+        state: 'i have a list of recipes',
+        uponReceiving: 'a request to get recipes',
+        withRequest: {
+          method: 'GET',
+          path: '/rest/recipes',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+          }
+        },
+        willRespondWith: {
+          status: 200,
+          headers: { 'Content-Type': 'application/json; charset=utf-8' },
+          body: Matchers.eachLike({
+            id: Matchers.somethingLike(1),
+            name: Matchers.somethingLike('pasta carbonara'),
+            servings: Matchers.somethingLike(4),
+            duration: Matchers.somethingLike(35)
+          })
+        }
+      }
+
+      return provider.addInteraction(interaction)
+    }, 5 * 60 * 1000)
+    afterAll(() => provider.verify(), 5 * 60 * 1000)
+
+    it('works', async () => {
+      const response = await recipeList()
+
+      expect(response.data.length).toBeGreaterThan(0)
+      expect(response.data[0]).toEqual({
+        id: 1,
+        name: 'pasta carbonara',
+        servings: 4,
+        duration: 35
+      })
     })
   })
 })
