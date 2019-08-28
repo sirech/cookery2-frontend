@@ -3,6 +3,8 @@ import React from 'react'
 import { waitForElement } from '@testing-library/react'
 import { fullRender } from '@testing'
 
+jest.mock('recipe-list/recipeList.service')
+
 import App from './App'
 
 describe('App', () => {
