@@ -118,7 +118,7 @@ describe('pacts', () => {
             ingredients: Matchers.eachLike(
               {
                 name: Matchers.somethingLike('egg'),
-                amount: Matchers.somethingLike(3),
+                quantity: Matchers.somethingLike(3),
                 unit: Matchers.somethingLike('gr')
               },
               { min: 1 }
@@ -139,7 +139,7 @@ describe('pacts', () => {
         servings: 4,
         duration: 35,
         steps: [{ description: 'boil the pasta', duration: 10 }],
-        ingredients: [{ name: 'egg', amount: 3, unit: 'gr' }]
+        ingredients: [{ name: 'egg', quantity: 3, unit: 'gr' }]
       })
     })
   })

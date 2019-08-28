@@ -135,7 +135,7 @@
           "ingredients": [
             {
               "name": "egg",
-              "amount": 3,
+              "quantity": 3,
               "unit": "gr"
             }
           ]
@@ -177,7 +177,7 @@
           "$.body.ingredients[*].name": {
             "match": "type"
           },
-          "$.body.ingredients[*].amount": {
+          "$.body.ingredients[*].quantity": {
             "match": "type"
           },
           "$.body.ingredients[*].unit": {
