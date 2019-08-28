@@ -4,19 +4,19 @@ import { Card, CardContent, Grid } from '@material-ui/core'
 
 import { FieldArray, FieldArrayRenderProps } from 'formik'
 
-import { IngredientForm } from './types'
+import { Ingredient as IngredientType } from './types'
 
 import Ingredient from './Ingredient'
 import HeaderWithButton from './HeaderWithButton'
 
-export const emptyIngredient = (): IngredientForm => ({
+export const emptyIngredient = (): IngredientType => ({
   name: '',
   quantity: 0,
   unit: 'gr'
 })
 
 interface Props {
-  list: IngredientForm[]
+  list: IngredientType[]
 }
 
 const Ingredients = ({ list }: Props) => (

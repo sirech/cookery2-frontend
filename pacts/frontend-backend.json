@@ -67,7 +67,6 @@
         "path": "/rest/recipes",
         "headers": {
           "Accept": "application/json",
-          "Content-Type": "application/json",
           "X-Requested-With": "XMLHttpRequest"
         }
       },
@@ -101,6 +100,87 @@
             "match": "type"
           },
           "$.body[*].duration": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a request to get one recipe",
+      "providerState": "i have a list of recipes",
+      "request": {
+        "method": "GET",
+        "path": "/rest/recipes/1",
+        "headers": {
+          "Accept": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "id": 1,
+          "name": "pasta carbonara",
+          "servings": 4,
+          "duration": 35,
+          "steps": [
+            {
+              "description": "boil the pasta",
+              "duration": 10
+            }
+          ],
+          "ingredients": [
+            {
+              "name": "egg",
+              "amount": 3,
+              "unit": "gr"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          },
+          "$.body.id": {
+            "match": "type"
+          },
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.servings": {
+            "match": "type"
+          },
+          "$.body.duration": {
+            "match": "type"
+          },
+          "$.body.steps": {
+            "min": 1
+          },
+          "$.body.steps[*].*": {
+            "match": "type"
+          },
+          "$.body.steps[*].description": {
+            "match": "type"
+          },
+          "$.body.steps[*].duration": {
+            "match": "type"
+          },
+          "$.body.ingredients": {
+            "min": 1
+          },
+          "$.body.ingredients[*].*": {
+            "match": "type"
+          },
+          "$.body.ingredients[*].name": {
+            "match": "type"
+          },
+          "$.body.ingredients[*].amount": {
+            "match": "type"
+          },
+          "$.body.ingredients[*].unit": {
             "match": "type"
           }
         }

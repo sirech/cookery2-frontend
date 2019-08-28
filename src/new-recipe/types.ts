@@ -1,4 +1,4 @@
-export interface StepForm {
+export interface Step {
   description: string
   duration: number
 }
@@ -11,7 +11,7 @@ export interface Option {
   label: string
 }
 
-export interface IngredientForm {
+export interface Ingredient {
   name: string
   quantity: number
   unit: IngredientUnit
@@ -20,6 +20,6 @@ export interface IngredientForm {
 export interface RecipeForm {
   name: string
   servings: number
-  steps: StepForm[]
-  ingredients: IngredientForm[]
+  steps: Step[]
+  ingredients: Ingredient[]
 }

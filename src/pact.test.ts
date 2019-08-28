@@ -5,6 +5,7 @@ import { Matchers } from 'pact'
 
 import { newRecipe } from 'new-recipe/newRecipe.service'
 import { recipeList } from 'recipe-list/recipeList.service'
+import { recipeDetails } from 'recipe-details/recipeDetails.service'
 
 describe('pacts', () => {
   const provider = createProvider()
@@ -54,7 +55,6 @@ describe('pacts', () => {
           path: '/rest/recipes',
           headers: {
             Accept: 'application/json',
-            'Content-Type': 'application/json',
             'X-Requested-With': 'XMLHttpRequest'
           }
         },
@@ -83,6 +83,63 @@ describe('pacts', () => {
         name: 'pasta carbonara',
         servings: 4,
         duration: 35
+      })
+    })
+  })
+
+  describe('get a recipe', () => {
+    beforeAll(async () => {
+      const interaction = {
+        state: 'i have a list of recipes',
+        uponReceiving: 'a request to get one recipe',
+        withRequest: {
+          method: 'GET',
+          path: '/rest/recipes/1',
+          headers: {
+            Accept: 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+          }
+        },
+        willRespondWith: {
+          status: 200,
+          headers: { 'Content-Type': 'application/json; charset=utf-8' },
+          body: Matchers.somethingLike({
+            id: Matchers.somethingLike(1),
+            name: Matchers.somethingLike('pasta carbonara'),
+            servings: Matchers.somethingLike(4),
+            duration: Matchers.somethingLike(35),
+            steps: Matchers.eachLike(
+              {
+                description: Matchers.somethingLike('boil the pasta'),
+                duration: Matchers.somethingLike(10)
+              },
+              { min: 1 }
+            ),
+            ingredients: Matchers.eachLike(
+              {
+                name: Matchers.somethingLike('egg'),
+                amount: Matchers.somethingLike(3),
+                unit: Matchers.somethingLike('gr')
+              },
+              { min: 1 }
+            )
+          })
+        }
+      }
+
+      return provider.addInteraction(interaction)
+    }, 5 * 60 * 1000)
+    afterAll(() => provider.verify(), 5 * 60 * 1000)
+
+    it('works', async () => {
+      const response = await recipeDetails(1)
+      expect(response.data).toEqual({
+        id: 1,
+        name: 'pasta carbonara',
+        servings: 4,
+        duration: 35,
+        steps: [{ description: 'boil the pasta', duration: 10 }],
+        ingredients: [{ name: 'egg', amount: 3, unit: 'gr' }]
       })
     })
   })

@@ -4,15 +4,15 @@ import { Card, CardContent, Grid } from '@material-ui/core'
 
 import { FieldArray, FieldArrayRenderProps } from 'formik'
 
-import { StepForm } from './types'
+import { Step as StepType } from './types'
 
 import Step from './Step'
 import HeaderWithButton from './HeaderWithButton'
 
-export const emptyStep = (): StepForm => ({ description: '', duration: 0 })
+export const emptyStep = (): StepType => ({ description: '', duration: 0 })
 
 interface Props {
-  list: StepForm[]
+  list: StepType[]
 }
 
 const Steps = ({ list }: Props) => (
