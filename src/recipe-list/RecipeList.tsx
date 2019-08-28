@@ -1,40 +1,11 @@
-import React, { ComponentType } from 'react'
+import React from 'react'
 import { useAsync } from 'react-use'
 
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  Grid,
-  List,
-  ListItem,
-  ListItemIcon
-} from '@material-ui/core'
-import ScheduleIcon from '@material-ui/icons/Schedule'
-import RestaurantIcon from '@material-ui/icons/Restaurant'
+import { Grid } from '@material-ui/core'
 
 import { Recipe as RecipeType } from './types'
 import { recipeList } from './recipeList.service'
-
-const Item = ({ value, Icon }: { value: number; Icon: ComponentType }) => (
-  <ListItem>
-    <ListItemIcon>
-      <Icon />
-    </ListItemIcon>
-    {value}
-  </ListItem>
-)
-const Recipe = ({ recipe }: { recipe: RecipeType }) => (
-  <Card>
-    <CardHeader title={recipe.name}></CardHeader>
-    <CardContent>
-      <List>
-        <Item value={recipe.servings} Icon={RestaurantIcon} />
-        <Item value={recipe.duration} Icon={ScheduleIcon} />
-      </List>
-    </CardContent>
-  </Card>
-)
+import Recipe from './Recipe'
 
 const RecipeList = () => {
   const state = useAsync(async (): Promise<RecipeType[]> => {
