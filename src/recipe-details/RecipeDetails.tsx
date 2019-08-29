@@ -8,6 +8,8 @@ import Recipe from 'components/recipe'
 
 import { Recipe as RecipeType } from './types'
 import { recipeDetails } from './recipeDetails.service'
+
+import Steps from './Steps'
 import Ingredients from './Ingredients'
 
 type Props = RouteComponentProps<{ id: string }>
@@ -42,6 +44,10 @@ const RecipeDetails = ({
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <Recipe recipe={recipe} showActions={false} />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Steps list={recipe.steps} />
             </Grid>
 
             <Grid item xs={12}>
