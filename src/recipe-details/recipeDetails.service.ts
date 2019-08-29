@@ -3,7 +3,7 @@ import { Recipe } from './types'
 import { AxiosResponse } from 'axios'
 
 export const recipeDetails = async (
-  id: number
+  id: number | string
 ): Promise<AxiosResponse<Recipe>> => {
   const url = `/recipes/${id}`
   const method = 'GET'
