@@ -46,11 +46,11 @@ const RecipeDetails = ({
               <Recipe recipe={recipe} showActions={false} />
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid item xs={12} md={6}>
               <Steps list={recipe.steps} />
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid item xs={12} md={6}>
               <Ingredients list={recipe.ingredients} />
             </Grid>
 
