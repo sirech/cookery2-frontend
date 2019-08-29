@@ -4,6 +4,8 @@ import {
   Card,
   CardContent,
   CardHeader,
+  CardActions,
+  Link,
   List,
   ListItem,
   ListItemIcon
@@ -11,6 +13,7 @@ import {
 import ScheduleIcon from '@material-ui/icons/Schedule'
 import RestaurantIcon from '@material-ui/icons/Restaurant'
 
+import AdapterLink from 'components/adapter-link'
 import { Recipe as RecipeType } from './types'
 
 const Item = ({ value, Icon }: { value: number; Icon: ComponentType }) => (
@@ -35,6 +38,16 @@ const Recipe = ({ recipe }: Props) => (
         <Item value={recipe.duration} Icon={ScheduleIcon} />
       </List>
     </CardContent>
+    <CardActions>
+      <Link
+        to={`/recipes/${recipe.id}`}
+        color="primary"
+        underline="none"
+        component={AdapterLink}
+      >
+        DETAILS
+      </Link>
+    </CardActions>
   </Card>
 )
 

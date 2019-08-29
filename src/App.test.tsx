@@ -4,6 +4,7 @@ import { waitForElement } from '@testing-library/react'
 import { fullRender } from '@testing'
 
 jest.mock('recipe-list/recipeList.service')
+jest.mock('recipe-details/recipeDetails.service')
 
 import App from './App'
 
@@ -24,5 +25,11 @@ describe('App', () => {
     const { getByTestId } = fullRender(<App />, { route: '/recipes' })
 
     await waitForElement(() => getByTestId('recipe-list'))
+  })
+
+  it('renders recipe details', async () => {
+    const { getByTestId } = fullRender(<App />, { route: '/recipes/1' })
+
+    await waitForElement(() => getByTestId('recipe-details'))
   })
 })
