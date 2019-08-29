@@ -1,13 +1,9 @@
 import React from 'react'
-import { Link as RouterLink, LinkProps } from 'react-router-dom'
 
 import { AppBar, Toolbar, Link, IconButton } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
 
-const AdapterLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  (props, ref) => <RouterLink innerRef={ref} {...props} />
-)
-AdapterLink.displayName = 'AdapterLink'
+import AdapterLink from 'components/adapter-link'
 
 const Navigation = () => (
   <AppBar data-testid="navigation">
