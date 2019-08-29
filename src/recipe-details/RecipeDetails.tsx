@@ -40,7 +40,7 @@ const RecipeDetails = ({
         <section data-testid="recipe-details">
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Recipe recipe={recipe} />
+              <Recipe recipe={recipe} showActions={false} />
             </Grid>
 
             <Grid item xs={12}>

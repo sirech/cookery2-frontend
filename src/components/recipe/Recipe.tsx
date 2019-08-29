@@ -27,9 +27,10 @@ const Item = ({ value, Icon }: { value: number; Icon: ComponentType }) => (
 
 interface Props {
   recipe: RecipeType
+  showActions: boolean
 }
 
-const Recipe = ({ recipe }: Props) => (
+const Recipe = ({ recipe, showActions }: Props) => (
   <Card>
     <CardHeader title={recipe.name}></CardHeader>
     <CardContent>
@@ -38,16 +39,18 @@ const Recipe = ({ recipe }: Props) => (
         <Item value={recipe.duration} Icon={ScheduleIcon} />
       </List>
     </CardContent>
-    <CardActions>
-      <Link
-        to={`/recipes/${recipe.id}`}
-        color="primary"
-        underline="none"
-        component={AdapterLink}
-      >
-        DETAILS
-      </Link>
-    </CardActions>
+    {showActions && (
+      <CardActions>
+        <Link
+          to={`/recipes/${recipe.id}`}
+          color="primary"
+          underline="none"
+          component={AdapterLink}
+        >
+          DETAILS
+        </Link>
+      </CardActions>
+    )}
   </Card>
 )
 
