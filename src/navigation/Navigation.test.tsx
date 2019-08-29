@@ -1,9 +1,8 @@
 import React from 'react'
 
 import { waitForElement } from '@testing-library/react'
-import { fullRender } from '@testing'
-
 import Navigation from './Navigation'
+import { fullRender } from '@testing'
 
 describe('Navigation', () => {
   it('renders without crashing', async () => {

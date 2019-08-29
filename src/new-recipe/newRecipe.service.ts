@@ -1,6 +1,6 @@
-import axios from 'rest'
-import { RecipeForm } from './types'
 import { AxiosResponse } from 'axios'
+import { RecipeForm } from './types'
+import axios from 'rest'
 
 export const newRecipe = async (form: RecipeForm): Promise<AxiosResponse> => {
   const url = '/recipes'

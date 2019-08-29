@@ -1,6 +1,6 @@
-import { recipe } from '@testing/__fixtures__'
-import { Recipe } from '../types'
 import { AxiosResponse } from 'axios'
+import { Recipe } from '../types'
+import { recipe } from '@testing/__fixtures__'
 
 export const recipeDetails = async (): Promise<AxiosResponse<Recipe>> => {
   return Promise.resolve({

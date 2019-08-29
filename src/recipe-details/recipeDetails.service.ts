@@ -1,6 +1,6 @@
-import axios from 'rest'
-import { Recipe } from './types'
 import { AxiosResponse } from 'axios'
+import { Recipe } from './types'
+import axios from 'rest'
 
 export const recipeDetails = async (
   id: number | string

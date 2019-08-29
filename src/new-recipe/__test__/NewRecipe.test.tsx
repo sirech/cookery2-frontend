@@ -1,12 +1,12 @@
 import React from 'react'
 
 import { waitForElement, wait } from '@testing-library/react'
-import { fullRender } from '@testing'
 import userEvent from '@testing-library/user-event'
 
 import NewRecipe from '../NewRecipe'
 
 import { newRecipe } from '../newRecipe.service'
+import { fullRender } from '@testing'
 jest.mock('../newRecipe.service')
 
 describe('NewRecipe', () => {

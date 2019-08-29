@@ -13,8 +13,8 @@ import {
 import ScheduleIcon from '@material-ui/icons/Schedule'
 import RestaurantIcon from '@material-ui/icons/Restaurant'
 
-import AdapterLink from 'components/adapter-link'
 import { Recipe as RecipeType } from './types'
+import AdapterLink from 'components/adapter-link'
 
 const Item = ({ value, Icon }: { value: number; Icon: ComponentType }) => (
   <ListItem>

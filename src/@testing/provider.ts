@@ -1,5 +1,5 @@
-import Pact from 'pact'
 import path from 'path'
+import Pact from 'pact'
 
 const provider = () =>
   Pact({

@@ -1,7 +1,6 @@
+import { Matchers } from 'pact'
 import { provider as createProvider } from '@testing'
 import { recipeForm } from '@testing/__fixtures__'
-
-import { Matchers } from 'pact'
 
 import { newRecipe } from 'new-recipe/newRecipe.service'
 import { recipeList } from 'recipe-list/recipeList.service'

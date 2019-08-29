@@ -1,6 +1,4 @@
 import React from 'react'
-import { Step as StepType } from 'new-recipe/types'
-
 import {
   Card,
   CardHeader,
@@ -10,6 +8,7 @@ import {
   TableBody,
   TableRow
 } from '@material-ui/core'
+import { Step as StepType } from 'new-recipe/types'
 
 interface Props {
   list: StepType[]

@@ -2,10 +2,9 @@ import React from 'react'
 
 import { MenuItem } from '@material-ui/core'
 
-import { Option } from './types'
-
 import { Field } from 'formik'
 import { TextField } from 'formik-material-ui'
+import { Option } from './types'
 
 export const select = (
   id: string,

@@ -1,12 +1,11 @@
 import React from 'react'
 
 import { waitForElement } from '@testing-library/react'
+import App from './App'
 import { fullRender } from '@testing'
 
 jest.mock('recipe-list/recipeList.service')
 jest.mock('recipe-details/recipeDetails.service')
-
-import App from './App'
 
 describe('App', () => {
   it('renders without crashing', async () => {

@@ -1,11 +1,10 @@
 import React from 'react'
 
+import { waitForElement } from '@testing-library/react'
+import Recipe from './Recipe'
 import { recipe } from '@testing/__fixtures__'
 
-import { waitForElement } from '@testing-library/react'
 import { fullRender } from '@testing'
-
-import Recipe from './Recipe'
 
 describe('Recipe', () => {
   it('renders the actions', async () => {
