@@ -15,5 +15,10 @@ describe('RecipeDetails', () => {
     })
 
     await waitForElement(() => getByText('Pasta Carbonara'))
+
+    await waitForElement(() => getByText('Ingredients'))
+    await waitForElement(() => getByText('pasta'))
+    await waitForElement(() => getByText('egg'))
+    await waitForElement(() => getByText('guanciale'))
   })
 })

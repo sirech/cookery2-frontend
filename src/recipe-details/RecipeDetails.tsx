@@ -8,6 +8,7 @@ import Recipe from 'components/recipe'
 
 import { Recipe as RecipeType } from './types'
 import { recipeDetails } from './recipeDetails.service'
+import Ingredients from './Ingredients'
 
 type Props = RouteComponentProps<{ id: string }>
 
@@ -21,7 +22,7 @@ const RecipeDetails = ({
     return await recipeDetails(id).then(r => r.data)
   }, [id])
 
-  const recipe = state.value || {
+  const recipe: RecipeType = state.value || {
     id: 0,
     name: '',
     servings: 0,
@@ -41,6 +42,10 @@ const RecipeDetails = ({
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <Recipe recipe={recipe} showActions={false} />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Ingredients list={recipe.ingredients} />
             </Grid>
 
             <Grid item xs={12}>
