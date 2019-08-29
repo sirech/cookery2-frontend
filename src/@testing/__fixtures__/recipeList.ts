@@ -1,4 +1,4 @@
-import { Recipe as RecipeType } from 'recipe-list/types'
+import { Recipe as RecipeType } from 'components/recipe/types'
 
 const recipes = (): RecipeType[] => {
   return [

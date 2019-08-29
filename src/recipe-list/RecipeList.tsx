@@ -3,9 +3,9 @@ import { useAsync } from 'react-use'
 
 import { Grid } from '@material-ui/core'
 
-import { Recipe as RecipeType } from './types'
+import { Recipe as RecipeType } from 'components/recipe/types'
+import Recipe from 'components/recipe'
 import { recipeList } from './recipeList.service'
-import Recipe from './Recipe'
 
 const RecipeList = () => {
   const state = useAsync(async (): Promise<RecipeType[]> => {

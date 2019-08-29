@@ -1,3 +1,4 @@
-import { RecipeForm } from 'new-recipe/types'
+import { Recipe as RecipeBase } from 'components/recipe/types'
+import { Ingredient, Step } from 'new-recipe/types'
 
-export type Recipe = RecipeForm & { id: number; duration: number }
+export type Recipe = RecipeBase & { ingredients: Ingredient[]; steps: Step[] }

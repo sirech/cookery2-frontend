@@ -1,5 +1,5 @@
 import axios from 'rest'
-import { Recipe } from './types'
+import { Recipe } from 'components/recipe/types'
 import { AxiosResponse } from 'axios'
 
 export const recipeList = async (): Promise<AxiosResponse<Recipe[]>> => {

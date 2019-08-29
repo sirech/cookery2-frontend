@@ -2,7 +2,9 @@ import React from 'react'
 import { useAsync } from 'react-use'
 import { RouteComponentProps } from 'react-router-dom'
 
-import { Button, Grid, Card, CardContent } from '@material-ui/core'
+import { Button, Grid } from '@material-ui/core'
+
+import Recipe from 'components/recipe'
 
 import { Recipe as RecipeType } from './types'
 import { recipeDetails } from './recipeDetails.service'
@@ -20,6 +22,7 @@ const RecipeDetails = ({
   }, [id])
 
   const recipe = state.value || {
+    id: 0,
     name: '',
     servings: 0,
     duration: 0,
@@ -37,15 +40,7 @@ const RecipeDetails = ({
         <section data-testid="recipe-details">
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Card>
-                <CardContent>
-                  <Grid container direction="column" spacing={1}>
-                    <Grid item>{recipe.name}</Grid>
-                    <Grid item>{recipe.servings}</Grid>
-                    <Grid item>{recipe.duration}</Grid>
-                  </Grid>
-                </CardContent>
-              </Card>
+              <Recipe recipe={recipe} />
             </Grid>
 
             <Grid item xs={12}>
