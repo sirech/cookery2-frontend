@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 
 import { CssBaseline, Container, Box } from '@material-ui/core'
 
@@ -20,6 +20,7 @@ const App = () => (
           <Route path="/recipes/new" component={NewRecipe} />
           <Route path="/recipes/:id" component={RecipeDetails} />
           <Route path="/recipes" component={RecipeList} />
+          <Route exact path="/" render={() => <Redirect to="/recipes" />} />
         </Switch>
       </Container>
     </Box>

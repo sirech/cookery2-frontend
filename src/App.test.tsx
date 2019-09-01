@@ -31,4 +31,10 @@ describe('App', () => {
 
     await waitForElement(() => getByTestId('recipe-details'))
   })
+
+  it('redirects to recipes list', async () => {
+    const { getByTestId } = fullRender(<App />, { route: '/' })
+
+    await waitForElement(() => getByTestId('recipe-list'))
+  })
 })
