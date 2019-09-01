@@ -1,15 +1,18 @@
 import React, { useState, useContext, useMemo, createContext } from 'react'
+import { login, checkLogin, logout } from './login.service'
 
 interface ContextType {
   user: string | null
-  login: (user: string) => void
+  login: () => void
   logout: () => void
+  checkLogin: () => void
 }
 
 const initialContext: ContextType = {
   user: null,
   login: () => {},
-  logout: () => {}
+  logout: () => {},
+  checkLogin: () => {}
 }
 
 const AuthContext = createContext(initialContext)
@@ -19,13 +22,22 @@ interface Props {
 }
 
 const AuthenticationProvider = (props: Props) => {
-  const [user, setUser] = useState<string | null>(null)
+  const expiresAt = localStorage.getItem('expiresAt')
+
+  if (expiresAt && Date.parse(expiresAt) < Date.now()) {
+    localStorage.removeItem('authToken')
+    localStorage.removeItem('expiresAt')
+    localStorage.removeItem('user')
+  }
+
+  const [user, setUser] = useState<string | null>(localStorage.getItem('user'))
 
   const auth = useMemo<ContextType>(
     () => ({
       user,
-      login: (user: string) => setUser(user),
-      logout: () => setUser(null)
+      login,
+      logout: () => logout(setUser),
+      checkLogin: () => checkLogin(setUser)
     }),
     [user]
   )

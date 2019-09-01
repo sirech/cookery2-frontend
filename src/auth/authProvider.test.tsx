@@ -9,8 +9,7 @@ describe('AuthProvider', () => {
     const auth = useAuthentication()
     return (
       <>
-        {auth.user && <div>Dude</div>}
-        <button onClick={() => auth.login('Dude')}>Login</button>
+        {auth.user && <div>{auth.user}</div>}
         <button onClick={() => auth.logout()}>Logout</button>
       </>
     )
@@ -27,10 +26,12 @@ describe('AuthProvider', () => {
     expect(queryByText('Dude')).toBeNull()
   })
 
-  it('shows restricted content after login and hides it after logout', async () => {
-    const { getByText, queryByText } = render(<Context />)
+  it('shows restricted content if there is a previous session and hides it after logout', async () => {
+    localStorage.setItem('user', 'Dude')
+    localStorage.setItem('expiresAt', (Date.now() + 3600).toString())
+    localStorage.setItem('authToken', '2349asdf')
 
-    userEvent.click(getByText('Login'))
+    const { getByText, queryByText } = render(<Context />)
     waitForElement(() => getByText('Dude'))
 
     userEvent.click(getByText('Logout'))

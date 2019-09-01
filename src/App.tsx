@@ -7,6 +7,7 @@ import Navigation from 'navigation'
 import NewRecipe from 'new-recipe'
 import RecipeList from 'recipe-list'
 import RecipeDetails from 'recipe-details'
+import Callback from 'callback'
 
 const App = () => (
   <div data-testid="app">
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/recipes/new" component={NewRecipe} />
           <Route path="/recipes/:id" component={RecipeDetails} />
           <Route path="/recipes" component={RecipeList} />
+          <Route path="/callback" component={Callback} />
           <Route exact path="/" render={() => <Redirect to="/recipes" />} />
         </Switch>
       </Container>
