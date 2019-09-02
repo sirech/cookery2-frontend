@@ -13,6 +13,9 @@ describe('pacts', () => {
   beforeAll(() => provider.setup(), 5 * 60 * 1000)
   afterAll(() => provider.finalize(), 5 * 60 * 1000)
 
+  beforeEach(() => localStorage.setItem('authToken', '123'))
+  afterEach(() => localStorage.removeItem('authToken'))
+
   describe('create recipe', () => {
     beforeAll(async () => {
       const interaction = {
@@ -24,7 +27,8 @@ describe('pacts', () => {
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest'
+            'X-Requested-With': 'XMLHttpRequest',
+            Authorization: 'Bearer 123'
           },
           body: recipe
         },

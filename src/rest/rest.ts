@@ -11,7 +11,7 @@ const addAuthorization = (headers: Record<string, string>) => {
   const token = localStorage.getItem('authToken')
 
   if (token) {
-    headers['Authorization'] = `Bearer: ${token}`
+    headers['Authorization'] = `Bearer ${token}`
   }
 }
 

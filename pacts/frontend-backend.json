@@ -15,7 +15,8 @@
         "headers": {
           "Accept": "application/json",
           "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest"
+          "X-Requested-With": "XMLHttpRequest",
+          "Authorization": "Bearer 123"
         },
         "body": {
           "name": "carbonara",
