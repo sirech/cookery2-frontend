@@ -1,23 +1,29 @@
 import React from 'react'
+import { Route } from 'react-router'
 
 import { waitForElement, wait } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import NewRecipe from '../NewRecipe'
 
-import { newRecipe } from '../newRecipe.service'
 import { fullRender } from '@testing'
+
 jest.mock('../newRecipe.service')
 
 describe('NewRecipe', () => {
   it('renders without crashing', async () => {
-    const { getByTestId } = fullRender(<NewRecipe />)
+    const { getByTestId } = fullRender(<Route component={NewRecipe} />)
 
     await waitForElement(() => getByTestId('new-recipe'))
   })
 
   it('fills the form', async () => {
-    const { getByText, getByLabelText } = fullRender(<NewRecipe />)
+    const { getByText, getByLabelText, history } = fullRender(
+      <Route component={NewRecipe} />,
+      {
+        route: '/recipes/new'
+      }
+    )
 
     userEvent.type(getByLabelText('name'), 'Lasagna')
     userEvent.type(getByLabelText('servings'), '3')
@@ -32,6 +38,6 @@ describe('NewRecipe', () => {
 
     await wait()
 
-    expect(newRecipe).toHaveBeenCalled()
+    expect(history.location.pathname).toEqual('/recipes/1')
   })
 })

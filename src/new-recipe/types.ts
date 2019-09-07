@@ -23,3 +23,7 @@ export interface RecipeForm {
   steps: Step[]
   ingredients: Ingredient[]
 }
+
+export interface RecipeCreated {
+  id: number
+}

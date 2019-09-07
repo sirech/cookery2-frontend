@@ -3,6 +3,7 @@ import React from 'react'
 import { Button, Grid, Card, CardContent } from '@material-ui/core'
 
 import { Formik, FormikProps } from 'formik'
+import { History } from 'history'
 
 import validationSchema from './schema'
 import { RecipeForm } from './types'
@@ -13,6 +14,10 @@ import field from './field'
 
 import { newRecipe } from './newRecipe.service'
 
+interface Props {
+  history: History
+}
+
 const initialValues: RecipeForm = {
   name: '',
   servings: 0,
@@ -20,12 +25,15 @@ const initialValues: RecipeForm = {
   ingredients: [emptyIngredient()]
 }
 
-const NewRecipe = () => (
+const NewRecipe = ({ history }: Props) => (
   <section data-testid="new-recipe">
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={values => newRecipe(values)}
+      onSubmit={async (values: RecipeForm) => {
+        const response = await newRecipe(values)
+        history.push(`/recipes/${response.data.id}`)
+      }}
     >
       {({ submitForm, values }: FormikProps<RecipeForm>) => (
         <form>

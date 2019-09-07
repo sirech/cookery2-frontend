@@ -9,7 +9,8 @@ import Recipe from 'components/recipe'
 
 const RecipeList = () => {
   const state = useAsync(async (): Promise<RecipeType[]> => {
-    return await recipeList().then(r => r.data)
+    const response = await recipeList()
+    return response.data
   }, [])
 
   return (
