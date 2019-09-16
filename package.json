@@ -60,7 +60,7 @@
     "@typescript-eslint/eslint-plugin": "^2.1.0",
     "@typescript-eslint/parser": "^2.1.0",
     "coveralls": "^3.0.6",
-    "eslint-config-prettier": "^6.2.0",
+    "eslint-config-prettier": "^6.3.0",
     "eslint-config-react": "^1.1.7",
     "eslint-import-resolver-typescript": "^1.1.1",
     "eslint-plugin-jest": "^22.17.0",
