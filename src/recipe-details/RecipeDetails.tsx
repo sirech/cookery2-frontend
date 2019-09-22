@@ -20,7 +20,8 @@ const RecipeDetails = ({
   history
 }: Props) => {
   const state = useAsync(async (): Promise<RecipeType> => {
-    return await recipeDetails(id).then(r => r.data)
+    const result = await recipeDetails(id)
+    return result.data
   }, [id])
 
   const recipe: RecipeType = state.value || {

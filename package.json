@@ -12,7 +12,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "watch": "react-scripts test --verbose=false",
-    "bundle": "npm build && source-map-explorer 'build/static/js/*.js'"
+    "bundle": "npm run build && source-map-explorer 'build/static/js/*.js'"
   },
   "dependencies": {
     "@material-ui/core": "^4.4.2",
