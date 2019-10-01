@@ -3,14 +3,14 @@ import { Redirect } from 'react-router-dom'
 import { useAuthentication } from 'auth'
 
 const Callback = () => {
-  const auth = useAuthentication()
+  const { user, checkLogin } = useAuthentication()
 
   useEffect(() => {
-    auth.checkLogin()
-  })
+    checkLogin()
+  }, [checkLogin])
   return (
     <>
-      {auth.user && <Redirect to="/" />}
+      {user && <Redirect to="/" />}
       <p>Waiting for log in to be confirmed</p>
     </>
   )
