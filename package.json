@@ -69,7 +69,7 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.1.1",
     "http-proxy-middleware": "^0.20.0",
-    "husky": "^3.0.7",
+    "husky": "^3.0.8",
     "lint-staged": "^9.4.1",
     "pact": "^4.3.2",
     "prettier": "^1.18.2",
