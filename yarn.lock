@@ -1647,6 +1647,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-wait@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@types/react-wait/-/react-wait-0.3.0.tgz#6f7ef17571a17e72c7864ede8cf7d3aa525a005e"
+  integrity sha512-5jIfDcHRjqeE7QfZG7kCqOpfrPSvOM1E3/nlKuJ/NZrG/WrhLo/AFr0i72jhTWzyNRo4ex0pshBaiCHksZXH3A==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@^16.9.5":
   version "16.9.5"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.5.tgz#079dabd918b19b32118c25fd00a786bb6d0d5e51"
@@ -10482,11 +10489,12 @@ react-transition-group@^4.3.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react-use@^12.3.0:
-  version "12.3.0"
-  resolved "https://registry.yarnpkg.com/react-use/-/react-use-12.3.0.tgz#4b7249059da2ab0bfc5f2ac773141150d4f16984"
-  integrity sha512-x2WyX6ZurupfJClc+bEGD8qD6EE7qtDrbw0azCTfxpeg+ErOkD7psccyeprk88IilWRzuf9B7/BM7oBRcbvMjQ==
+react-use@^12.5.0:
+  version "12.5.0"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-12.5.0.tgz#92dcb5f5c9477ab769bbfb88a35c86553c9ed74a"
+  integrity sha512-C7ccCfP40QsbdoxNmleprc1wp+8wUYd5xSkDXMQEDpIeQRYlgnUIf+l+kC75fJ1kEY8AHoTw9Ihw6MG4ufsCHA==
   dependencies:
+    "@types/react-wait" "^0.3.0"
     copy-to-clipboard "^3.1.0"
     nano-css "^5.1.0"
     react-fast-compare "^2.0.4"
