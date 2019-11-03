@@ -38,7 +38,8 @@ module.exports = {
     ],
     'import/no-absolute-path': 2,
     'import/first': 2,
-    'import/order': 2
+    'import/order': 2,
+    'jest/expect-expect': 0
   },
   settings: {
     react: { version: 'detect' },
