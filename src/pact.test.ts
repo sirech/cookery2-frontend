@@ -1,4 +1,5 @@
 import { Matchers } from 'pact'
+import { InteractionObject } from 'pact/src/dsl/interaction'
 import { provider as createProvider } from '@testing'
 import { recipeForm } from '@testing/__fixtures__'
 
@@ -18,7 +19,7 @@ describe('pacts', () => {
 
   describe('create recipe', () => {
     beforeAll(async () => {
-      const interaction = {
+      const interaction: InteractionObject = {
         state: 'i am logged in',
         uponReceiving: 'a request to create a recipe',
         withRequest: {
@@ -50,7 +51,7 @@ describe('pacts', () => {
 
   describe('list recipes', () => {
     beforeAll(async () => {
-      const interaction = {
+      const interaction: InteractionObject = {
         state: 'i have a list of recipes',
         uponReceiving: 'a request to get recipes',
         withRequest: {
@@ -92,7 +93,7 @@ describe('pacts', () => {
 
   describe('get a recipe', () => {
     beforeAll(async () => {
-      const interaction = {
+      const interaction: InteractionObject = {
         state: 'i have a list of recipes',
         uponReceiving: 'a request to get one recipe',
         withRequest: {

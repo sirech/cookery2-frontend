@@ -32,7 +32,8 @@ module.exports = {
           'components/*',
           '**/types',
           '**/*.service',
-          '@material-ui/icons/*'
+          '@material-ui/icons/*',
+          'pact/src/dsl/interaction'
         ]
       }
     ],
