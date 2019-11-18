@@ -10350,10 +10350,10 @@ react-transition-group@^4.3.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react-use@^13.6.2:
-  version "13.6.2"
-  resolved "https://registry.yarnpkg.com/react-use/-/react-use-13.6.2.tgz#2d5f0aeb90e06c010ca79a8023f062b7c6b5c6fa"
-  integrity sha512-4FfI0z0/Ha7yeR4/jh+eeqxXfg1znl56aXHIABqWzvYB4kmM6gR0vBrpFkBeQT9M1G0fJlmqK0nNEI+d/8VvnQ==
+react-use@^13.8.0:
+  version "13.8.0"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-13.8.0.tgz#5e8badaaa5614a1925fd28ad22d01cc1c52e0ff1"
+  integrity sha512-J4ZWIqC1h2eSS6ObmHJUWDQeJSKZvHdBEINCu51plz7RS+ijrt6JEHfDWbNXx+aAoR5AmbRK+mzYwd3jiu3xpA==
   dependencies:
     copy-to-clipboard "^3.2.0"
     nano-css "^5.2.1"
