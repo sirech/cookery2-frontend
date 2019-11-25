@@ -35,7 +35,7 @@ describe('pacts', () => {
         },
         willRespondWith: {
           status: 201,
-          headers: { 'Content-Type': 'application/json; charset=utf-8' },
+          headers: { 'Content-Type': 'application/json' },
           body: Matchers.somethingLike({ id: 1 })
         }
       }
@@ -64,7 +64,7 @@ describe('pacts', () => {
         },
         willRespondWith: {
           status: 200,
-          headers: { 'Content-Type': 'application/json; charset=utf-8' },
+          headers: { 'Content-Type': 'application/json' },
           body: Matchers.eachLike({
             id: Matchers.somethingLike(1),
             name: Matchers.somethingLike('pasta carbonara'),
@@ -106,7 +106,7 @@ describe('pacts', () => {
         },
         willRespondWith: {
           status: 200,
-          headers: { 'Content-Type': 'application/json; charset=utf-8' },
+          headers: { 'Content-Type': 'application/json' },
           body: Matchers.somethingLike({
             id: Matchers.somethingLike(1),
             name: Matchers.somethingLike('pasta carbonara'),
