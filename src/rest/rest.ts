@@ -1,11 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios'
 
-const testableUrl = (path: string) => {
-  const TESTING = process.env.NODE_ENV === 'test'
-  return `${TESTING ? 'http://localhost:8990' : ''}${path}`
-}
-
-const prepareUrl = (path: string) => testableUrl(`/rest${path}`)
+const prepareUrl = (path: string) => `/rest${path}`
 
 const addAuthorization = (headers: Record<string, string>) => {
   const token = localStorage.getItem('authToken')

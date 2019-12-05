@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { Matchers } from 'pact'
 import { InteractionObject } from 'pact/src/dsl/interaction'
 import { provider as createProvider } from '@testing'
@@ -10,6 +11,10 @@ import { recipeDetails } from 'recipe-details/recipeDetails.service'
 describe('pacts', () => {
   const provider = createProvider()
   const recipe = recipeForm()
+
+  beforeAll(() => {
+    axios.defaults.baseURL = 'http://localhost:8990'
+  })
 
   beforeAll(() => provider.setup(), 5 * 60 * 1000)
   afterAll(() => provider.finalize(), 5 * 60 * 1000)
