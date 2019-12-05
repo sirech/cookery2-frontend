@@ -33,7 +33,6 @@ describe('pacts', () => {
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest',
             Authorization: 'Bearer 123'
           },
           body: recipe
@@ -61,11 +60,7 @@ describe('pacts', () => {
         uponReceiving: 'a request to get recipes',
         withRequest: {
           method: 'GET',
-          path: '/rest/recipes',
-          headers: {
-            Accept: 'application/json',
-            'X-Requested-With': 'XMLHttpRequest'
-          }
+          path: '/rest/recipes'
         },
         willRespondWith: {
           status: 200,
@@ -103,11 +98,7 @@ describe('pacts', () => {
         uponReceiving: 'a request to get one recipe',
         withRequest: {
           method: 'GET',
-          path: '/rest/recipes/1',
-          headers: {
-            Accept: 'application/json',
-            'X-Requested-With': 'XMLHttpRequest'
-          }
+          path: '/rest/recipes/1'
         },
         willRespondWith: {
           status: 200,

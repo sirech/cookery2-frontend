@@ -1,6 +1,4 @@
-import axios, { AxiosRequestConfig } from 'axios'
-
-const prepareUrl = (path: string) => `/rest${path}`
+import axios from 'axios'
 
 const addAuthorization = (headers: Record<string, string>) => {
   const token = localStorage.getItem('authToken')
@@ -10,21 +8,19 @@ const addAuthorization = (headers: Record<string, string>) => {
   }
 }
 
-const fetch = (url: string, opts: AxiosRequestConfig = {}) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const post = <T extends unknown>(url: string, data: T) => {
   const DEFAULT_OPTIONS = {
     credentials: 'same-origin',
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest'
+      'Content-Type': 'application/json'
     }
   }
 
-  const headers = { ...DEFAULT_OPTIONS.headers, ...opts.headers }
+  const headers = { ...DEFAULT_OPTIONS.headers }
   addAuthorization(headers)
-  const options = { ...DEFAULT_OPTIONS, ...opts, ...{ headers } }
+  const options = { ...DEFAULT_OPTIONS, ...{ headers } }
 
-  return axios(prepareUrl(url), options)
+  return axios.post(url, data, options)
 }
-
-export default fetch

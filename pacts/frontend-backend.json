@@ -15,7 +15,6 @@
         "headers": {
           "Accept": "application/json",
           "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest",
           "Authorization": "Bearer 123"
         },
         "body": {
@@ -65,11 +64,7 @@
       "providerState": "i have a list of recipes",
       "request": {
         "method": "GET",
-        "path": "/rest/recipes",
-        "headers": {
-          "Accept": "application/json",
-          "X-Requested-With": "XMLHttpRequest"
-        }
+        "path": "/rest/recipes"
       },
       "response": {
         "status": 200,
@@ -111,11 +106,7 @@
       "providerState": "i have a list of recipes",
       "request": {
         "method": "GET",
-        "path": "/rest/recipes/1",
-        "headers": {
-          "Accept": "application/json",
-          "X-Requested-With": "XMLHttpRequest"
-        }
+        "path": "/rest/recipes/1"
       },
       "response": {
         "status": 200,
