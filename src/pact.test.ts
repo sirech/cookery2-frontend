@@ -14,6 +14,7 @@ describe('pacts', () => {
 
   beforeAll(() => {
     axios.defaults.baseURL = 'http://localhost:8990'
+    jest.restoreAllMocks()
   })
 
   beforeAll(() => provider.setup(), 5 * 60 * 1000)
