@@ -1,4 +1,6 @@
+import { F } from 'ramda'
 import React, { useState, useContext, useMemo, createContext } from 'react'
+
 import { login, checkLogin, logout } from './login.service'
 
 interface ContextType {
@@ -10,9 +12,9 @@ interface ContextType {
 
 const initialContext: ContextType = {
   user: null,
-  login: () => {},
-  logout: () => {},
-  checkLogin: () => {}
+  login: F,
+  logout: F,
+  checkLogin: F
 }
 
 const AuthContext = createContext(initialContext)
