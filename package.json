@@ -29,7 +29,7 @@
     "react-router-dom": "^5.1.2",
     "react-use": "^13.12.2",
     "typescript": "3.7.3",
-    "yup": "^0.27.0"
+    "yup": "^0.28.0"
   },
   "browserslist": {
     "production": [
