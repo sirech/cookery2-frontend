@@ -50,11 +50,11 @@ const NewRecipe = ({ history }: Props) => (
             </Grid>
 
             <Grid item xs={12}>
-              <Steps list={values.steps} />
+              <Steps list={values.steps || []} />
             </Grid>
 
             <Grid item xs={12}>
-              <Ingredients list={values.ingredients} />
+              <Ingredients list={values.ingredients || []} />
             </Grid>
 
             <Grid item xs={12}>

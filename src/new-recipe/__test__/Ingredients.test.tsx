@@ -13,7 +13,7 @@ describe('Ingredients', () => {
     <Formik initialValues={{ ingredients: [] }} onSubmit={onSubmit}>
       {({ handleSubmit, values }) => (
         <form onSubmit={handleSubmit}>
-          <Ingredients list={values.ingredients} />
+          <Ingredients list={values.ingredients || []} />
           <button type="submit">Submit</button>
         </form>
       )}
@@ -52,6 +52,8 @@ describe('Ingredients', () => {
     await waitForElement(() => getByTestId('ingredient'))
     userEvent.click(getByTestId('remove-ingredient'))
 
-    expect(queryByTestId('ingredient')).toBeNull()
+    await wait(() => {
+      expect(queryByTestId('ingredient')).not.toBeInTheDocument()
+    })
   })
 })
