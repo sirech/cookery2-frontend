@@ -37,7 +37,7 @@ jobs:
       - attach_workspace:
           at: build
       - run: scp -o StrictHostKeyChecking=no -r build $DEPLOY_USER@$DEPLOY_HOST:/tmp/cookery2-${CIRCLE_BUILD_NUM}
-      - run: ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "sh ${DEPLOY_PATH}/bin/promote /tmp/cookery2-${CIRCLE_BUILD_NUM} /srv/cookery2_public"
+      - run: ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "${DEPLOY_PATH}/bin/promote /tmp/cookery2-${CIRCLE_BUILD_NUM} /srv/cookery2_public"
 
 workflows:
   version: 2
