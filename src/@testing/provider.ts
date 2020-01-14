@@ -8,6 +8,7 @@ const provider = () =>
     dir: path.resolve(process.cwd(), 'pacts'),
     spec: 2,
     consumer: 'frontend',
-    provider: 'backend'
+    provider: 'backend',
+    cors: true
   })
 export default provider
