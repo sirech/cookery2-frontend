@@ -2015,10 +2015,10 @@
   resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-8.0.3.tgz#c3e304d2692b797ff0e3ced53c0597d341bb868b"
   integrity sha512-ALoIj6GzxN0UzFiudSwENy2yTD1xHDW+KtuOch5xuqRgQr0AxGB8z+EQBxT6zlWgAoLGN8hmYxTTGRoQSOZtlg==
 
-"@types/auth0-js@^9.10.7":
-  version "9.10.7"
-  resolved "https://registry.yarnpkg.com/@types/auth0-js/-/auth0-js-9.10.7.tgz#df0b5f8df2f844a9920b8b4dc4c917d6ebe776d9"
-  integrity sha512-lgqjubkQCYDCejPVqlTZLlCp5Mf4ROLlidVUmi4RArA9VYagLNk1wRKXGC8+XaJd3ZeTQKsEJJFzlDl8qWGeyA==
+"@types/auth0-js@^9.12.3":
+  version "9.12.3"
+  resolved "https://registry.yarnpkg.com/@types/auth0-js/-/auth0-js-9.12.3.tgz#1d1b73ee4affd48dc986b36277e14fb4c998027d"
+  integrity sha512-DMR+1X+HxuZCkZx0n6fS//TYZRKTjCxKW4Ye1D4olFS1uC1Y5udpfBdMCZpj1F2lGPmQh+SmPvnn8o7IoB4b3A==
 
 "@types/babel__core@^7.1.0":
   version "7.1.2"
