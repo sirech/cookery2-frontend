@@ -8,8 +8,7 @@ const addAuthorization = (headers: Record<string, string>) => {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const post = <T extends unknown>(url: string, data: T) => {
+export const post = (url: string, data: unknown) => {
   const DEFAULT_OPTIONS = {
     credentials: 'same-origin',
     headers: {
