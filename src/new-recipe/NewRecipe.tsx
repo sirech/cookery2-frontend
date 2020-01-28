@@ -32,7 +32,7 @@ const NewRecipe = ({ history }: Props) => (
       validationSchema={validationSchema}
       onSubmit={async (values: RecipeForm) => {
         const response = await newRecipe(values)
-        history.push(`/recipes/${response.data.id}`)
+        history.push(`/recipes/${response.id}`)
       }}
     >
       {({ submitForm, values }: FormikProps<RecipeForm>) => (
