@@ -1,5 +1,5 @@
 import { RecipeCreated } from '../types'
 
 export const newRecipe = async (): Promise<RecipeCreated> => {
-  return Promise.resolve({ id: 1 })
+  return Promise.resolve({ _brand: 'recipe-created', id: 1 })
 }

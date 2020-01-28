@@ -28,5 +28,6 @@ export type RecipeForm = Omit<FullRecipe, 'id' | 'duration'>
 export type Recipe = Readonly<FullRecipe>
 
 export interface RecipeCreated {
+  _brand: 'recipe-created'
   id: number
 }
