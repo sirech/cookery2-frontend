@@ -4,12 +4,12 @@ import { RouteComponentProps } from 'react-router-dom'
 
 import { Button, Grid } from '@material-ui/core'
 
-import { Recipe as RecipeType } from './types'
 import { recipeDetails } from './recipeDetails.service'
 
 import Steps from './Steps'
 import Ingredients from './Ingredients'
 import Recipe from 'components/recipe'
+import { Recipe as RecipeType } from 'new-recipe/types'
 
 type Props = RouteComponentProps<{ id: string }>
 

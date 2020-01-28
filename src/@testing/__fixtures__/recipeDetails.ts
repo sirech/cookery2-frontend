@@ -1,4 +1,4 @@
-import { Recipe } from 'recipe-details/types'
+import { Recipe } from 'new-recipe/types'
 
 const recipe = (): Recipe => ({
   id: 1,

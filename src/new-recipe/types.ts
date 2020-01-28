@@ -1,3 +1,5 @@
+import { Recipe as RecipeBase } from 'components/recipe/types'
+
 export interface Step {
   description: string
   duration: number
@@ -17,12 +19,13 @@ export interface Ingredient {
   unit: IngredientUnit
 }
 
-export interface RecipeForm {
-  name: string
-  servings: number
-  steps: Step[]
+interface FullRecipe extends RecipeBase {
   ingredients: Ingredient[]
+  steps: Step[]
 }
+
+export type RecipeForm = Omit<FullRecipe, 'id' | 'duration'>
+export type Recipe = Readonly<FullRecipe>
 
 export interface RecipeCreated {
   id: number
