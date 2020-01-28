@@ -1,6 +1,7 @@
-import axios, { AxiosResponse } from 'axios'
+import axios from 'axios'
 import { Recipe } from 'components/recipe/types'
 
-export const recipeList = async (): Promise<AxiosResponse<Recipe[]>> => {
-  return axios('/rest/recipes')
+export const recipeList = async (): Promise<Recipe[]> => {
+  const response = await axios('/rest/recipes')
+  return response.data
 }

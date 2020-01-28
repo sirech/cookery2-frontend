@@ -82,8 +82,8 @@ describe('pacts', () => {
     it('works', async () => {
       const response = await recipeList()
 
-      expect(response.data.length).toBeGreaterThan(0)
-      expect(response.data[0]).toEqual({
+      expect(response.length).toBeGreaterThan(0)
+      expect(response[0]).toEqual({
         id: 1,
         name: 'pasta carbonara',
         servings: 4,

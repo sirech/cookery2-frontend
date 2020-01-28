@@ -30,7 +30,7 @@ export const checkLogin = (setUser: (user: string) => void) => {
   })
 }
 
-export const logout = (setUser: (user: string | null) => void) => {
+export const logout = (setUser: (user: null) => void) => {
   localStorage.removeItem('authToken')
   localStorage.removeItem('expiresAt')
   localStorage.removeItem('user')

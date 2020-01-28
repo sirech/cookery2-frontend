@@ -4,14 +4,10 @@ import { useAsync } from 'react-use'
 import { Grid } from '@material-ui/core'
 
 import { recipeList } from './recipeList.service'
-import { Recipe as RecipeType } from 'components/recipe/types'
 import Recipe from 'components/recipe'
 
 const RecipeList = () => {
-  const state = useAsync(async (): Promise<RecipeType[]> => {
-    const response = await recipeList()
-    return response.data
-  }, [])
+  const state = useAsync(recipeList, [])
 
   return (
     <section data-testid="recipe-list">
