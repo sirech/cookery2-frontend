@@ -134,7 +134,7 @@ describe('pacts', () => {
 
     it('works', async () => {
       const response = await recipeDetails(1)
-      expect(response.data).toEqual({
+      expect(response).toEqual({
         id: 1,
         name: 'pasta carbonara',
         servings: 4,
