@@ -8,13 +8,15 @@ import AccountCircleOutlined from '@material-ui/icons/AccountCircleOutlined'
 import AdapterLink from 'components/adapter-link'
 import { useAuthentication } from 'auth'
 
-const Login = ({ onClick }: { onClick: () => void }) => (
+type ClickHandler = { onClick: () => void }
+
+const Login = ({ onClick }: ClickHandler) => (
   <IconButton color="inherit" onClick={onClick}>
     <AccountCircle titleAccess="Login" />
   </IconButton>
 )
 
-const Logout = ({ onClick }: { onClick: () => void }) => (
+const Logout = ({ onClick }: ClickHandler) => (
   <IconButton color="inherit" onClick={onClick}>
     <AccountCircleOutlined titleAccess="Logout" />
   </IconButton>
