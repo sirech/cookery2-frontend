@@ -2019,10 +2019,10 @@
     "@testing-library/dom" "^6.11.0"
     "@types/testing-library__react" "^9.1.2"
 
-"@testing-library/user-event@^8.0.5":
-  version "8.0.5"
-  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-8.0.5.tgz#b6875575d66e90e37135f92559078b9935e340e0"
-  integrity sha512-CqD1k385OQ02UnyZ+2SlHT3hCGk7GF5N6A941/g3fbYrVYgdQNEqM89oTm52tCL629NYC9TxCyy5rGQz41YE3g==
+"@testing-library/user-event@^8.1.0":
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-8.1.0.tgz#6362a9a01c5a4f612e8ef6eafd69e71e355c9f09"
+  integrity sha512-42VHeLj4877FYIlehDQEP24rmixcfkRpPSil8icNKFJfU4pNArI0EPaKCoAaDr/p6NThW+QHFRiwws80PUNFtg==
 
 "@types/auth0-js@^9.12.3":
   version "9.12.3"
