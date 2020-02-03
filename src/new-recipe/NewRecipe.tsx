@@ -14,6 +14,8 @@ import field from './field'
 
 import { newRecipe } from './newRecipe.service'
 
+import { fold } from 'either'
+
 interface Props {
   history: History
 }
@@ -32,7 +34,11 @@ const NewRecipe = ({ history }: Props) => (
       validationSchema={validationSchema}
       onSubmit={async (values: RecipeForm) => {
         const response = await newRecipe(values)
-        history.push(`/recipes/${response.id}`)
+        fold(
+          response,
+          error => console.log('Error happened: ', error.code),
+          response => history.push(`/recipes/${response.id}`)
+        )
       }}
     >
       {({ submitForm, values }: FormikProps<RecipeForm>) => (
