@@ -4,7 +4,7 @@ const redirectUri = () => `${process.env.REACT_APP_HOST}/callback`
 
 const auth0Client = () => {
   return new auth0.WebAuth({
-    clientID: 'X7S9kda37vYD7vgQUFg4FgejjtqxSUB8',
+    clientID: 'ThEkgdG1NndLlWoNMcEdEr2KJIs9vKad',
     domain: 'hceris.eu.auth0.com',
     responseType: 'token id_token',
     audience: 'cookery2.hceris.com',
