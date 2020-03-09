@@ -25,7 +25,7 @@ goal_build() {
 
 goal_all() {
   goal_linter-js
-  goal_linter-css
+  # goal_linter-css
   CI=t goal_test-js
   goal_build
 }
