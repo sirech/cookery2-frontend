@@ -3,24 +3,31 @@ set -e -o pipefail
 
 SCRIPT_DIR=$(cd "$(dirname "$0")"; pwd -P)
 
-goal_run() {
-  npm start
-}
-
-goal_test() {
-  npm t
-}
-
-goal_linter() {
-  npm run linter
-}
-
 goal_linter-js() {
   npm run linter:js
 }
 
 goal_linter-css() {
   npm run linter:css
+}
+
+goal_test-js() {
+  npm test
+}
+
+goal_run() {
+  npm run start
+}
+
+goal_build() {
+  npm run build
+}
+
+goal_all() {
+  goal_linter-js
+  goal_linter-css
+  CI=t goal_test-js
+  goal_build
 }
 
 validate-args() {
