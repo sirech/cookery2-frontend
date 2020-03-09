@@ -53,7 +53,7 @@
     "@types/auth0-js": "^9.12.4",
     "@types/classnames": "^2.2.10",
     "@types/jest": "^25.1.4",
-    "@types/node": "^13.7.7",
+    "@types/node": "^13.9.0",
     "@types/ramda": "^0.26.43",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
