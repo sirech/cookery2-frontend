@@ -8,12 +8,12 @@ const fullRender = (
   children: React.ReactNode,
   {
     route = '/',
-    history = createMemoryHistory({ initialEntries: [route] })
+    history = createMemoryHistory({ initialEntries: [route] }),
   } = {}
 ) => {
   return {
     ...render(<Router history={history}>{children}</Router>),
-    history
+    history,
   }
 }
 export default fullRender

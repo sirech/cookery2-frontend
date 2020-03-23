@@ -34,15 +34,15 @@ describe('pacts', () => {
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
-            Authorization: 'Bearer 123'
+            Authorization: 'Bearer 123',
           },
-          body: recipe
+          body: recipe,
         },
         willRespondWith: {
           status: 201,
           headers: { 'Content-Type': 'application/json' },
-          body: Matchers.somethingLike({ id: 1 })
-        }
+          body: Matchers.somethingLike({ id: 1 }),
+        },
       }
 
       return provider.addInteraction(interaction)
@@ -61,7 +61,7 @@ describe('pacts', () => {
         uponReceiving: 'a request to get recipes',
         withRequest: {
           method: 'GET',
-          path: '/rest/recipes'
+          path: '/rest/recipes',
         },
         willRespondWith: {
           status: 200,
@@ -70,9 +70,9 @@ describe('pacts', () => {
             id: Matchers.somethingLike(1),
             name: Matchers.somethingLike('pasta carbonara'),
             servings: Matchers.somethingLike(4),
-            duration: Matchers.somethingLike(35)
-          })
-        }
+            duration: Matchers.somethingLike(35),
+          }),
+        },
       }
 
       return provider.addInteraction(interaction)
@@ -87,7 +87,7 @@ describe('pacts', () => {
         id: 1,
         name: 'pasta carbonara',
         servings: 4,
-        duration: 35
+        duration: 35,
       })
     })
   })
@@ -99,7 +99,7 @@ describe('pacts', () => {
         uponReceiving: 'a request to get one recipe',
         withRequest: {
           method: 'GET',
-          path: '/rest/recipes/1'
+          path: '/rest/recipes/1',
         },
         willRespondWith: {
           status: 200,
@@ -112,7 +112,7 @@ describe('pacts', () => {
             steps: Matchers.eachLike(
               {
                 description: Matchers.somethingLike('boil the pasta'),
-                duration: Matchers.somethingLike(10)
+                duration: Matchers.somethingLike(10),
               },
               { min: 1 }
             ),
@@ -120,12 +120,12 @@ describe('pacts', () => {
               {
                 name: Matchers.somethingLike('egg'),
                 quantity: Matchers.somethingLike(3),
-                unit: Matchers.somethingLike('gr')
+                unit: Matchers.somethingLike('gr'),
               },
               { min: 1 }
-            )
-          })
-        }
+            ),
+          }),
+        },
       }
 
       return provider.addInteraction(interaction)
@@ -140,7 +140,7 @@ describe('pacts', () => {
         servings: 4,
         duration: 35,
         steps: [{ description: 'boil the pasta', duration: 10 }],
-        ingredients: [{ name: 'egg', quantity: 3, unit: 'gr' }]
+        ingredients: [{ name: 'egg', quantity: 3, unit: 'gr' }],
       })
     })
   })

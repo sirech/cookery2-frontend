@@ -5,7 +5,7 @@ import {
   Grid,
   Card,
   CardContent,
-  CardHeader
+  CardHeader,
 } from '@material-ui/core'
 
 import ClearIcon from '@material-ui/icons/Clear'
@@ -36,13 +36,13 @@ const Step = ({ index, remove }: Props) => (
       <Grid container spacing={1}>
         <Grid item xs={12} sm={10}>
           {field(`steps.${index}.description`, {
-            label: 'description'
+            label: 'description',
           })}
         </Grid>
         <Grid item xs={12} sm={2}>
           {field(`steps.${index}.duration`, {
             label: 'duration',
-            type: 'number'
+            type: 'number',
           })}
         </Grid>
       </Grid>

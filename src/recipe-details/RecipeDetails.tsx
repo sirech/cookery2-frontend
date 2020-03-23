@@ -15,12 +15,12 @@ type Props = RouteComponentProps<{ id: string }>
 
 const RecipeDetails = ({
   match: {
-    params: { id }
+    params: { id },
   },
-  history
+  history,
 }: Props) => {
   const state = useAsync(async (): Promise<RecipeType> => recipeDetails(id), [
-    id
+    id,
   ])
 
   const recipe: RecipeType = state.value || {
@@ -29,7 +29,7 @@ const RecipeDetails = ({
     servings: 0,
     duration: 0,
     steps: [],
-    ingredients: []
+    ingredients: [],
   }
 
   return (

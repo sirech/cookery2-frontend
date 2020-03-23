@@ -24,7 +24,7 @@ const initialValues: RecipeForm = {
   name: '',
   servings: 0,
   steps: [emptyStep()],
-  ingredients: [emptyIngredient()]
+  ingredients: [emptyIngredient()],
 }
 
 const NewRecipe = ({ history }: Props) => (
@@ -36,8 +36,8 @@ const NewRecipe = ({ history }: Props) => (
         const response = await newRecipe(values)
         fold(
           response,
-          error => console.log('Error happened: ', error.code),
-          response => history.push(`/recipes/${response.id}`)
+          (error) => console.log('Error happened: ', error.code),
+          (response) => history.push(`/recipes/${response.id}`)
         )
       }}
     >

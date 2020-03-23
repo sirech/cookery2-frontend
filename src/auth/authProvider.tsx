@@ -14,7 +14,7 @@ const initialContext: ContextType = {
   user: null,
   login: F,
   logout: F,
-  checkLogin: F
+  checkLogin: F,
 }
 
 const AuthContext = createContext(initialContext)
@@ -39,7 +39,7 @@ const AuthenticationProvider = (props: Props) => {
       user,
       login,
       logout: () => logout(setUser),
-      checkLogin: () => checkLogin(setUser)
+      checkLogin: () => checkLogin(setUser),
     }),
     [user]
   )

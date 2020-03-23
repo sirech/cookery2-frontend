@@ -12,7 +12,7 @@ import HeaderWithButton from './HeaderWithButton'
 export const emptyIngredient = (): IngredientType => ({
   name: '',
   quantity: 0,
-  unit: 'gr'
+  unit: 'gr',
 })
 
 interface Props {

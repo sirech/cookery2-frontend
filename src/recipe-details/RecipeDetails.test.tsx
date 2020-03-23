@@ -10,7 +10,7 @@ jest.mock('recipe-details/recipeDetails.service')
 describe('RecipeDetails', () => {
   it('renders correctly', async () => {
     const { getByText } = fullRender(<Route component={RecipeDetails} />, {
-      route: '/recipes/1'
+      route: '/recipes/1',
     })
 
     await waitForElement(() => getByText('Pasta Carbonara'))

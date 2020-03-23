@@ -9,7 +9,7 @@ const auth0Client = () => {
     responseType: 'token id_token',
     audience: 'cookery2.hceris.com',
     redirectUri: redirectUri(),
-    scope: 'openid profile create:recipes'
+    scope: 'openid profile create:recipes',
   })
 }
 

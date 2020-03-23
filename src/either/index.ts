@@ -5,12 +5,12 @@ export type Either<L, R> = Left<L> | Right<R>
 
 export const left = <T extends {}>(value: T): Left<T> => ({
   tag: 'left',
-  value
+  value,
 })
 
 export const right = <T extends {}>(value: T): Right<T> => ({
   tag: 'right',
-  value
+  value,
 })
 
 export const fold = <L, R, T>(

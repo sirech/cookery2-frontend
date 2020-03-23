@@ -6,7 +6,7 @@ import {
   Table,
   TableCell,
   TableBody,
-  TableRow
+  TableRow,
 } from '@material-ui/core'
 import { Ingredient as IngredientType } from 'new-recipe/types'
 

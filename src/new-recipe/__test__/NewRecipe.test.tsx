@@ -21,7 +21,7 @@ describe('NewRecipe', () => {
     const { getByText, getByLabelText, history } = fullRender(
       <Route component={NewRecipe} />,
       {
-        route: '/recipes/new'
+        route: '/recipes/new',
       }
     )
 

@@ -10,7 +10,7 @@ describe('validationSchema', () => {
     it('accepts valid steps', async () => {
       await expect(
         Yup.reach(schema, 'steps').isValid([
-          { description: 'Do things', duration: 3 }
+          { description: 'Do things', duration: 3 },
         ])
       ).resolves.toBe(true)
     })

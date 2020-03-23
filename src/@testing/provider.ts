@@ -9,6 +9,6 @@ const provider = () =>
     spec: 2,
     consumer: 'frontend',
     provider: 'backend',
-    cors: true
+    cors: true,
   })
 export default provider

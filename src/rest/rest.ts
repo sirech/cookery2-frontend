@@ -13,8 +13,8 @@ export const post = (url: string, data: unknown) => {
     credentials: 'same-origin',
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json'
-    }
+      'Content-Type': 'application/json',
+    },
   }
 
   const headers = { ...DEFAULT_OPTIONS.headers }

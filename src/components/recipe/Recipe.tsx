@@ -8,7 +8,7 @@ import {
   Link,
   List,
   ListItem,
-  ListItemIcon
+  ListItemIcon,
 } from '@material-ui/core'
 import ScheduleIcon from '@material-ui/icons/Schedule'
 import RestaurantIcon from '@material-ui/icons/Restaurant'

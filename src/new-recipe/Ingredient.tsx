@@ -13,25 +13,25 @@ interface Props {
 }
 
 const units = () =>
-  ingredientList.map(ingredient => ({ value: ingredient, label: ingredient }))
+  ingredientList.map((ingredient) => ({ value: ingredient, label: ingredient }))
 
 const Ingredient = ({ index, remove }: Props) => (
   <div data-testid="ingredient" key={index}>
     <Grid container spacing={1}>
       <Grid item xs={12} sm={7}>
         {field(`ingredients.${index}.name`, {
-          label: 'ingredient'
+          label: 'ingredient',
         })}
       </Grid>
       <Grid item xs={6} sm={2}>
         {field(`ingredients.${index}.quantity`, {
           label: 'quantity',
-          type: 'number'
+          type: 'number',
         })}
       </Grid>
       <Grid item xs={4} sm={2}>
         {select(`ingredients.${index}.unit`, units(), {
-          label: 'unit'
+          label: 'unit',
         })}
       </Grid>
       <Grid item xs={2} sm={1}>

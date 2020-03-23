@@ -41,7 +41,7 @@ describe('Steps', () => {
 
     expect(onSubmit).toHaveBeenCalledTimes(1)
     expect(onSubmit.mock.calls[0][0].steps).toStrictEqual([
-      { duration: 10, description: 'Shake it shake it' }
+      { duration: 10, description: 'Shake it shake it' },
     ])
   })
 

@@ -41,7 +41,7 @@ describe('Ingredients', () => {
 
     expect(onSubmit).toHaveBeenCalledTimes(1)
     expect(onSubmit.mock.calls[0][0].ingredients).toStrictEqual([
-      { name: 'Salt', quantity: 10, unit: 'gr' }
+      { name: 'Salt', quantity: 10, unit: 'gr' },
     ])
   })
 

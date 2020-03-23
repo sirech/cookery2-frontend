@@ -21,7 +21,7 @@ export const select = (
     component={TextField}
     select
   >
-    {options.map(option => (
+    {options.map((option) => (
       <MenuItem key={option.value} value={option.value}>
         {option.label}
       </MenuItem>
