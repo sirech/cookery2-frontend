@@ -60,7 +60,7 @@
     "@types/react-dom": "^16.9.6",
     "@types/react-router-dom": "^5.1.4",
     "@types/recompose": "^0.30.7",
-    "@types/yup": "^0.26.36",
+    "@types/yup": "^0.26.37",
     "@typescript-eslint/eslint-plugin": "^2.28.0",
     "@typescript-eslint/parser": "^2.28.0",
     "coveralls": "^3.0.11",
