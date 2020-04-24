@@ -5,7 +5,15 @@ export interface Step {
   duration: number
 }
 
-export const ingredientList = ['ml', 'gr', 'pinch', 'unit'] as const
+export const ingredientList = [
+  'ml',
+  'gr',
+  'pinch',
+  'unit',
+  'cup',
+  'half cup',
+  'quarter cup',
+] as const
 type IngredientUnit = typeof ingredientList[number]
 
 export interface Option {
