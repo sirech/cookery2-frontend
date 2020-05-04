@@ -30,7 +30,7 @@
     "react-router-dom": "^5.1.2",
     "react-use": "^14.2.0",
     "typescript": "3.8.3",
-    "yup": "^0.28.4"
+    "yup": "^0.28.5"
   },
   "browserslist": {
     "production": [
