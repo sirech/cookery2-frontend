@@ -1,7 +1,7 @@
 import React from 'react'
 import userEvent from '@testing-library/user-event'
 
-import { waitForElement } from '@testing-library/react'
+import { waitFor } from '@testing-library/react'
 import App from './App'
 import { fullRender } from '@testing'
 
@@ -12,13 +12,13 @@ describe('App', () => {
   it('renders without crashing', async () => {
     const { getByTestId } = fullRender(<App />)
 
-    await waitForElement(() => getByTestId('app'))
+    await waitFor(() => getByTestId('app'))
   })
 
   it('renders new recipe form', async () => {
     const { getByTestId } = fullRender(<App />, { route: '/recipes/new' })
 
-    await waitForElement(() => getByTestId('new-recipe'))
+    await waitFor(() => getByTestId('new-recipe'))
   })
 
   it('renders a recipe list', async () => {
@@ -27,28 +27,28 @@ describe('App', () => {
     })
 
     // Navigate to list of recipes
-    await waitForElement(() => getByTestId('recipe-list'))
+    await waitFor(() => getByTestId('recipe-list'))
 
     // Select one recipe
-    await waitForElement(() => getByText('Pasta Carbonara'))
+    await waitFor(() => getByText('Pasta Carbonara'))
     userEvent.click(getAllByText('DETAILS')[0])
-    await waitForElement(() => [getByText('Steps'), getByText('Ingredients')])
-    await waitForElement(() => getByText('egg'))
+    await waitFor(() => [getByText('Steps'), getByText('Ingredients')])
+    await waitFor(() => getByText('egg'))
 
     // Go back
     userEvent.click(getByText('Back'))
-    await waitForElement(() => getByTestId('recipe-list'))
+    await waitFor(() => getByTestId('recipe-list'))
   })
 
   it('renders recipe details', async () => {
     const { getByTestId } = fullRender(<App />, { route: '/recipes/1' })
 
-    await waitForElement(() => getByTestId('recipe-details'))
+    await waitFor(() => getByTestId('recipe-details'))
   })
 
   it('redirects to recipes list', async () => {
     const { getByTestId } = fullRender(<App />, { route: '/' })
 
-    await waitForElement(() => getByTestId('recipe-list'))
+    await waitFor(() => getByTestId('recipe-list'))
   })
 })

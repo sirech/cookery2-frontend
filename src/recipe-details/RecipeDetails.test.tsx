@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-import { waitForElement } from '@testing-library/react'
+import { waitFor } from '@testing-library/react'
 import RecipeDetails from './RecipeDetails'
 import { fullRender } from '@testing'
 
@@ -13,15 +13,15 @@ describe('RecipeDetails', () => {
       route: '/recipes/1',
     })
 
-    await waitForElement(() => getByText('Pasta Carbonara'))
+    await waitFor(() => getByText('Pasta Carbonara'))
 
-    await waitForElement(() => getByText('Ingredients'))
-    await waitForElement(() => getByText('pasta'))
-    await waitForElement(() => getByText('egg'))
-    await waitForElement(() => getByText('guanciale'))
+    await waitFor(() => getByText('Ingredients'))
+    await waitFor(() => getByText('pasta'))
+    await waitFor(() => getByText('egg'))
+    await waitFor(() => getByText('guanciale'))
 
-    await waitForElement(() => getByText('Steps'))
-    await waitForElement(() => getByText('boil the pasta'))
-    await waitForElement(() => getByText('fry the guanciale'))
+    await waitFor(() => getByText('Steps'))
+    await waitFor(() => getByText('boil the pasta'))
+    await waitFor(() => getByText('fry the guanciale'))
   })
 })

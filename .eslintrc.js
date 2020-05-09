@@ -8,9 +8,10 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:jest/recommended',
+    'plugin:testing-library/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
-    'plugin:import/typescript'
+    'plugin:import/typescript',
   ],
   plugins: [
     '@typescript-eslint',
@@ -20,7 +21,7 @@ module.exports = {
     'jsx-a11y',
     'jest',
     'react-hooks',
-    'import'
+    'import',
   ],
   rules: {
     '@typescript-eslint/explicit-member-accessibility': 0,
@@ -35,14 +36,15 @@ module.exports = {
           '**/types',
           '**/*.service',
           '@material-ui/icons/*',
-          'pact/src/dsl/interaction'
-        ]
-      }
+          'pact/src/dsl/interaction',
+        ],
+      },
     ],
     'import/no-absolute-path': 2,
     'import/first': 2,
     'import/order': 2,
-    'jest/expect-expect': 0
+    'jest/expect-expect': 0,
+    'testing-library/prefer-wait-for': 2,
   },
   settings: {
     react: { version: 'detect' },
@@ -50,8 +52,8 @@ module.exports = {
       typescript: {},
 
       typescript: {
-        directory: './src'
-      }
-    }
-  }
+        directory: './src',
+      },
+    },
+  },
 }

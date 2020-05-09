@@ -1,7 +1,7 @@
 import React from 'react'
 import { Formik } from 'formik'
 
-import { waitForElement, wait } from '@testing-library/react'
+import { waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import Ingredients from '../Ingredients'
@@ -23,7 +23,7 @@ describe('Ingredients', () => {
   it('renders without crashing', async () => {
     const { getByTestId } = fullRender(<IngredientsInForm />)
 
-    await waitForElement(() => getByTestId('ingredients'))
+    await waitFor(() => getByTestId('ingredients'))
   })
 
   it('adds ingredients', async () => {
@@ -37,9 +37,7 @@ describe('Ingredients', () => {
 
     userEvent.click(getByText('Submit'))
 
-    await wait()
-
-    expect(onSubmit).toHaveBeenCalledTimes(1)
+    await waitFor(() => expect(onSubmit).toHaveBeenCalledTimes(1))
     expect(onSubmit.mock.calls[0][0].ingredients).toStrictEqual([
       { name: 'Salt', quantity: 10, unit: 'gr' },
     ])
@@ -49,10 +47,10 @@ describe('Ingredients', () => {
     const { getByTestId, queryByTestId } = fullRender(<IngredientsInForm />)
 
     userEvent.click(getByTestId('add-ingredient'))
-    await waitForElement(() => getByTestId('ingredient'))
+    await waitFor(() => getByTestId('ingredient'))
     userEvent.click(getByTestId('remove-ingredient'))
 
-    await wait(() => {
+    await waitFor(() => {
       expect(queryByTestId('ingredient')).not.toBeInTheDocument()
     })
   })

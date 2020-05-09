@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router'
 
-import { waitForElement, wait } from '@testing-library/react'
+import { waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import NewRecipe from '../NewRecipe'
@@ -14,7 +14,7 @@ describe('NewRecipe', () => {
   it('renders without crashing', async () => {
     const { getByTestId } = fullRender(<Route component={NewRecipe} />)
 
-    await waitForElement(() => getByTestId('new-recipe'))
+    await waitFor(() => getByTestId('new-recipe'))
   })
 
   it('fills the form', async () => {
@@ -36,8 +36,6 @@ describe('NewRecipe', () => {
 
     userEvent.click(getByText('Create'))
 
-    await wait()
-
-    expect(history.location.pathname).toEqual('/recipes/1')
+    await waitFor(() => expect(history.location.pathname).toEqual('/recipes/1'))
   })
 })

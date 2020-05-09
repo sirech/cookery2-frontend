@@ -1,7 +1,7 @@
 import React from 'react'
 import { Formik } from 'formik'
 
-import { waitForElement, wait } from '@testing-library/react'
+import { waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import Steps from '../Steps'
@@ -23,7 +23,7 @@ describe('Steps', () => {
   it('renders without crashing', async () => {
     const { getByTestId } = fullRender(<StepsInForm />)
 
-    await waitForElement(() => getByTestId('steps'))
+    await waitFor(() => getByTestId('steps'))
   })
 
   it('adds steps', async () => {
@@ -37,9 +37,7 @@ describe('Steps', () => {
 
     userEvent.click(getByText('Submit'))
 
-    await wait()
-
-    expect(onSubmit).toHaveBeenCalledTimes(1)
+    await waitFor(() => expect(onSubmit).toHaveBeenCalledTimes(1))
     expect(onSubmit.mock.calls[0][0].steps).toStrictEqual([
       { duration: 10, description: 'Shake it shake it' },
     ])
@@ -49,10 +47,10 @@ describe('Steps', () => {
     const { getByTestId, queryByTestId } = fullRender(<StepsInForm />)
 
     userEvent.click(getByTestId('add-step'))
-    await waitForElement(() => getByTestId('step'))
+    await waitFor(() => getByTestId('step'))
     userEvent.click(getByTestId('remove-step'))
 
-    await wait(() => {
+    await waitFor(() => {
       expect(queryByTestId('step')).not.toBeInTheDocument()
     })
   })
