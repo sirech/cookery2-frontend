@@ -44,6 +44,7 @@ module.exports = {
     'import/first': 2,
     'import/order': 2,
     'jest/expect-expect': 0,
+    'testing-library/prefer-screen-queries': 2,
     'testing-library/prefer-wait-for': 2,
   },
   settings: {

@@ -1,7 +1,7 @@
 import React from 'react'
 import userEvent from '@testing-library/user-event'
 
-import { waitFor } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
 import App from './App'
 import { fullRender } from '@testing'
 
@@ -10,45 +10,48 @@ jest.mock('recipe-details/recipeDetails.service')
 
 describe('App', () => {
   it('renders without crashing', async () => {
-    const { getByTestId } = fullRender(<App />)
+    fullRender(<App />)
 
-    await waitFor(() => getByTestId('app'))
+    await waitFor(() => screen.getByTestId('app'))
   })
 
   it('renders new recipe form', async () => {
-    const { getByTestId } = fullRender(<App />, { route: '/recipes/new' })
+    fullRender(<App />, { route: '/recipes/new' })
 
-    await waitFor(() => getByTestId('new-recipe'))
+    await waitFor(() => screen.getByTestId('new-recipe'))
   })
 
   it('renders a recipe list', async () => {
-    const { getByTestId, getByText, getAllByText } = fullRender(<App />, {
+    fullRender(<App />, {
       route: '/recipes',
     })
 
     // Navigate to list of recipes
-    await waitFor(() => getByTestId('recipe-list'))
+    await waitFor(() => screen.getByTestId('recipe-list'))
 
     // Select one recipe
-    await waitFor(() => getByText('Pasta Carbonara'))
-    userEvent.click(getAllByText('DETAILS')[0])
-    await waitFor(() => [getByText('Steps'), getByText('Ingredients')])
-    await waitFor(() => getByText('egg'))
+    await waitFor(() => screen.getByText('Pasta Carbonara'))
+    userEvent.click(screen.getAllByText('DETAILS')[0])
+    await waitFor(() => [
+      screen.getByText('Steps'),
+      screen.getByText('Ingredients'),
+    ])
+    await waitFor(() => screen.getByText('egg'))
 
     // Go back
-    userEvent.click(getByText('Back'))
-    await waitFor(() => getByTestId('recipe-list'))
+    userEvent.click(screen.getByText('Back'))
+    await waitFor(() => screen.getByTestId('recipe-list'))
   })
 
   it('renders recipe details', async () => {
-    const { getByTestId } = fullRender(<App />, { route: '/recipes/1' })
+    fullRender(<App />, { route: '/recipes/1' })
 
-    await waitFor(() => getByTestId('recipe-details'))
+    await waitFor(() => screen.getByTestId('recipe-details'))
   })
 
   it('redirects to recipes list', async () => {
-    const { getByTestId } = fullRender(<App />, { route: '/' })
+    fullRender(<App />, { route: '/' })
 
-    await waitFor(() => getByTestId('recipe-list'))
+    await waitFor(() => screen.getByTestId('recipe-list'))
   })
 })

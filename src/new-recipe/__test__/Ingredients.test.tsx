@@ -1,7 +1,7 @@
 import React from 'react'
 import { Formik } from 'formik'
 
-import { waitFor } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import Ingredients from '../Ingredients'
@@ -21,21 +21,19 @@ describe('Ingredients', () => {
   )
 
   it('renders without crashing', async () => {
-    const { getByTestId } = fullRender(<IngredientsInForm />)
+    fullRender(<IngredientsInForm />)
 
-    await waitFor(() => getByTestId('ingredients'))
+    await waitFor(() => screen.getByTestId('ingredients'))
   })
 
   it('adds ingredients', async () => {
-    const { getByTestId, getByLabelText, getByText } = fullRender(
-      <IngredientsInForm />
-    )
+    fullRender(<IngredientsInForm />)
 
-    userEvent.click(getByTestId('add-ingredient'))
-    userEvent.type(getByLabelText('ingredient'), 'Salt')
-    userEvent.type(getByLabelText('quantity'), '10')
+    userEvent.click(screen.getByTestId('add-ingredient'))
+    userEvent.type(screen.getByLabelText('ingredient'), 'Salt')
+    userEvent.type(screen.getByLabelText('quantity'), '10')
 
-    userEvent.click(getByText('Submit'))
+    userEvent.click(screen.getByText('Submit'))
 
     await waitFor(() => expect(onSubmit).toHaveBeenCalledTimes(1))
     expect(onSubmit.mock.calls[0][0].ingredients).toStrictEqual([
@@ -44,14 +42,14 @@ describe('Ingredients', () => {
   })
 
   it('removes ingredients', async () => {
-    const { getByTestId, queryByTestId } = fullRender(<IngredientsInForm />)
+    fullRender(<IngredientsInForm />)
 
-    userEvent.click(getByTestId('add-ingredient'))
-    await waitFor(() => getByTestId('ingredient'))
-    userEvent.click(getByTestId('remove-ingredient'))
+    userEvent.click(screen.getByTestId('add-ingredient'))
+    await waitFor(() => screen.getByTestId('ingredient'))
+    userEvent.click(screen.getByTestId('remove-ingredient'))
 
     await waitFor(() => {
-      expect(queryByTestId('ingredient')).not.toBeInTheDocument()
+      expect(screen.queryByTestId('ingredient')).not.toBeInTheDocument()
     })
   })
 })

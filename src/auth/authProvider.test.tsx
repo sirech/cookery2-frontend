@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { screen, render } from '@testing-library/react'
 
 import AuthProvider, { useAuthentication } from './authProvider'
 
@@ -21,7 +21,7 @@ describe('AuthProvider', () => {
   )
 
   it('does not display content if logged out', async () => {
-    const { queryByText } = render(<Context />)
-    expect(queryByText('Dude')).toBeNull()
+    render(<Context />)
+    expect(screen.queryByText('Dude')).toBeNull()
   })
 })
