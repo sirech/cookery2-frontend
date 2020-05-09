@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-import { screen, waitFor } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import RecipeDetails from './RecipeDetails'
 import { fullRender } from '@testing'
 
@@ -13,15 +13,15 @@ describe('RecipeDetails', () => {
       route: '/recipes/1',
     })
 
-    await waitFor(() => screen.getByText('Pasta Carbonara'))
+    await screen.findByText('Pasta Carbonara')
 
-    await waitFor(() => screen.getByText('Ingredients'))
-    await waitFor(() => screen.getByText('pasta'))
-    await waitFor(() => screen.getByText('egg'))
-    await waitFor(() => screen.getByText('guanciale'))
+    await screen.findByText('Ingredients')
+    await screen.findByText('pasta')
+    await screen.findByText('egg')
+    await screen.findByText('guanciale')
 
-    await waitFor(() => screen.getByText('Steps'))
-    await waitFor(() => screen.getByText('boil the pasta'))
-    await waitFor(() => screen.getByText('fry the guanciale'))
+    await screen.findByText('Steps')
+    await screen.findByText('boil the pasta')
+    await screen.findByText('fry the guanciale')
   })
 })

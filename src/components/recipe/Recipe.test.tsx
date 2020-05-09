@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { screen, waitFor } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import Recipe from './Recipe'
 import { recipe } from '@testing/__fixtures__'
 
@@ -10,7 +10,7 @@ describe('Recipe', () => {
   it('renders the actions', async () => {
     fullRender(<Recipe recipe={recipe()} showActions />)
 
-    await waitFor(() => screen.getByText('DETAILS'))
+    await screen.findByText('DETAILS')
   })
 
   it('does not render actions', async () => {

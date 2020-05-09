@@ -22,7 +22,7 @@ describe('Steps', () => {
 
   it('renders without crashing', async () => {
     fullRender(<StepsInForm />)
-    await waitFor(() => screen.getByTestId('steps'))
+    await screen.findByTestId('steps')
   })
 
   it('adds steps', async () => {
@@ -44,7 +44,7 @@ describe('Steps', () => {
     fullRender(<StepsInForm />)
 
     userEvent.click(screen.getByTestId('add-step'))
-    await waitFor(() => screen.getByTestId('step'))
+    await screen.findByTestId('add-step')
     userEvent.click(screen.getByTestId('remove-step'))
 
     await waitFor(() => {

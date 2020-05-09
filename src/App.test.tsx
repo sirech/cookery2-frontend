@@ -1,7 +1,7 @@
 import React from 'react'
 import userEvent from '@testing-library/user-event'
 
-import { screen, waitFor } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import App from './App'
 import { fullRender } from '@testing'
 
@@ -12,13 +12,13 @@ describe('App', () => {
   it('renders without crashing', async () => {
     fullRender(<App />)
 
-    await waitFor(() => screen.getByTestId('app'))
+    await screen.findByTestId('app')
   })
 
   it('renders new recipe form', async () => {
     fullRender(<App />, { route: '/recipes/new' })
 
-    await waitFor(() => screen.getByTestId('new-recipe'))
+    await screen.findByTestId('new-recipe')
   })
 
   it('renders a recipe list', async () => {
@@ -27,31 +27,28 @@ describe('App', () => {
     })
 
     // Navigate to list of recipes
-    await waitFor(() => screen.getByTestId('recipe-list'))
+    await screen.findByTestId('recipe-list')
 
     // Select one recipe
-    await waitFor(() => screen.getByText('Pasta Carbonara'))
+    await screen.findByText('Pasta Carbonara')
     userEvent.click(screen.getAllByText('DETAILS')[0])
-    await waitFor(() => [
-      screen.getByText('Steps'),
-      screen.getByText('Ingredients'),
-    ])
-    await waitFor(() => screen.getByText('egg'))
+    await screen.findByText('Steps')
+    await screen.findByText('Ingredients'), await screen.findByText('egg')
 
     // Go back
-    userEvent.click(screen.getByText('Back'))
-    await waitFor(() => screen.getByTestId('recipe-list'))
+    userEvent.click(await screen.findByText('Back'))
+    await screen.findByTestId('recipe-list')
   })
 
   it('renders recipe details', async () => {
     fullRender(<App />, { route: '/recipes/1' })
 
-    await waitFor(() => screen.getByTestId('recipe-details'))
+    await screen.findByTestId('recipe-details')
   })
 
   it('redirects to recipes list', async () => {
     fullRender(<App />, { route: '/' })
 
-    await waitFor(() => screen.getByTestId('recipe-list'))
+    await screen.findByTestId('recipe-list')
   })
 })

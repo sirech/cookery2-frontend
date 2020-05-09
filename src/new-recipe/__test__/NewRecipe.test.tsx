@@ -14,7 +14,7 @@ describe('NewRecipe', () => {
   it('renders without crashing', async () => {
     fullRender(<Route component={NewRecipe} />)
 
-    await waitFor(() => screen.getByTestId('new-recipe'))
+    await screen.findByTestId('new-recipe')
   })
 
   it('fills the form', async () => {

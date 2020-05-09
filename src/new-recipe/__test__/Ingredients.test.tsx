@@ -23,7 +23,7 @@ describe('Ingredients', () => {
   it('renders without crashing', async () => {
     fullRender(<IngredientsInForm />)
 
-    await waitFor(() => screen.getByTestId('ingredients'))
+    await screen.findByTestId('ingredients')
   })
 
   it('adds ingredients', async () => {
@@ -45,7 +45,7 @@ describe('Ingredients', () => {
     fullRender(<IngredientsInForm />)
 
     userEvent.click(screen.getByTestId('add-ingredient'))
-    await waitFor(() => screen.getByTestId('ingredient'))
+    await screen.findByTestId('add-ingredient')
     userEvent.click(screen.getByTestId('remove-ingredient'))
 
     await waitFor(() => {
