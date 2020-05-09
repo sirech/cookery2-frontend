@@ -11,7 +11,7 @@
     "format": "prettier --write \"**/*.+(ts|tsx|json|css|scss)\"",
     "start": "PORT=3003 react-scripts start",
     "pretest": "tsc --noEmit",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
     "watch": "react-scripts test --verbose=false",
     "bundle": "npm run build && source-map-explorer 'build/static/js/*.js'"
@@ -48,9 +48,9 @@
     "extends": "stylelint-config-recommended"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.5.0",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^10.1.0",
+    "@testing-library/jest-dom": "^5.7.0",
+    "@testing-library/react": "^10.0.4",
+    "@testing-library/user-event": "^10.1.2",
     "@types/auth0-js": "^9.12.4",
     "@types/classnames": "^2.2.10",
     "@types/jest": "^25.2.1",
@@ -75,6 +75,7 @@
     "eslint-plugin-react-hooks": "^3.0.0",
     "http-proxy-middleware": "^1.0.3",
     "husky": "^4.2.5",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "lint-staged": "^10.2.2",
     "pact": "^4.3.2",
     "prettier": "^2.0.5",

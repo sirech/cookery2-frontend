@@ -1,13 +1,12 @@
 import axios from 'axios'
 import '@testing-library/jest-dom/extend-expect'
-import { cleanup } from '@testing-library/react'
 
 console.error = jest.fn()
 
 const spies = {
   get: jest.spyOn(axios, 'get'),
   patch: jest.spyOn(axios, 'patch'),
-  post: jest.spyOn(axios, 'post')
+  post: jest.spyOn(axios, 'post'),
 }
 
 beforeEach(() => {
@@ -21,4 +20,3 @@ afterEach(() => {
 
   expect(console.error).not.toHaveBeenCalled()
 })
-afterEach(cleanup)
