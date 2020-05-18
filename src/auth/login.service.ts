@@ -1,9 +1,9 @@
-import auth0, { Auth0DecodedHash } from 'auth0-js'
+import { Auth0DecodedHash, WebAuth } from 'auth0-js'
 
 const redirectUri = () => `${process.env.REACT_APP_HOST}/callback`
 
 const auth0Client = () => {
-  return new auth0.WebAuth({
+  return new WebAuth({
     clientID: 'ThEkgdG1NndLlWoNMcEdEr2KJIs9vKad',
     domain: 'hceris.eu.auth0.com',
     responseType: 'token id_token',
