@@ -27,10 +27,10 @@
     "ramda": "^0.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.1.2",
-    "react-use": "^14.2.0",
-    "typescript": "3.8.3",
-    "yup": "^0.28.5"
+    "react-router-dom": "^5.2.0",
+    "react-use": "^15.1.0",
+    "typescript": "3.9.3",
+    "yup": "^0.29.0"
   },
   "browserslist": {
     "production": [
@@ -60,7 +60,7 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.5",
     "@types/recompose": "^0.30.7",
-    "@types/yup": "^0.28.3",
+    "@types/yup": "^0.29.0",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
     "coveralls": "^3.1.0",
