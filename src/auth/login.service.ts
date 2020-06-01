@@ -13,7 +13,7 @@ const auth0Client = () => {
   })
 }
 
-export const checkLogin = (setUser: (user: string) => void) => {
+export const checkLogin = (setUser: (user: string) => void): void => {
   auth0Client().parseHash((err, authResult: Auth0DecodedHash | null) => {
     if (authResult && authResult.accessToken) {
       window.location.hash = ''
@@ -30,13 +30,13 @@ export const checkLogin = (setUser: (user: string) => void) => {
   })
 }
 
-export const logout = (setUser: (user: null) => void) => {
+export const logout = (setUser: (user: null) => void): void => {
   localStorage.removeItem('authToken')
   localStorage.removeItem('expiresAt')
   localStorage.removeItem('user')
   setUser(null)
 }
 
-export const login = () => {
+export const login = (): void => {
   auth0Client().authorize()
 }

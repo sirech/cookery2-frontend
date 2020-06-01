@@ -1,7 +1,11 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: './tsconfig.json',
+  },
   extends: [
     'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:react/recommended',
     'prettier/@typescript-eslint',
     'plugin:css-modules/recommended',

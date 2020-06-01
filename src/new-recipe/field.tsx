@@ -6,6 +6,7 @@ import { Field } from 'formik'
 import { TextField } from 'formik-material-ui'
 import { Option } from './types'
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const select = (
   id: string,
   options: Option[],
@@ -29,6 +30,7 @@ export const select = (
   </Field>
 )
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const field = (
   id: string,
   { label = undefined, type = 'text' }: { label?: string; type?: string } = {}

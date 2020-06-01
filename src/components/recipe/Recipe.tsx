@@ -30,7 +30,7 @@ interface Props {
   showActions: boolean
 }
 
-const Recipe = ({ recipe, showActions }: Props) => (
+const Recipe: React.FC<Props> = ({ recipe, showActions }: Props) => (
   <Card>
     <CardHeader title={recipe.name}></CardHeader>
     <CardContent>

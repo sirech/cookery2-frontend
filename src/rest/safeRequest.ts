@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios'
-import { Either, left, right } from 'either'
 
-export type NetworkError = { _brand: 'service-error'; code: string }
+import { NetworkError } from './types'
+import { Either, left, right } from 'either'
 
 export const safeRequest = async <T>(
   request: () => Promise<AxiosResponse<T>>,

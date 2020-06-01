@@ -17,7 +17,7 @@ interface Props {
   remove: (index: number) => void
 }
 
-const Step = ({ index, remove }: Props) => (
+const Step: React.FC<Props> = ({ index, remove }: Props) => (
   <Card data-testid="step" key={index}>
     <CardHeader
       subheader={`Step ${index + 1}`}

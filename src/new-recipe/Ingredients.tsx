@@ -19,7 +19,7 @@ interface Props {
   list: IngredientType[]
 }
 
-const Ingredients = ({ list }: Props) => (
+const Ingredients: React.FC<Props> = ({ list }: Props) => (
   <FieldArray
     name="ingredients"
     render={({ push, remove }: FieldArrayRenderProps) => (

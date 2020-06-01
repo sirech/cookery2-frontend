@@ -6,7 +6,7 @@ import { Grid } from '@material-ui/core'
 import { recipeList } from './recipeList.service'
 import Recipe from 'components/recipe'
 
-const RecipeList = () => {
+const RecipeList: React.FC = () => {
   const state = useAsync(recipeList, [])
 
   return (

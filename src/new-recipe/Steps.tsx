@@ -15,7 +15,7 @@ interface Props {
   list: StepType[]
 }
 
-const Steps = ({ list }: Props) => (
+const Steps: React.FC<Props> = ({ list }: Props) => (
   <FieldArray
     name="steps"
     render={({ push, remove }: FieldArrayRenderProps) => (

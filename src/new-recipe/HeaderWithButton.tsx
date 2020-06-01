@@ -10,7 +10,11 @@ interface Props {
   onClick: () => void
 }
 
-const HeaderWithButton = ({ title, testid, onClick }: Props) => (
+const HeaderWithButton: React.FC<Props> = ({
+  title,
+  testid,
+  onClick,
+}: Props) => (
   <CardHeader
     title={title}
     action={

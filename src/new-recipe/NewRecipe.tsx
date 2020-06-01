@@ -27,7 +27,7 @@ const initialValues: RecipeForm = {
   ingredients: [emptyIngredient()],
 }
 
-const NewRecipe = ({ history }: Props) => (
+const NewRecipe: React.FC<Props> = ({ history }: Props) => (
   <section data-testid="new-recipe">
     <Formik
       initialValues={initialValues}

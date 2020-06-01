@@ -14,7 +14,7 @@ interface Props {
   list: IngredientType[]
 }
 
-const Ingredients = ({ list }: Props) => (
+const Ingredients: React.FC<Props> = ({ list }: Props) => (
   <Card>
     <CardHeader title="Ingredients" />
     <CardContent>

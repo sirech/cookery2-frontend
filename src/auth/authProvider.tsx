@@ -23,7 +23,7 @@ interface Props {
   children?: React.ReactNode
 }
 
-const AuthenticationProvider = (props: Props) => {
+const AuthenticationProvider: React.FC<Props> = (props: Props) => {
   const expiresAt = localStorage.getItem('expiresAt')
 
   if (expiresAt && Date.parse(expiresAt) < Date.now()) {
@@ -49,4 +49,4 @@ const AuthenticationProvider = (props: Props) => {
 
 export default AuthenticationProvider
 
-export const useAuthentication = () => useContext(AuthContext)
+export const useAuthentication = (): ContextType => useContext(AuthContext)

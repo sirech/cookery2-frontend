@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 
 const addAuthorization = (headers: Record<string, string>) => {
   const token = localStorage.getItem('authToken')
@@ -8,7 +8,10 @@ const addAuthorization = (headers: Record<string, string>) => {
   }
 }
 
-export const post = (url: string, data: unknown) => {
+export const post = <T>(
+  url: string,
+  data: unknown
+): Promise<AxiosResponse<T>> => {
   const DEFAULT_OPTIONS = {
     credentials: 'same-origin',
     headers: {

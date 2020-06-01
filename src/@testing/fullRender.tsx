@@ -4,6 +4,7 @@ import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 import { render } from '@testing-library/react'
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const fullRender = (
   children: React.ReactNode,
   {

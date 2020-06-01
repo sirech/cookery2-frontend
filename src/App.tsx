@@ -9,7 +9,7 @@ import RecipeList from 'recipe-list'
 import RecipeDetails from 'recipe-details'
 import Callback from 'callback'
 
-const App = () => (
+const App: React.FC = () => (
   <div data-testid="app">
     <CssBaseline />
 

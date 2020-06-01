@@ -14,7 +14,7 @@ interface Props {
   list: StepType[]
 }
 
-const Steps = ({ list }: Props) => (
+const Steps: React.FC<Props> = ({ list }: Props) => (
   <Card>
     <CardHeader title="Steps" />
     <CardContent>

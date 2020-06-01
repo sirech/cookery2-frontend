@@ -15,7 +15,7 @@ interface Props {
 const units = () =>
   ingredientList.map((ingredient) => ({ value: ingredient, label: ingredient }))
 
-const Ingredient = ({ index, remove }: Props) => (
+const Ingredient: React.FC<Props> = ({ index, remove }: Props) => (
   <div data-testid="ingredient" key={index}>
     <Grid container spacing={1}>
       <Grid item xs={12} sm={7}>

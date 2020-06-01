@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 import { useAuthentication } from 'auth'
 
-const Callback = () => {
+const Callback: React.FC = () => {
   const { user, checkLogin } = useAuthentication()
 
   useEffect(() => {

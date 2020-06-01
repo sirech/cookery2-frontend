@@ -13,7 +13,7 @@ import { Recipe as RecipeType } from 'new-recipe/types'
 
 type Props = RouteComponentProps<{ id: string }>
 
-const RecipeDetails = ({
+const RecipeDetails: React.FC<Props> = ({
   match: {
     params: { id },
   },

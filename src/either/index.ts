@@ -17,7 +17,7 @@ export const fold = <L, R, T>(
   value: Either<L, R>,
   ifLeft: (value: L) => T,
   ifRight: (value: R) => T
-) => {
+): T => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const unreachable = (_x: never): never => {
     throw new Error('undefined branch')
@@ -28,6 +28,6 @@ export const fold = <L, R, T>(
     case 'right':
       return ifRight(value.value)
     default:
-      unreachable(value)
+      return unreachable(value)
   }
 }

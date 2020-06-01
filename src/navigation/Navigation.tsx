@@ -22,7 +22,7 @@ const Logout = ({ onClick }: ClickHandler) => (
   </IconButton>
 )
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
   const auth = useAuthentication()
   return (
     <AppBar data-testid="navigation">
