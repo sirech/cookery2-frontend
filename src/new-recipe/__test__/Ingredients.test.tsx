@@ -36,6 +36,7 @@ describe('Ingredients', () => {
     userEvent.click(screen.getByText('Submit'))
 
     await waitFor(() => expect(onSubmit).toHaveBeenCalledTimes(1))
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     expect(onSubmit.mock.calls[0][0].ingredients).toStrictEqual([
       { name: 'Salt', quantity: 10, unit: 'gr' },
     ])

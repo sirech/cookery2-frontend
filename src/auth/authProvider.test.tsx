@@ -20,7 +20,7 @@ describe('AuthProvider', () => {
     </AuthProvider>
   )
 
-  it('does not display content if logged out', async () => {
+  it('does not display content if logged out', () => {
     render(<Context />)
     expect(screen.queryByText('Dude')).toBeNull()
   })

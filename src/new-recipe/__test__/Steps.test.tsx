@@ -35,6 +35,7 @@ describe('Steps', () => {
     userEvent.click(screen.getByText('Submit'))
 
     await waitFor(() => expect(onSubmit).toHaveBeenCalledTimes(1))
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     expect(onSubmit.mock.calls[0][0].steps).toStrictEqual([
       { duration: 10, description: 'Shake it shake it' },
     ])

@@ -13,9 +13,8 @@ describe('Recipe', () => {
     await screen.findByText('DETAILS')
   })
 
-  it('does not render actions', async () => {
+  it('does not render actions', () => {
     fullRender(<Recipe recipe={recipe()} showActions={false} />)
-
     expect(screen.queryByText('DETAILS')).toBeNull()
   })
 })

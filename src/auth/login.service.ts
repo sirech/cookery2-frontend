@@ -1,6 +1,7 @@
 import { Auth0DecodedHash, WebAuth } from 'auth0-js'
 
-const redirectUri = () => `${process.env.REACT_APP_HOST}/callback`
+const host = () => process.env.REACT_APP_HOST || ''
+const redirectUri = () => `${host()}/callback`
 
 const auth0Client = () => {
   return new WebAuth({
@@ -22,7 +23,10 @@ export const checkLogin = (setUser: (user: string) => void): void => {
 
       localStorage.setItem('authToken', authResult.accessToken)
       localStorage.setItem('expiresAt', expiresAt.toString())
+
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       localStorage.setItem('user', authResult.idTokenPayload.nickname)
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       setUser(authResult.idTokenPayload.nickname)
     } else if (err) {
       console.log(err)

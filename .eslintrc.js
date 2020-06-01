@@ -30,6 +30,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/explicit-member-accessibility': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/no-floating-promises': 0,
     'react-hooks/rules-of-hooks': 2,
     'react-hooks/exhaustive-deps': 2,
     'import/no-internal-modules': [
