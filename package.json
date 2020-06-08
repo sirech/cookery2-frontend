@@ -50,7 +50,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.9.0",
     "@testing-library/react": "^10.2.1",
-    "@testing-library/user-event": "^10.4.0",
+    "@testing-library/user-event": "^11.2.1",
     "@types/auth0-js": "^9.13.1",
     "@types/classnames": "^2.2.10",
     "@types/jest": "^25.2.3",
