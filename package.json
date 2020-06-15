@@ -48,7 +48,7 @@
     "extends": "stylelint-config-recommended"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.9.0",
+    "@testing-library/jest-dom": "^5.10.1",
     "@testing-library/react": "^10.2.1",
     "@testing-library/user-event": "^10.4.0",
     "@types/auth0-js": "^9.13.1",
