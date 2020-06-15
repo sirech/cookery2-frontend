@@ -17,7 +17,7 @@
     "bundle": "npm run build && source-map-explorer 'build/static/js/*.js'"
   },
   "dependencies": {
-    "@material-ui/core": "^4.10.1",
+    "@material-ui/core": "^4.10.2",
     "@material-ui/icons": "^4.9.1",
     "auth0-js": "^9.13.2",
     "axios": "^0.19.2",
