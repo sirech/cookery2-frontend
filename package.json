@@ -61,7 +61,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/recompose": "^0.30.7",
     "@types/yup": "^0.29.6",
-    "@typescript-eslint/eslint-plugin": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.0",
     "coveralls": "^3.1.0",
     "eslint-config-prettier": "^6.11.0",
