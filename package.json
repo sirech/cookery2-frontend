@@ -19,7 +19,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
-    "auth0-js": "^9.13.4",
+    "auth0-js": "^9.14.0",
     "axios": "^0.20.0",
     "classnames": "^2.2.6",
     "formik": "^2.1.5",
