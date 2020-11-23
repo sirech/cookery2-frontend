@@ -80,7 +80,7 @@
     "lint-staged": "^10.5.1",
     "pact": "^4.3.2",
     "prettier": "^2.1.2",
-    "react-scripts": "3.4.3",
+    "react-scripts": "4.0.1",
     "source-map-explorer": "^2.5.0",
     "stylelint": "^13.8.0",
     "stylelint-config-recommended": "^3.0.0"
