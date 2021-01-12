@@ -45,6 +45,8 @@ workflows:
     jobs:
       - check
       - deploy:
+          context:
+            - erza
           filters:
             branches:
               only: master
