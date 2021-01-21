@@ -5,6 +5,19 @@ import { screen } from '@testing-library/react'
 import App from './App'
 import { fullRender } from '@testing'
 
+jest.mock('@auth0/auth0-react', () => ({
+  // eslint-disable-next-line react/display-name
+  Auth0Provider: ({ children }: { children?: React.ReactNode }) => (
+    <>{children}</>
+  ),
+  useAuth0: () => ({
+    loginWithRedirect: jest.fn(),
+    logout: jest.fn(),
+    isAuthenticated: true,
+    user: { name: 'user' },
+  }),
+}))
+
 jest.mock('recipe-list/recipeList.service')
 jest.mock('recipe-details/recipeDetails.service')
 
