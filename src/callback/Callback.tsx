@@ -1,16 +1,14 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Redirect } from 'react-router-dom'
-import { useAuthentication } from 'auth'
+
+import { useAuth0 } from '@auth0/auth0-react'
 
 const Callback: React.FC = () => {
-  const { user, checkLogin } = useAuthentication()
+  const { isLoading } = useAuth0()
 
-  useEffect(() => {
-    checkLogin()
-  }, [checkLogin])
   return (
     <>
-      {user && <Redirect to="/" />}
+      {!isLoading && <Redirect to="/" />}
       <p>Waiting for log in to be confirmed</p>
     </>
   )

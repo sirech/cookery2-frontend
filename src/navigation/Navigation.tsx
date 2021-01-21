@@ -1,14 +1,16 @@
 import React from 'react'
 
+import { useAuth0 } from '@auth0/auth0-react'
+
 import { AppBar, Toolbar, Link, IconButton } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import AccountCircleOutlined from '@material-ui/icons/AccountCircleOutlined'
 
 import AdapterLink from 'components/adapter-link'
-import { useAuthentication } from 'auth'
 
 type ClickHandler = { onClick: () => void }
+type User = { name: string }
 
 const Login = ({ onClick }: ClickHandler) => (
   <IconButton color="inherit" onClick={onClick}>
@@ -23,7 +25,15 @@ const Logout = ({ onClick }: ClickHandler) => (
 )
 
 const Navigation: React.FC = () => {
-  const auth = useAuthentication()
+  const {
+    loginWithRedirect,
+    logout,
+    isAuthenticated,
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    user,
+  } = useAuth0()
+  const name = user ? (user as User).name : ''
+
   return (
     <AppBar data-testid="navigation">
       <Toolbar>
@@ -38,11 +48,13 @@ const Navigation: React.FC = () => {
           Cookery
         </Link>
 
-        {!auth.user && <Login onClick={() => auth.login()} />}
-        {auth.user && `Hello ${auth.user}`}
-        {auth.user && <Logout onClick={() => auth.logout()} />}
+        {!isAuthenticated && <Login onClick={() => loginWithRedirect()} />}
+        {user && `Hello ${name}`}
+        {isAuthenticated && (
+          <Logout onClick={() => logout({ localOnly: true })} />
+        )}
 
-        {auth.user && (
+        {isAuthenticated && (
           <IconButton to="/recipes/new" color="inherit" component={AdapterLink}>
             <AddIcon />
           </IconButton>
