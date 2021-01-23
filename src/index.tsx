@@ -15,6 +15,7 @@ render(
       domain="hceris.eu.auth0.com"
       clientId="ThEkgdG1NndLlWoNMcEdEr2KJIs9vKad"
       scope="openid profile create:recipes"
+      audience="cookery2.hceris.com"
       redirectUri={redirectUri()}
     >
       <App />
