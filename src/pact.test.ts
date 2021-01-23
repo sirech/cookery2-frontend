@@ -50,7 +50,7 @@ describe('pacts', () => {
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
     it('works', async () => {
-      await newRecipe(recipe)
+      await newRecipe(recipe, '123')
     })
   })
 

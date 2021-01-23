@@ -8,6 +8,11 @@ import NewRecipe from '../NewRecipe'
 
 import { fullRender } from '@testing'
 
+jest.mock('@auth0/auth0-react', () => ({
+  useAuth0: () => ({
+    getAccessTokenSilently: () => '',
+  }),
+}))
 jest.mock('../newRecipe.service')
 
 describe('NewRecipe', () => {

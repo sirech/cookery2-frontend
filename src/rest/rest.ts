@@ -1,16 +1,9 @@
 import axios, { AxiosResponse } from 'axios'
 
-const addAuthorization = (headers: Record<string, string>) => {
-  const token = localStorage.getItem('authToken')
-
-  if (token) {
-    headers['Authorization'] = `Bearer ${token}`
-  }
-}
-
 export const post = <T>(
   url: string,
-  data: unknown
+  data: unknown,
+  headers: Record<string, unknown> = {}
 ): Promise<AxiosResponse<T>> => {
   const DEFAULT_OPTIONS = {
     credentials: 'same-origin',
@@ -20,9 +13,10 @@ export const post = <T>(
     },
   }
 
-  const headers = { ...DEFAULT_OPTIONS.headers }
-  addAuthorization(headers)
-  const options = { ...DEFAULT_OPTIONS, ...{ headers } }
+  const mergedHeaders = { ...DEFAULT_OPTIONS.headers, ...headers }
 
-  return axios.post(url, data, options)
+  return axios.post(url, data, {
+    ...DEFAULT_OPTIONS,
+    ...{ headers: mergedHeaders },
+  })
 }
