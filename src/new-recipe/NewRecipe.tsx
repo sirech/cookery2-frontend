@@ -37,9 +37,7 @@ const NewRecipe: React.FC<Props> = ({ history }: Props) => {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={async (values: RecipeForm) => {
-          const accessToken = await getAccessTokenSilently({
-            scope: 'create:recipes',
-          })
+          const accessToken = await getAccessTokenSilently({})
 
           const response = await newRecipe(values, accessToken)
           fold(
