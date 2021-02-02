@@ -65,7 +65,7 @@ module.exports = {
       typescript: {},
 
       typescript: {
-        directory: './src',
+        project: './src',
       },
     },
   },
