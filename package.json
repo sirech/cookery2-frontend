@@ -77,7 +77,7 @@
     "lint-staged": "^10.5.3",
     "pact": "^4.3.2",
     "prettier": "^2.2.1",
-    "react-scripts": "4.0.1",
+    "react-scripts": "4.0.2",
     "source-map-explorer": "^2.5.2",
     "stylelint": "^13.10.0",
     "stylelint-config-recommended": "^3.0.0"
