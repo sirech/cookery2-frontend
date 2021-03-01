@@ -12,7 +12,8 @@
     "linter:js": "npx eslint --config .eslintrc.js 'src/**/*.{ts,tsx}' --max-warnings 0",
     "linter:css": "npx stylelint 'src/**/*.css'",
     "watch": "react-scripts test --verbose=false",
-    "bundle": "npm run build && source-map-explorer 'build/static/js/*.js'"
+    "bundle": "npm run build && source-map-explorer 'build/static/js/*.js'",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@auth0/auth0-react": "^1.3.0",
@@ -27,7 +28,7 @@
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-use": "^17.1.1",
-    "typescript": "4.1.5",
+    "typescript": "4.2.2",
     "yup": "^0.32.9"
   },
   "browserslist": {
@@ -61,7 +62,7 @@
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.2",
     "coveralls": "^3.1.0",
-    "eslint-config-prettier": "^7.2.0",
+    "eslint-config-prettier": "^8.1.0",
     "eslint-config-react": "^1.1.7",
     "eslint-import-resolver-typescript": "^2.4.0",
     "eslint-plugin-css-modules": "^2.11.0",
@@ -72,22 +73,17 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^3.10.1",
     "http-proxy-middleware": "^1.0.6",
-    "husky": "^4.3.8",
+    "husky": "^5.1.2",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "lint-staged": "^10.5.4",
     "pact": "^4.3.2",
     "prettier": "^2.2.1",
-    "react-scripts": "4.0.2",
+    "react-scripts": "4.0.3",
     "source-map-explorer": "^2.5.2",
     "stylelint": "^13.11.0",
     "stylelint-config-recommended": "^3.0.0"
   },
   "proxy": "http://localhost:4003",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --config .eslintrc.js --max-warnings 0",
     "*.scss": "./go linter-css"
