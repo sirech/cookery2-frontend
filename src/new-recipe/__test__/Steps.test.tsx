@@ -30,7 +30,7 @@ describe('Steps', () => {
 
     userEvent.click(screen.getByTestId('add-step'))
     userEvent.type(screen.getByLabelText('description'), 'Shake it shake it')
-    userEvent.type(screen.getByLabelText('duration'), '10')
+    userEvent.type(screen.getByLabelText('duration'), '{selectall}{del}10')
 
     userEvent.click(screen.getByText('Submit'))
 

@@ -31,7 +31,7 @@ describe('Ingredients', () => {
 
     userEvent.click(screen.getByTestId('add-ingredient'))
     userEvent.type(screen.getByLabelText('ingredient'), 'Salt')
-    userEvent.type(screen.getByLabelText('quantity'), '10')
+    userEvent.type(screen.getByLabelText('quantity'), '{selectall}{del}10')
 
     userEvent.click(screen.getByText('Submit'))
 
