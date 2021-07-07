@@ -1,11 +1,8 @@
 import React from 'react'
 import { Formik } from 'formik'
 
-import { screen, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-
 import Ingredients from '../Ingredients'
-import { fullRender } from '@testing'
+import { screen, waitFor, userEvent, render } from '@testing'
 
 describe('Ingredients', () => {
   const onSubmit = jest.fn()
@@ -21,13 +18,13 @@ describe('Ingredients', () => {
   )
 
   it('renders without crashing', async () => {
-    fullRender(<IngredientsInForm />)
+    render(<IngredientsInForm />)
 
     await screen.findByTestId('ingredients')
   })
 
   it('adds ingredients', async () => {
-    fullRender(<IngredientsInForm />)
+    render(<IngredientsInForm />)
 
     userEvent.click(screen.getByTestId('add-ingredient'))
     userEvent.type(screen.getByLabelText('ingredient'), 'Salt')
@@ -43,7 +40,7 @@ describe('Ingredients', () => {
   })
 
   it('removes ingredients', async () => {
-    fullRender(<IngredientsInForm />)
+    render(<IngredientsInForm />)
 
     userEvent.click(screen.getByTestId('add-ingredient'))
     await screen.findByTestId('add-ingredient')

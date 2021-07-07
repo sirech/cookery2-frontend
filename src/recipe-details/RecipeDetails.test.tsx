@@ -1,15 +1,14 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-import { screen } from '@testing-library/react'
 import RecipeDetails from './RecipeDetails'
-import { fullRender } from '@testing'
+import { screen, render } from '@testing'
 
 jest.mock('recipe-details/recipeDetails.service')
 
 describe('RecipeDetails', () => {
   it('renders correctly', async () => {
-    fullRender(<Route component={RecipeDetails} />, {
+    render(<Route component={RecipeDetails} />, {
       route: '/recipes/1',
     })
 

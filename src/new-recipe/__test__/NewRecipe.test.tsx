@@ -1,12 +1,9 @@
 import React from 'react'
 import { Route } from 'react-router'
 
-import { screen, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-
 import NewRecipe from '../NewRecipe'
 
-import { fullRender } from '@testing'
+import { screen, waitFor, userEvent, render } from '@testing'
 
 jest.mock('@auth0/auth0-react', () => ({
   useAuth0: () => ({
@@ -17,13 +14,13 @@ jest.mock('../newRecipe.service')
 
 describe('NewRecipe', () => {
   it('renders without crashing', async () => {
-    fullRender(<Route component={NewRecipe} />)
+    render(<Route component={NewRecipe} />)
 
     await screen.findByTestId('new-recipe')
   })
 
   it('fills the form', async () => {
-    const { history } = fullRender(<Route component={NewRecipe} />, {
+    const { history } = render(<Route component={NewRecipe} />, {
       route: '/recipes/new',
     })
 

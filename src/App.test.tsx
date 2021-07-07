@@ -1,9 +1,8 @@
 import React from 'react'
 import userEvent from '@testing-library/user-event'
 
-import { screen } from '@testing-library/react'
 import App from './App'
-import { fullRender } from '@testing'
+import { screen, render } from '@testing'
 
 jest.mock('@auth0/auth0-react', () => ({
   // eslint-disable-next-line react/display-name
@@ -23,19 +22,19 @@ jest.mock('recipe-details/recipeDetails.service')
 
 describe('App', () => {
   it('renders without crashing', async () => {
-    fullRender(<App />)
+    render(<App />)
 
     await screen.findByTestId('app')
   })
 
   it('renders new recipe form', async () => {
-    fullRender(<App />, { route: '/recipes/new' })
+    render(<App />, { route: '/recipes/new' })
 
     await screen.findByTestId('new-recipe')
   })
 
   it('renders a recipe list', async () => {
-    fullRender(<App />, {
+    render(<App />, {
       route: '/recipes',
     })
 
@@ -54,13 +53,13 @@ describe('App', () => {
   })
 
   it('renders recipe details', async () => {
-    fullRender(<App />, { route: '/recipes/1' })
+    render(<App />, { route: '/recipes/1' })
 
     await screen.findByTestId('recipe-details')
   })
 
   it('redirects to recipes list', async () => {
-    fullRender(<App />, { route: '/' })
+    render(<App />, { route: '/' })
 
     await screen.findByTestId('recipe-list')
   })

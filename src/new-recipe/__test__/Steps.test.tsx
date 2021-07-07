@@ -1,11 +1,8 @@
 import React from 'react'
 import { Formik } from 'formik'
 
-import { screen, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-
 import Steps from '../Steps'
-import { fullRender } from '@testing'
+import { screen, waitFor, userEvent, render } from '@testing'
 
 describe('Steps', () => {
   const onSubmit = jest.fn()
@@ -21,12 +18,12 @@ describe('Steps', () => {
   )
 
   it('renders without crashing', async () => {
-    fullRender(<StepsInForm />)
+    render(<StepsInForm />)
     await screen.findByTestId('steps')
   })
 
   it('adds steps', async () => {
-    fullRender(<StepsInForm />)
+    render(<StepsInForm />)
 
     userEvent.click(screen.getByTestId('add-step'))
     userEvent.type(screen.getByLabelText('description'), 'Shake it shake it')
@@ -42,7 +39,7 @@ describe('Steps', () => {
   })
 
   it('removes steps', async () => {
-    fullRender(<StepsInForm />)
+    render(<StepsInForm />)
 
     userEvent.click(screen.getByTestId('add-step'))
     await screen.findByTestId('add-step')

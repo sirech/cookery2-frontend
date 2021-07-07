@@ -1,12 +1,11 @@
 import React from 'react'
 
-import { screen } from '@testing-library/react'
 import Navigation from './Navigation'
-import { fullRender } from '@testing'
+import { screen, render } from '@testing'
 
 describe('Navigation', () => {
   it('renders without crashing', async () => {
-    fullRender(<Navigation />)
+    render(<Navigation />)
     await screen.findByTestId('navigation')
   })
 })

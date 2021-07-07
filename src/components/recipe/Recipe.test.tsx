@@ -1,20 +1,19 @@
 import React from 'react'
 
-import { screen } from '@testing-library/react'
 import Recipe from './Recipe'
 import { recipe } from '@testing/__fixtures__'
 
-import { fullRender } from '@testing'
+import { screen, render } from '@testing'
 
 describe('Recipe', () => {
   it('renders the actions', async () => {
-    fullRender(<Recipe recipe={recipe()} showActions />)
+    render(<Recipe recipe={recipe()} showActions />)
 
     await screen.findByText('DETAILS')
   })
 
   it('does not render actions', () => {
-    fullRender(<Recipe recipe={recipe()} showActions={false} />)
+    render(<Recipe recipe={recipe()} showActions={false} />)
     expect(screen.queryByText('DETAILS')).toBeNull()
   })
 })
