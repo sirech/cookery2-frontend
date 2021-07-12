@@ -19,9 +19,10 @@ const RecipeDetails: React.FC<Props> = ({
   },
   history,
 }: Props) => {
-  const state = useAsync(async (): Promise<RecipeType> => recipeDetails(id), [
-    id,
-  ])
+  const state = useAsync(
+    async (): Promise<RecipeType> => recipeDetails(id),
+    [id]
+  )
 
   const recipe: RecipeType = state.value || {
     id: 0,
