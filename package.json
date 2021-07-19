@@ -74,7 +74,7 @@
     "eslint-plugin-testing-library": "^4.9.0",
     "http-proxy-middleware": "^2.0.1",
     "husky": "^7.0.1",
-    "lint-staged": "^11.0.0",
+    "lint-staged": "^11.0.1",
     "pact": "^4.3.2",
     "prettier": "^2.3.2",
     "react-scripts": "4.0.3",
