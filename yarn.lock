@@ -3079,16 +3079,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*":
-  version "17.0.14"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.14.tgz#f0629761ca02945c4e8fea99b8177f4c5c61fb0f"
-  integrity sha512-0WwKHUbWuQWOce61UexYuWTGuGY/8JvtUe/dtQ6lR4sZ3UiylHotJeWpf3ArP9+DSGUoLY3wbU59VyMrJps5VQ==
-  dependencies:
-    "@types/prop-types" "*"
-    "@types/scheduler" "*"
-    csstype "^3.0.2"
-
-"@types/react@^17.0.15":
+"@types/react@*", "@types/react@^17.0.15":
   version "17.0.15"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.15.tgz#c7533dc38025677e312606502df7656a6ea626d0"
   integrity sha512-uTKHDK9STXFHLaKv6IMnwp52fm0hwU+N89w/p9grdUqcFA6WuqDyPhaWopbNyE1k/VhgzmHl8pu1L4wITtmlLw==
@@ -3097,10 +3088,10 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/recompose@^0.30.8":
-  version "0.30.8"
-  resolved "https://registry.yarnpkg.com/@types/recompose/-/recompose-0.30.8.tgz#e42e6be3426b464466aff3c9691157a8ff49c618"
-  integrity sha512-AfyR61Y2eTGGQ2KLBY2CP8Q49GAI/49jlwI2nejgR93yleekdYxg5D1LuoNBq5mAd0PNbNLcMjEKo71f4AK+KA==
+"@types/recompose@^0.30.10":
+  version "0.30.10"
+  resolved "https://registry.yarnpkg.com/@types/recompose/-/recompose-0.30.10.tgz#b6ab1743c279f463f2b62ccb90b82433dcea63c5"
+  integrity sha512-oF1ulwi5Tz7L9jZE870CCyD6n/nvCLNaGMp/oMEnm4gd7doc67rSHtypM6MFDiI6BKjTXoR87CwhET5JJInDFQ==
   dependencies:
     "@types/react" "*"
 
