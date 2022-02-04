@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "config:base",
+    ":preserveSemverRanges",
+    ":rebaseStalePrs",
+    ":automergePatch",
+    ":automergeLinters",
+    ":automergeTesters"
+  ]
+}
