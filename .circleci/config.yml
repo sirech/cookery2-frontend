@@ -4,8 +4,8 @@ jobs:
     working_directory: ~/app
 
     docker:
-      - image: cimg/node:14.16.1
-
+      - image: cimg/node:14.19.0
+   
     steps:
       - checkout
       - run: yarn
@@ -30,7 +30,7 @@ jobs:
 
   deploy:
     docker:
-      - image: cimg/node:14.16.1
+      - image: cimg/node:14.19.0
 
     steps:
       - add_ssh_keys:
