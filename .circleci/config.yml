@@ -5,7 +5,7 @@ jobs:
 
     docker:
       - image: cimg/node:14.19.0
-
+   
     steps:
       - checkout
       - run: yarn
