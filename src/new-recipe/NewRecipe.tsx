@@ -73,7 +73,7 @@ const NewRecipe: React.FC<Props> = ({ history }: Props) => {
                 <Button
                   color="primary"
                   variant="contained"
-                  onClick={submitForm}
+                  onClick={() => void submitForm()}
                 >
                   Create
                 </Button>

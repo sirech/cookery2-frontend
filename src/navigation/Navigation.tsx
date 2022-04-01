@@ -48,7 +48,7 @@ const Navigation: React.FC = () => {
           Cookery
         </Link>
 
-        {!isAuthenticated && <Login onClick={() => loginWithRedirect()} />}
+        {!isAuthenticated && <Login onClick={() => void loginWithRedirect()} />}
         {user && `Hello ${name}`}
         {isAuthenticated && (
           <Logout onClick={() => logout({ localOnly: true })} />
