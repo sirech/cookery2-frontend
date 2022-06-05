@@ -40,7 +40,7 @@ module.exports = {
           '**/types',
           '**/*.service',
           '@material-ui/icons/*',
-          'pact/src/dsl/interaction',
+          '@pact-foundation/pact/src/dsl/interaction',
         ],
       },
     ],

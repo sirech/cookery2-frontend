@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { Matchers } from 'pact'
-import { InteractionObject } from 'pact/src/dsl/interaction'
+import { Matchers } from '@pact-foundation/pact'
+import { InteractionObject } from '@pact-foundation/pact/src/dsl/interaction'
 import { provider as createProvider } from '@testing'
 import { recipeForm } from '@testing/__fixtures__'
 
