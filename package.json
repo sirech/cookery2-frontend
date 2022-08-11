@@ -80,7 +80,7 @@
     "react-scripts": "5.0.1",
     "source-map-explorer": "^2.5.2",
     "stylelint": "^14.0.0",
-    "stylelint-config-recommended": "^8.0.0"
+    "stylelint-config-recommended": "^9.0.0"
   },
   "proxy": "http://localhost:4003",
   "lint-staged": {
