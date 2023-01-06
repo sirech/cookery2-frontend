@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Build and package
           command: |
-            REACT_APP_HOST=$SITE_URL INLINE_RUNTIME_CHUNK=false yarn run build
+            DISABLE_ESLINT_PLUGIN=true REACT_APP_HOST=$SITE_URL INLINE_RUNTIME_CHUNK=false yarn run build
             find build/static -regextype posix-basic -regex '.*\.\(js\|css\)\(.map\)\?$' -print0 | xargs --null -I@ sh -c "gzip -c @ > @.gz"
 
       - persist_to_workspace:
