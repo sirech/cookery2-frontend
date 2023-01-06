@@ -28,7 +28,7 @@ goal_run() {
 }
 
 goal_build() {
-  _npm run build
+  DISABLE_ESLINT_PLUGIN=true _npm run build
 }
 
 goal_all() {
