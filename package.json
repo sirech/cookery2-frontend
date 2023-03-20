@@ -79,7 +79,7 @@
     "prettier": "^2.8.1",
     "react-scripts": "5.0.1",
     "source-map-explorer": "^2.5.3",
-    "stylelint": "^14.16.1",
+    "stylelint": "^15.0.0",
     "stylelint-config-recommended": "^9.0.0"
   },
   "proxy": "http://localhost:4003",
