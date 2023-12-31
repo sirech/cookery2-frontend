@@ -2,34 +2,12 @@
   "consumer": {
     "name": "frontend"
   },
-  "provider": {
-    "name": "backend"
-  },
   "interactions": [
     {
       "description": "a request to create a recipe",
       "providerState": "i am logged in",
       "request": {
-        "method": "POST",
-        "path": "/rest/recipes",
-        "headers": {
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-          "Authorization": "Bearer 123"
-        },
         "body": {
-          "name": "carbonara",
-          "servings": 2,
-          "steps": [
-            {
-              "description": "cook the pasta",
-              "duration": 15
-            },
-            {
-              "description": "fry the bacon",
-              "duration": 5
-            }
-          ],
           "ingredients": [
             {
               "name": "pasta",
@@ -41,64 +19,41 @@
               "quantity": 150,
               "unit": "gr"
             }
+          ],
+          "name": "carbonara",
+          "servings": 2,
+          "steps": [
+            {
+              "description": "cook the pasta",
+              "duration": 15
+            },
+            {
+              "description": "fry the bacon",
+              "duration": 5
+            }
           ]
-        }
-      },
-      "response": {
-        "status": 201,
+        },
         "headers": {
+          "Accept": "application/json",
+          "Authorization": "Bearer 123",
           "Content-Type": "application/json"
         },
-        "body": {
-          "id": 1
-        },
-        "matchingRules": {
-          "$.body": {
-            "match": "type"
-          }
-        }
-      }
-    },
-    {
-      "description": "a request to get recipes",
-      "providerState": "i have a list of recipes",
-      "request": {
-        "method": "GET",
+        "method": "POST",
         "path": "/rest/recipes"
       },
       "response": {
-        "status": 200,
+        "body": {
+          "id": 1
+        },
         "headers": {
           "Content-Type": "application/json"
         },
-        "body": [
-          {
-            "id": 1,
-            "name": "pasta carbonara",
-            "servings": 4,
-            "duration": 35
-          }
-        ],
         "matchingRules": {
           "$.body": {
-            "min": 1
-          },
-          "$.body[*].*": {
-            "match": "type"
-          },
-          "$.body[*].id": {
-            "match": "type"
-          },
-          "$.body[*].name": {
-            "match": "type"
-          },
-          "$.body[*].servings": {
-            "match": "type"
-          },
-          "$.body[*].duration": {
             "match": "type"
           }
-        }
+        },
+        "status": 201
       }
     },
     {
@@ -109,34 +64,49 @@
         "path": "/rest/recipes/1"
       },
       "response": {
-        "status": 200,
-        "headers": {
-          "Content-Type": "application/json"
-        },
         "body": {
-          "id": 1,
-          "name": "pasta carbonara",
-          "servings": 4,
           "duration": 35,
-          "steps": [
-            {
-              "description": "boil the pasta",
-              "duration": 10
-            }
-          ],
+          "id": 1,
           "ingredients": [
             {
               "name": "egg",
               "quantity": 3,
               "unit": "gr"
             }
+          ],
+          "name": "pasta carbonara",
+          "servings": 4,
+          "steps": [
+            {
+              "description": "boil the pasta",
+              "duration": 10
+            }
           ]
+        },
+        "headers": {
+          "Content-Type": "application/json"
         },
         "matchingRules": {
           "$.body": {
             "match": "type"
           },
+          "$.body.duration": {
+            "match": "type"
+          },
           "$.body.id": {
+            "match": "type"
+          },
+          "$.body.ingredients": {
+            "match": "type",
+            "min": 1
+          },
+          "$.body.ingredients[*].name": {
+            "match": "type"
+          },
+          "$.body.ingredients[*].quantity": {
+            "match": "type"
+          },
+          "$.body.ingredients[*].unit": {
             "match": "type"
           },
           "$.body.name": {
@@ -145,22 +115,102 @@
           "$.body.servings": {
             "match": "type"
           },
-          "$.body.duration": {
-            "match": "type"
-          },
           "$.body.steps": {
+            "match": "type",
             "min": 1
-          },
-          "$.body.steps[*].*": {
-            "match": "type"
           },
           "$.body.steps[*].description": {
             "match": "type"
           },
           "$.body.steps[*].duration": {
             "match": "type"
+          }
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "a request to get recipes",
+      "providerState": "i have a list of recipes",
+      "request": {
+        "method": "GET",
+        "path": "/rest/recipes"
+      },
+      "response": {
+        "body": [
+          {
+            "duration": 35,
+            "id": 1,
+            "name": "pasta carbonara",
+            "servings": 4
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type",
+            "min": 1
+          },
+          "$.body[*].duration": {
+            "match": "type"
+          },
+          "$.body[*].id": {
+            "match": "type"
+          },
+          "$.body[*].name": {
+            "match": "type"
+          },
+          "$.body[*].servings": {
+            "match": "type"
+          }
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "a request to get one recipe",
+      "providerState": "i have a list of recipes",
+      "request": {
+        "method": "GET",
+        "path": "/rest/recipes/1"
+      },
+      "response": {
+        "body": {
+          "duration": 35,
+          "id": 1,
+          "ingredients": [
+            {
+              "name": "egg",
+              "quantity": 3,
+              "unit": "gr"
+            }
+          ],
+          "name": "pasta carbonara",
+          "servings": 4,
+          "steps": [
+            {
+              "description": "boil the pasta",
+              "duration": 10
+            }
+          ]
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          },
+          "$.body.duration": {
+            "match": "type"
+          },
+          "$.body.id": {
+            "match": "type"
           },
           "$.body.ingredients": {
+            "match": "type",
             "min": 1
           },
           "$.body.ingredients[*].*": {
@@ -174,14 +224,44 @@
           },
           "$.body.ingredients[*].unit": {
             "match": "type"
+          },
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.servings": {
+            "match": "type"
+          },
+          "$.body.steps": {
+            "match": "type",
+            "min": 1
+          },
+          "$.body.steps[*].*": {
+            "match": "type"
+          },
+          "$.body.steps[*].description": {
+            "match": "type"
+          },
+          "$.body.steps[*].duration": {
+            "match": "type"
           }
-        }
+        },
+        "status": 200
       }
     }
   ],
   "metadata": {
+    "pact-js": {
+      "version": "12.1.1"
+    },
+    "pactRust": {
+      "ffi": "0.4.9",
+      "models": "1.1.11"
+    },
     "pactSpecification": {
       "version": "2.0.0"
     }
+  },
+  "provider": {
+    "name": "backend"
   }
 }
