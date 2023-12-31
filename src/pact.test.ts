@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Matchers } from '@pact-foundation/pact'
+import { InterfaceToTemplate, Matchers } from '@pact-foundation/pact'
 import { InteractionObject } from '@pact-foundation/pact/src/dsl/interaction'
 import { provider as createProvider } from '@testing'
 import { recipeForm } from '@testing/__fixtures__'
@@ -7,6 +7,7 @@ import { recipeForm } from '@testing/__fixtures__'
 import { newRecipe } from 'new-recipe/newRecipe.service'
 import { recipeList } from 'recipe-list/recipeList.service'
 import { recipeDetails } from 'recipe-details/recipeDetails.service'
+import { RecipeForm } from 'new-recipe/types'
 
 describe('pacts', () => {
   const provider = createProvider()
@@ -36,7 +37,7 @@ describe('pacts', () => {
             'Content-Type': 'application/json',
             Authorization: 'Bearer 123',
           },
-          body: recipe,
+          body: recipe as unknown as InterfaceToTemplate<RecipeForm>,
         },
         willRespondWith: {
           status: 201,
