@@ -5,7 +5,7 @@ const steps = Yup.array()
     Yup.object().shape({
       description: Yup.string().required(),
       duration: Yup.number().min(1).required(),
-    })
+    }),
   )
   .min(1)
 
@@ -15,7 +15,7 @@ const ingredients = Yup.array()
       name: Yup.string().required(),
       quantity: Yup.number().min(1).required(),
       unit: Yup.string().required(),
-    })
+    }),
   )
   .min(0)
 

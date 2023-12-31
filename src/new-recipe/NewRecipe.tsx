@@ -43,7 +43,7 @@ const NewRecipe: React.FC<Props> = ({ history }: Props) => {
           fold(
             response,
             (error) => console.log('Error happened: ', error.code),
-            (response) => history.push(`/recipes/${response.id}`)
+            (response) => history.push(`/recipes/${response.id}`),
           )
         }}
       >

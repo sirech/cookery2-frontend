@@ -10,7 +10,7 @@ const fullRender = (
   {
     route = '/',
     history = createMemoryHistory({ initialEntries: [route] }),
-  } = {}
+  } = {},
 ) => {
   return {
     ...render(<Router history={history}>{children}</Router>),

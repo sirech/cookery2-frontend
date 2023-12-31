@@ -10,7 +10,7 @@ import { Option } from './types'
 export const select = (
   id: string,
   options: Option[],
-  { label = undefined }: { label?: string } = {}
+  { label = undefined }: { label?: string } = {},
 ) => (
   <Field
     id={id}
@@ -33,7 +33,7 @@ export const select = (
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const field = (
   id: string,
-  { label = undefined, type = 'text' }: { label?: string; type?: string } = {}
+  { label = undefined, type = 'text' }: { label?: string; type?: string } = {},
 ) => (
   <Field
     id={id}

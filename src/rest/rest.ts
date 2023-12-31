@@ -3,7 +3,7 @@ import axios, { AxiosResponse } from 'axios'
 export const post = <T>(
   url: string,
   data: unknown,
-  headers: Record<string, unknown> = {}
+  headers: Record<string, unknown> = {},
 ): Promise<AxiosResponse<T>> => {
   const DEFAULT_OPTIONS = {
     credentials: 'same-origin',

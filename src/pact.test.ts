@@ -25,29 +25,32 @@ describe('pacts', () => {
   afterEach(() => localStorage.removeItem('authToken'))
 
   describe('create recipe', () => {
-    beforeAll(async () => {
-      const interaction: InteractionObject = {
-        state: 'i am logged in',
-        uponReceiving: 'a request to create a recipe',
-        withRequest: {
-          method: 'POST',
-          path: '/rest/recipes',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer 123',
+    beforeAll(
+      async () => {
+        const interaction: InteractionObject = {
+          state: 'i am logged in',
+          uponReceiving: 'a request to create a recipe',
+          withRequest: {
+            method: 'POST',
+            path: '/rest/recipes',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              Authorization: 'Bearer 123',
+            },
+            body: recipe as unknown as InterfaceToTemplate<RecipeForm>,
           },
-          body: recipe as unknown as InterfaceToTemplate<RecipeForm>,
-        },
-        willRespondWith: {
-          status: 201,
-          headers: { 'Content-Type': 'application/json' },
-          body: Matchers.somethingLike({ id: 1 }),
-        },
-      }
+          willRespondWith: {
+            status: 201,
+            headers: { 'Content-Type': 'application/json' },
+            body: Matchers.somethingLike({ id: 1 }),
+          },
+        }
 
-      return provider.addInteraction(interaction)
-    }, 5 * 60 * 1000)
+        return provider.addInteraction(interaction)
+      },
+      5 * 60 * 1000,
+    )
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
     it('works', async () => {
@@ -56,28 +59,31 @@ describe('pacts', () => {
   })
 
   describe('list recipes', () => {
-    beforeAll(async () => {
-      const interaction: InteractionObject = {
-        state: 'i have a list of recipes',
-        uponReceiving: 'a request to get recipes',
-        withRequest: {
-          method: 'GET',
-          path: '/rest/recipes',
-        },
-        willRespondWith: {
-          status: 200,
-          headers: { 'Content-Type': 'application/json' },
-          body: Matchers.eachLike({
-            id: Matchers.somethingLike(1),
-            name: Matchers.somethingLike('pasta carbonara'),
-            servings: Matchers.somethingLike(4),
-            duration: Matchers.somethingLike(35),
-          }),
-        },
-      }
+    beforeAll(
+      async () => {
+        const interaction: InteractionObject = {
+          state: 'i have a list of recipes',
+          uponReceiving: 'a request to get recipes',
+          withRequest: {
+            method: 'GET',
+            path: '/rest/recipes',
+          },
+          willRespondWith: {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' },
+            body: Matchers.eachLike({
+              id: Matchers.somethingLike(1),
+              name: Matchers.somethingLike('pasta carbonara'),
+              servings: Matchers.somethingLike(4),
+              duration: Matchers.somethingLike(35),
+            }),
+          },
+        }
 
-      return provider.addInteraction(interaction)
-    }, 5 * 60 * 1000)
+        return provider.addInteraction(interaction)
+      },
+      5 * 60 * 1000,
+    )
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
     it('works', async () => {
@@ -94,43 +100,46 @@ describe('pacts', () => {
   })
 
   describe('get a recipe', () => {
-    beforeAll(async () => {
-      const interaction: InteractionObject = {
-        state: 'i have a list of recipes',
-        uponReceiving: 'a request to get one recipe',
-        withRequest: {
-          method: 'GET',
-          path: '/rest/recipes/1',
-        },
-        willRespondWith: {
-          status: 200,
-          headers: { 'Content-Type': 'application/json' },
-          body: Matchers.somethingLike({
-            id: Matchers.somethingLike(1),
-            name: Matchers.somethingLike('pasta carbonara'),
-            servings: Matchers.somethingLike(4),
-            duration: Matchers.somethingLike(35),
-            steps: Matchers.eachLike(
-              {
-                description: Matchers.somethingLike('boil the pasta'),
-                duration: Matchers.somethingLike(10),
-              },
-              { min: 1 }
-            ),
-            ingredients: Matchers.eachLike(
-              {
-                name: Matchers.somethingLike('egg'),
-                quantity: Matchers.somethingLike(3),
-                unit: Matchers.somethingLike('gr'),
-              },
-              { min: 1 }
-            ),
-          }),
-        },
-      }
+    beforeAll(
+      async () => {
+        const interaction: InteractionObject = {
+          state: 'i have a list of recipes',
+          uponReceiving: 'a request to get one recipe',
+          withRequest: {
+            method: 'GET',
+            path: '/rest/recipes/1',
+          },
+          willRespondWith: {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' },
+            body: Matchers.somethingLike({
+              id: Matchers.somethingLike(1),
+              name: Matchers.somethingLike('pasta carbonara'),
+              servings: Matchers.somethingLike(4),
+              duration: Matchers.somethingLike(35),
+              steps: Matchers.eachLike(
+                {
+                  description: Matchers.somethingLike('boil the pasta'),
+                  duration: Matchers.somethingLike(10),
+                },
+                { min: 1 },
+              ),
+              ingredients: Matchers.eachLike(
+                {
+                  name: Matchers.somethingLike('egg'),
+                  quantity: Matchers.somethingLike(3),
+                  unit: Matchers.somethingLike('gr'),
+                },
+                { min: 1 },
+              ),
+            }),
+          },
+        }
 
-      return provider.addInteraction(interaction)
-    }, 5 * 60 * 1000)
+        return provider.addInteraction(interaction)
+      },
+      5 * 60 * 1000,
+    )
     afterAll(() => provider.verify(), 5 * 60 * 1000)
 
     it('works', async () => {

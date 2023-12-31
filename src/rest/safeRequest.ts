@@ -8,7 +8,7 @@ const isError = (obj: any): obj is AxiosError => 'code' in obj
 
 export const safeRequest = async <T>(
   request: () => Promise<AxiosResponse<T>>,
-  brand: string
+  brand: string,
 ): Promise<Either<NetworkError, T>> => {
   try {
     const { data } = await request()

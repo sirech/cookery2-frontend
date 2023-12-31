@@ -19,7 +19,7 @@ export const right = <T extends {}>(value: T): Right<T> => ({
 export const fold = <L, R, T>(
   value: Either<L, R>,
   ifLeft: (value: L) => T,
-  ifRight: (value: R) => T
+  ifRight: (value: R) => T,
 ): T => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const unreachable = (_x: never): never => {

@@ -14,7 +14,7 @@ export const ingredientList = [
   'half cup',
   'quarter cup',
 ] as const
-type IngredientUnit = typeof ingredientList[number]
+type IngredientUnit = (typeof ingredientList)[number]
 
 export interface Option {
   value: string
