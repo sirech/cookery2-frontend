@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 import { useAuth0 } from '@auth0/auth0-react'
 
@@ -8,7 +8,7 @@ const Callback: React.FC = () => {
 
   return (
     <>
-      {!isLoading && <Redirect to="/" />}
+      {!isLoading && <Navigate replace to="/" />}
       <p>Waiting for log in to be confirmed</p>
     </>
   )

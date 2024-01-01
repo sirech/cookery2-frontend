@@ -2,7 +2,7 @@ import React from 'react'
 import { Formik } from 'formik'
 
 import Ingredients from '../Ingredients'
-import { screen, waitFor, userEvent, render } from '@testing'
+import { screen, waitFor, render } from '@testing'
 
 describe('Ingredients', () => {
   const onSubmit = jest.fn()
@@ -24,13 +24,13 @@ describe('Ingredients', () => {
   })
 
   it('adds ingredients', async () => {
-    render(<IngredientsInForm />)
+    const { user } = render(<IngredientsInForm />)
 
-    userEvent.click(screen.getByTestId('add-ingredient'))
-    userEvent.type(screen.getByLabelText('ingredient'), 'Salt')
-    userEvent.type(screen.getByLabelText('quantity'), '{selectall}{del}10')
+    await user.click(screen.getByTestId('add-ingredient'))
+    await user.type(screen.getByLabelText('ingredient'), 'Salt')
+    await user.type(screen.getByLabelText('quantity'), '{selectall}{del}10')
 
-    userEvent.click(screen.getByText('Submit'))
+    await user.click(screen.getByText('Submit'))
 
     await waitFor(() => expect(onSubmit).toHaveBeenCalledTimes(1))
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
@@ -40,11 +40,11 @@ describe('Ingredients', () => {
   })
 
   it('removes ingredients', async () => {
-    render(<IngredientsInForm />)
+    const { user } = render(<IngredientsInForm />)
 
-    userEvent.click(screen.getByTestId('add-ingredient'))
+    await user.click(screen.getByTestId('add-ingredient'))
     await screen.findByTestId('add-ingredient')
-    userEvent.click(screen.getByTestId('remove-ingredient'))
+    await user.click(screen.getByTestId('remove-ingredient'))
 
     await waitFor(() => {
       expect(screen.queryByTestId('ingredient')).not.toBeInTheDocument()

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 
 import { CssBaseline, Container, Box } from '@material-ui/core'
 
@@ -17,13 +17,13 @@ const App: React.FC = () => (
 
     <Box mt={12}>
       <Container component="main">
-        <Switch>
-          <Route path="/recipes/new" component={NewRecipe} />
-          <Route path="/recipes/:id" component={RecipeDetails} />
-          <Route path="/recipes" component={RecipeList} />
-          <Route path="/callback" component={Callback} />
-          <Route exact path="/" render={() => <Redirect to="/recipes" />} />
-        </Switch>
+        <Routes>
+          <Route path="/recipes/new" element={<NewRecipe />} />
+          <Route path="/recipes/:id" element={<RecipeDetails />} />
+          <Route path="/recipes" element={<RecipeList />} />
+          <Route path="/callback" element={<Callback />} />
+          <Route path="/" element={<Navigate replace to="/recipes" />} />
+        </Routes>
       </Container>
     </Box>
   </div>

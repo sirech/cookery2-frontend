@@ -4,8 +4,8 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { Button, Grid, Card, CardContent } from '@material-ui/core'
 
 import { Formik, FormikProps } from 'formik'
-import { History } from 'history'
 
+import { useNavigate } from 'react-router-dom'
 import validationSchema from './schema'
 import { RecipeForm } from './types'
 
@@ -17,10 +17,6 @@ import { newRecipe } from './newRecipe.service'
 
 import { fold } from 'either'
 
-interface Props {
-  history: History
-}
-
 const initialValues: RecipeForm = {
   name: '',
   servings: 0,
@@ -28,8 +24,9 @@ const initialValues: RecipeForm = {
   ingredients: [emptyIngredient()],
 }
 
-const NewRecipe: React.FC<Props> = ({ history }: Props) => {
+const NewRecipe = () => {
   const { getAccessTokenSilently } = useAuth0()
+  const navigate = useNavigate()
 
   return (
     <section data-testid="new-recipe">
@@ -43,7 +40,7 @@ const NewRecipe: React.FC<Props> = ({ history }: Props) => {
           fold(
             response,
             (error) => console.log('Error happened: ', error.code),
-            (response) => history.push(`/recipes/${response.id}`),
+            (response) => navigate(`/recipes/${response.id}`),
           )
         }}
       >

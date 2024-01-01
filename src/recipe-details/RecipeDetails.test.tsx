@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 import RecipeDetails from './RecipeDetails'
 import { screen, render } from '@testing'
@@ -8,9 +8,14 @@ jest.mock('recipe-details/recipeDetails.service')
 
 describe('RecipeDetails', () => {
   it('renders correctly', async () => {
-    render(<Route component={RecipeDetails} />, {
-      route: '/recipes/1',
-    })
+    render(
+      <Routes>
+        <Route path="/recipes/:id" element={<RecipeDetails />} />
+      </Routes>,
+      {
+        route: '/recipes/1',
+      },
+    )
 
     await screen.findByText('Pasta Carbonara')
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAsync } from 'react-use'
-import { RouteComponentProps } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { Button, Grid } from '@material-ui/core'
 
@@ -11,14 +11,18 @@ import Ingredients from './Ingredients'
 import Recipe from 'components/recipe'
 import { Recipe as RecipeType } from 'new-recipe/types'
 
-type Props = RouteComponentProps<{ id: string }>
+const RecipeDetails = ({}) => {
+  const { id } = useParams<string>()
 
-const RecipeDetails: React.FC<Props> = ({
-  match: {
-    params: { id },
-  },
-  history,
-}: Props) => {
+  if (!id) {
+    return <></>
+  }
+
+  return <RecipeDetailsImpl id={id} />
+}
+
+const RecipeDetailsImpl = ({ id }: { id: string }) => {
+  const navigate = useNavigate()
   const state = useAsync(
     async (): Promise<RecipeType> => recipeDetails(id),
     [id],
@@ -58,7 +62,7 @@ const RecipeDetails: React.FC<Props> = ({
               <Button
                 color="primary"
                 variant="contained"
-                onClick={() => history.goBack()}
+                onClick={() => navigate(-1)}
               >
                 Back
               </Button>
@@ -69,4 +73,5 @@ const RecipeDetails: React.FC<Props> = ({
     </>
   )
 }
+
 export default RecipeDetails

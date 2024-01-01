@@ -2,7 +2,7 @@ import React from 'react'
 import { Formik } from 'formik'
 
 import Steps from '../Steps'
-import { screen, waitFor, userEvent, render } from '@testing'
+import { screen, waitFor, render } from '@testing'
 
 describe('Steps', () => {
   const onSubmit = jest.fn()
@@ -23,13 +23,13 @@ describe('Steps', () => {
   })
 
   it('adds steps', async () => {
-    render(<StepsInForm />)
+    const { user } = render(<StepsInForm />)
 
-    userEvent.click(screen.getByTestId('add-step'))
-    userEvent.type(screen.getByLabelText('description'), 'Shake it shake it')
-    userEvent.type(screen.getByLabelText('duration'), '{selectall}{del}10')
+    await user.click(screen.getByTestId('add-step'))
+    await user.type(screen.getByLabelText('description'), 'Shake it shake it')
+    await user.type(screen.getByLabelText('duration'), '{selectall}{del}10')
 
-    userEvent.click(screen.getByText('Submit'))
+    await user.click(screen.getByText('Submit'))
 
     await waitFor(() => expect(onSubmit).toHaveBeenCalledTimes(1))
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
@@ -39,11 +39,11 @@ describe('Steps', () => {
   })
 
   it('removes steps', async () => {
-    render(<StepsInForm />)
+    const { user } = render(<StepsInForm />)
 
-    userEvent.click(screen.getByTestId('add-step'))
+    await user.click(screen.getByTestId('add-step'))
     await screen.findByTestId('add-step')
-    userEvent.click(screen.getByTestId('remove-step'))
+    await user.click(screen.getByTestId('remove-step'))
 
     await waitFor(() => {
       expect(screen.queryByTestId('step')).not.toBeInTheDocument()

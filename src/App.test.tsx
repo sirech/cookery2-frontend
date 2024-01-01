@@ -1,5 +1,4 @@
 import React from 'react'
-import userEvent from '@testing-library/user-event'
 
 import App from './App'
 import { screen, render } from '@testing'
@@ -34,7 +33,7 @@ describe('App', () => {
   })
 
   it('renders a recipe list', async () => {
-    render(<App />, {
+    const { user } = render(<App />, {
       route: '/recipes',
     })
 
@@ -43,12 +42,12 @@ describe('App', () => {
 
     // Select one recipe
     await screen.findByText('Pasta Carbonara')
-    userEvent.click(screen.getAllByText('DETAILS')[0])
+    await user.click(screen.getAllByText('DETAILS')[0])
     await screen.findByText('Steps')
     await screen.findByText('Ingredients'), await screen.findByText('egg')
 
     // Go back
-    userEvent.click(await screen.findByText('Back'))
+    await user.click(await screen.findByText('Back'))
     await screen.findByTestId('recipe-list')
   })
 

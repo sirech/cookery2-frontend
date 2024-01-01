@@ -42,7 +42,7 @@ const Recipe: React.FC<Props> = ({ recipe, showActions }: Props) => (
     {showActions && (
       <CardActions>
         <Link
-          to={`/recipes/${recipe.id}`}
+          href={`/recipes/${recipe.id}`}
           color="primary"
           underline="none"
           component={AdapterLink}

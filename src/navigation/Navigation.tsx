@@ -38,7 +38,7 @@ const Navigation: React.FC = () => {
     <AppBar data-testid="navigation">
       <Toolbar>
         <Link
-          to="/recipes"
+          href="/recipes"
           variant="h6"
           style={{ flex: 1 }}
           color="inherit"
@@ -55,7 +55,11 @@ const Navigation: React.FC = () => {
         )}
 
         {isAuthenticated && (
-          <IconButton to="/recipes/new" color="inherit" component={AdapterLink}>
+          <IconButton
+            href="/recipes/new"
+            color="inherit"
+            component={AdapterLink}
+          >
             <AddIcon />
           </IconButton>
         )}
