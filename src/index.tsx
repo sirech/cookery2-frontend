@@ -18,9 +18,11 @@ root.render(
     <Auth0Provider
       domain="hceris.eu.auth0.com"
       clientId="ThEkgdG1NndLlWoNMcEdEr2KJIs9vKad"
-      scope="openid profile create:recipes"
-      audience="cookery2.hceris.com"
-      redirectUri={redirectUri()}
+      authorizationParams={{
+        scope: 'openid profile create:recipes',
+        audience: 'cookery2.hceris.com',
+        redirect_uri: redirectUri(),
+      }}
     >
       <App />
     </Auth0Provider>
