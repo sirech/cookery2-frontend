@@ -4,7 +4,7 @@ jobs:
     working_directory: ~/app
 
     docker:
-      - image: cimg/node:20.11.1
+      - image: cimg/node:21.7.1
    
     steps:
       - checkout
@@ -30,7 +30,7 @@ jobs:
 
   deploy:
     docker:
-      - image: cimg/node:20.11.1
+      - image: cimg/node:21.7.1
 
     steps:
       - add_ssh_keys:
