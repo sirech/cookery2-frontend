@@ -6,12 +6,12 @@ import NewRecipe from '../NewRecipe'
 
 import { screen, render } from '@testing'
 
-jest.mock('@auth0/auth0-react', () => ({
+vi.mock('@auth0/auth0-react', () => ({
   useAuth0: () => ({
     getAccessTokenSilently: () => '',
   }),
 }))
-jest.mock('../newRecipe.service')
+vi.mock('../newRecipe.service')
 
 const newRecipe = () =>
   render(

@@ -7,7 +7,7 @@ import { Auth0Provider } from '@auth0/auth0-react'
 
 import App from './App'
 
-const host = () => process.env.REACT_APP_HOST || ''
+const host = () => import.meta.env.VITE_HOST || ''
 const redirectUri = () => `${host()}/callback`
 
 const container = document.getElementById('root')

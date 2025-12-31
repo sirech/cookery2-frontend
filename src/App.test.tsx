@@ -3,21 +3,21 @@ import React from 'react'
 import App from './App'
 import { screen, render } from '@testing'
 
-jest.mock('@auth0/auth0-react', () => ({
+vi.mock('@auth0/auth0-react', () => ({
   // eslint-disable-next-line react/display-name
   Auth0Provider: ({ children }: { children?: React.ReactNode }) => (
     <>{children}</>
   ),
   useAuth0: () => ({
-    loginWithRedirect: jest.fn(),
-    logout: jest.fn(),
+    loginWithRedirect: vi.fn(),
+    logout: vi.fn(),
     isAuthenticated: true,
     user: { name: 'user' },
   }),
 }))
 
-jest.mock('recipe-list/recipeList.service')
-jest.mock('recipe-details/recipeDetails.service')
+vi.mock('recipe-list/recipeList.service')
+vi.mock('recipe-details/recipeDetails.service')
 
 describe('App', () => {
   it('renders without crashing', async () => {

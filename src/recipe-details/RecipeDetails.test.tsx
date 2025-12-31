@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import RecipeDetails from './RecipeDetails'
 import { screen, render } from '@testing'
 
-jest.mock('recipe-details/recipeDetails.service')
+vi.mock('recipe-details/recipeDetails.service')
 
 describe('RecipeDetails', () => {
   it('renders correctly', async () => {

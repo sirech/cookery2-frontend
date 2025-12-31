@@ -3,6 +3,7 @@ import https from 'node:https'
 import axios from 'axios'
 
 import { Matchers } from '@pact-foundation/pact'
+import { vi } from 'vitest'
 
 import { provider as createProvider } from '@testing'
 import { recipeForm } from '@testing/__fixtures__'
@@ -12,14 +13,14 @@ import { recipeList } from 'recipe-list/recipeList.service'
 import { recipeDetails } from 'recipe-details/recipeDetails.service'
 
 // Pact tests can be slower due to mock server start/stop and verification.
-jest.setTimeout(5 * 60 * 1000)
+vi.setConfig({ testTimeout: 300_000 }) // 5 minutes
 
 describe('pacts', () => {
   const provider = createProvider()
   const recipe = recipeForm()
 
   beforeEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
 
     // keep axios from reusing sockets across tests (helps avoid flaky ECONNRESET in CI)
     axios.defaults.httpAgent = new http.Agent({ keepAlive: false })

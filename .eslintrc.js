@@ -41,6 +41,7 @@ module.exports = {
           '**/*.service',
           '@material-ui/icons/*',
           '@pact-foundation/pact/src/dsl/interaction',
+          'vitest/config',
         ],
       },
     ],
@@ -52,6 +53,7 @@ module.exports = {
   },
   settings: {
     react: { version: 'detect' },
+    jest: { version: 'detect' },
     'import/resolver': {
       typescript: {},
 
