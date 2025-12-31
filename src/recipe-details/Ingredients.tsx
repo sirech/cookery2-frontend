@@ -7,7 +7,7 @@ import {
   TableCell,
   TableBody,
   TableRow,
-} from '@material-ui/core'
+} from '@mui/material'
 import { Ingredient as IngredientType } from 'new-recipe/types'
 
 interface Props {

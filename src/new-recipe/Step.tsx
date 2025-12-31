@@ -1,14 +1,8 @@
 import React from 'react'
 
-import {
-  IconButton,
-  Grid,
-  Card,
-  CardContent,
-  CardHeader,
-} from '@material-ui/core'
+import { IconButton, Grid, Card, CardContent, CardHeader } from '@mui/material'
 
-import ClearIcon from '@material-ui/icons/Clear'
+import { Clear as ClearIcon } from '@mui/icons-material'
 
 import field from './field'
 

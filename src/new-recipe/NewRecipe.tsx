@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useAuth0 } from '@auth0/auth0-react'
-import { Button, Grid, Card, CardContent } from '@material-ui/core'
+import { Button, Grid, Card, CardContent } from '@mui/material'
 
 import { Formik, FormikProps } from 'formik'
 

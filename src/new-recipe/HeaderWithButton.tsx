@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { IconButton, CardHeader } from '@material-ui/core'
+import { IconButton, CardHeader } from '@mui/material'
 
-import AddIcon from '@material-ui/icons/Add'
+import { Add as AddIcon } from '@mui/icons-material'
 
 interface Props {
   title: string

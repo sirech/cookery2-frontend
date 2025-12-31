@@ -2,7 +2,7 @@ import React from 'react'
 import { useAsync } from 'react-use'
 import { useNavigate, useParams } from 'react-router-dom'
 
-import { Button, Grid } from '@material-ui/core'
+import { Button, Grid } from '@mui/material'
 
 import { recipeDetails } from './recipeDetails.service'
 
