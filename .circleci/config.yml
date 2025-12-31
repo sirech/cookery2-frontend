@@ -8,9 +8,9 @@ jobs:
    
     steps:
       - checkout
-      - run: yarn
-      - run: yarn run linter:js
-      - run: yarn test --coverage --runInBand
+      - run: npm install
+      - run: npm run linter:js
+      - run: npm test --coverage --runInBand
       - run:
           name: Upload coverage results
           command: |
@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Build and package
           command: |
-            DISABLE_ESLINT_PLUGIN=true REACT_APP_HOST=$SITE_URL INLINE_RUNTIME_CHUNK=false yarn run build
+            DISABLE_ESLINT_PLUGIN=true REACT_APP_HOST=$SITE_URL INLINE_RUNTIME_CHUNK=false npm run build
             find build/static -regextype posix-basic -regex '.*\.\(js\|css\)\(.map\)\?$' -print0 | xargs --null -I@ sh -c "gzip -c @ > @.gz"
 
       - persist_to_workspace:
