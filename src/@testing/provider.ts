@@ -1,14 +1,12 @@
 import path from 'path'
-import { Pact } from '@pact-foundation/pact'
+import { Pact, SpecificationVersion } from '@pact-foundation/pact'
 
 const provider = () =>
   new Pact({
     port: 8990,
-    log: path.resolve(process.cwd(), 'logs', 'pact.log'),
     dir: path.resolve(process.cwd(), 'pacts'),
-    spec: 2,
+    spec: SpecificationVersion.SPECIFICATION_VERSION_V2,
     consumer: 'frontend',
     provider: 'backend',
-    cors: true,
   })
 export default provider

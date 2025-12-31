@@ -60,6 +60,9 @@
       "description": "a request to get one recipe",
       "providerState": "i have a list of recipes",
       "request": {
+        "headers": {
+          "Accept": "application/json"
+        },
         "method": "GET",
         "path": "/rest/recipes/1"
       },
@@ -90,12 +93,6 @@
           "$.body": {
             "match": "type"
           },
-          "$.body.duration": {
-            "match": "type"
-          },
-          "$.body.id": {
-            "match": "type"
-          },
           "$.body.ingredients": {
             "match": "type",
             "min": 1
@@ -107,12 +104,6 @@
             "match": "type"
           },
           "$.body.ingredients[*].unit": {
-            "match": "type"
-          },
-          "$.body.name": {
-            "match": "type"
-          },
-          "$.body.servings": {
             "match": "type"
           },
           "$.body.steps": {
@@ -133,6 +124,9 @@
       "description": "a request to get recipes",
       "providerState": "i have a list of recipes",
       "request": {
+        "headers": {
+          "Accept": "application/json"
+        },
         "method": "GET",
         "path": "/rest/recipes"
       },
@@ -250,12 +244,9 @@
     }
   ],
   "metadata": {
-    "pact-js": {
-      "version": "12.1.1"
-    },
     "pactRust": {
-      "ffi": "0.4.9",
-      "models": "1.1.11"
+      "ffi": "0.4.28",
+      "models": "1.3.5"
     },
     "pactSpecification": {
       "version": "2.0.0"
