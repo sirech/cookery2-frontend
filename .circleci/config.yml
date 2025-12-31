@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run: npm install --legacy-peer-deps
       - run: npm run linter:js
-      - run: npm test --coverage --runInBand
+      - run: npm test -- --coverage --runInBand
       - run:
           name: Upload coverage results
           command: |
