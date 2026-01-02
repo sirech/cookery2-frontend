@@ -5,7 +5,7 @@ import Steps from '../Steps'
 import { screen, waitFor, render } from '@testing'
 
 describe('Steps', () => {
-  const onSubmit = jest.fn()
+  const onSubmit = vi.fn()
   const StepsInForm = () => (
     <Formik initialValues={{ steps: [] }} onSubmit={onSubmit}>
       {({ handleSubmit, values }) => (

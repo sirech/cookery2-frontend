@@ -1,17 +1,17 @@
 import axios from 'axios'
-import '@testing-library/jest-dom/jest-globals'
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom/vitest'
+import { beforeEach, afterEach, expect, vi } from 'vitest'
 
-console.error = jest.fn()
+console.error = vi.fn()
 
 const spies = {
-  get: jest.spyOn(axios, 'get'),
-  patch: jest.spyOn(axios, 'patch'),
-  post: jest.spyOn(axios, 'post'),
+  get: vi.spyOn(axios, 'get'),
+  patch: vi.spyOn(axios, 'patch'),
+  post: vi.spyOn(axios, 'post'),
 }
 
 beforeEach(() => {
-  jest.resetAllMocks()
+  vi.resetAllMocks()
 })
 
 afterEach(() => {

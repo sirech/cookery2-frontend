@@ -5,7 +5,7 @@ import Ingredients from '../Ingredients'
 import { screen, waitFor, render } from '@testing'
 
 describe('Ingredients', () => {
-  const onSubmit = jest.fn()
+  const onSubmit = vi.fn()
   const IngredientsInForm = () => (
     <Formik initialValues={{ ingredients: [] }} onSubmit={onSubmit}>
       {({ handleSubmit, values }) => (
