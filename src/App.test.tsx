@@ -4,7 +4,6 @@ import App from './App'
 import { screen, render } from '@testing'
 
 vi.mock('@auth0/auth0-react', () => ({
-  // eslint-disable-next-line react/display-name
   Auth0Provider: ({ children }: { children?: React.ReactNode }) => (
     <>{children}</>
   ),
@@ -44,7 +43,8 @@ describe('App', () => {
     await screen.findByText('Pasta Carbonara')
     await user.click(screen.getAllByText('DETAILS')[0])
     await screen.findByText('Steps')
-    await screen.findByText('Ingredients'), await screen.findByText('egg')
+    await screen.findByText('Ingredients')
+    await screen.findByText('egg')
 
     // Go back
     await user.click(await screen.findByText('Back'))
