@@ -8,7 +8,7 @@ jobs:
    
     steps:
       - checkout
-      - run: npm install --legacy-peer-deps
+      - run: npm install
       - run: npm run linter:js
       - run: npm test -- --coverage
       - run:
