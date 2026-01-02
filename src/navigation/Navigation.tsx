@@ -27,13 +27,7 @@ const Logout = ({ onClick }: ClickHandler) => (
 )
 
 const Navigation: React.FC = () => {
-  const {
-    loginWithRedirect,
-    logout,
-    isAuthenticated,
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    user,
-  } = useAuth0()
+  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0()
   const name = user ? (user as User).name : ''
 
   return (

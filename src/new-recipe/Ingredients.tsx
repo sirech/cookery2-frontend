@@ -22,25 +22,30 @@ interface Props {
 const Ingredients: React.FC<Props> = ({ list }: Props) => (
   <FieldArray
     name="ingredients"
-    render={({ push, remove }: FieldArrayRenderProps) => (
-      <Card data-testid="ingredients">
-        <HeaderWithButton
-          title="Ingredients"
-          testid="add-ingredient"
-          onClick={() => push(emptyIngredient())}
-        />
+    render={(fieldArrayHelpers: FieldArrayRenderProps) => {
+      const handleRemove = (removeIndex: number): void => {
+        fieldArrayHelpers.remove(removeIndex)
+      }
+      return (
+        <Card data-testid="ingredients">
+          <HeaderWithButton
+            title="Ingredients"
+            testid="add-ingredient"
+            onClick={() => fieldArrayHelpers.push(emptyIngredient())}
+          />
 
-        <CardContent>
-          <Grid container direction="column" spacing={1}>
-            {list.map((_step, index) => (
-              <Grid item key={index}>
-                <Ingredient index={index} remove={remove} />
-              </Grid>
-            ))}
-          </Grid>
-        </CardContent>
-      </Card>
-    )}
+          <CardContent>
+            <Grid container direction="column" spacing={1}>
+              {list.map((_step, index) => (
+                <Grid item key={index}>
+                  <Ingredient index={index} remove={handleRemove} />
+                </Grid>
+              ))}
+            </Grid>
+          </CardContent>
+        </Card>
+      )
+    }}
   />
 )
 
