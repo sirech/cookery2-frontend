@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { IconButton, Grid } from '@material-ui/core'
+import { IconButton, Grid } from '@mui/material'
 
-import ClearIcon from '@material-ui/icons/Clear'
+import { Clear as ClearIcon } from '@mui/icons-material'
 
 import field, { select } from './field'
 import { ingredientList } from './types'

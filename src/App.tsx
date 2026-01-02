@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes, Navigate } from 'react-router-dom'
 
-import { CssBaseline, Container, Box } from '@material-ui/core'
+import { CssBaseline, Container, Box } from '@mui/material'
 
 import Navigation from 'navigation'
 import NewRecipe from 'new-recipe'

@@ -2,10 +2,12 @@ import React from 'react'
 
 import { useAuth0 } from '@auth0/auth0-react'
 
-import { AppBar, Toolbar, Link, IconButton } from '@material-ui/core'
-import AddIcon from '@material-ui/icons/Add'
-import AccountCircle from '@material-ui/icons/AccountCircle'
-import AccountCircleOutlined from '@material-ui/icons/AccountCircleOutlined'
+import { AppBar, Toolbar, Link, IconButton } from '@mui/material'
+import {
+  AccountCircle,
+  AccountCircleOutlined,
+  Add as AddIcon,
+} from '@mui/icons-material'
 
 import AdapterLink from 'components/adapter-link'
 

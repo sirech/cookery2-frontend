@@ -7,7 +7,7 @@ import {
   TableCell,
   TableBody,
   TableRow,
-} from '@material-ui/core'
+} from '@mui/material'
 import { Step as StepType } from 'new-recipe/types'
 
 interface Props {

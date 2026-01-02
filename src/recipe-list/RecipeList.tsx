@@ -1,7 +1,7 @@
 import React from 'react'
 import { useAsync } from 'react-use'
 
-import { Grid } from '@material-ui/core'
+import { Grid } from '@mui/material'
 
 import { recipeList } from './recipeList.service'
 import Recipe from 'components/recipe'

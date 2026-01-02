@@ -9,9 +9,11 @@ import {
   List,
   ListItem,
   ListItemIcon,
-} from '@material-ui/core'
-import ScheduleIcon from '@material-ui/icons/Schedule'
-import RestaurantIcon from '@material-ui/icons/Restaurant'
+} from '@mui/material'
+import {
+  Restaurant as RestaurantIcon,
+  Schedule as ScheduleIcon,
+} from '@mui/icons-material'
 
 import { Recipe as RecipeType } from './types'
 import AdapterLink from 'components/adapter-link'
