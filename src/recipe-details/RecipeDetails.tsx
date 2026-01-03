@@ -46,19 +46,19 @@ const RecipeDetailsImpl = ({ id }: { id: string }) => {
       ) : (
         <section data-testid="recipe-details">
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Recipe recipe={recipe} showActions={false} />
             </Grid>
 
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <Steps list={recipe.steps} />
             </Grid>
 
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <Ingredients list={recipe.ingredients} />
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Button
                 color="primary"
                 variant="contained"
