@@ -37,7 +37,7 @@ const Ingredients: React.FC<Props> = ({ list }: Props) => (
           <CardContent>
             <Grid container direction="column" spacing={1}>
               {list.map((_step, index) => (
-                <Grid item key={index}>
+                <Grid key={index}>
                   <Ingredient index={index} remove={handleRemove} />
                 </Grid>
               ))}

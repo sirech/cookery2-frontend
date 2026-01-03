@@ -47,26 +47,26 @@ const NewRecipe = () => {
         {({ submitForm, values }: FormikProps<RecipeForm>) => (
           <form>
             <Grid container spacing={2}>
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <Card>
                   <CardContent>
                     <Grid container direction="column" spacing={1}>
-                      <Grid item>{field('name')}</Grid>
-                      <Grid item>{field('servings', { type: 'number' })}</Grid>
+                      <Grid>{field('name')}</Grid>
+                      <Grid>{field('servings', { type: 'number' })}</Grid>
                     </Grid>
                   </CardContent>
                 </Card>
               </Grid>
 
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <Steps list={values.steps} />
               </Grid>
 
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <Ingredients list={values.ingredients} />
               </Grid>
 
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <Button
                   color="primary"
                   variant="contained"
