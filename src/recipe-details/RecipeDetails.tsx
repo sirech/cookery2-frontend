@@ -62,7 +62,9 @@ const RecipeDetailsImpl = ({ id }: { id: string }) => {
               <Button
                 color="primary"
                 variant="contained"
-                onClick={() => navigate(-1)}
+                onClick={() => {
+                  void navigate(-1)
+                }}
               >
                 Back
               </Button>

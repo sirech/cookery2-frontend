@@ -1,7 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router'
-
-import { Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import NewRecipe from '../NewRecipe'
 
 import { screen, render } from '@testing'
