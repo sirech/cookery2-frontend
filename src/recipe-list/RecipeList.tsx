@@ -20,7 +20,7 @@ const RecipeList: React.FC = () => {
           <>
             <Grid container spacing={2}>
               {(state.value || []).map((recipe, index) => (
-                <Grid key={index} item xs={12} sm={6} md={4} lg={2}>
+                <Grid key={index} size={{ xs: 12, sm: 6, md: 4, lg: 2 }}>
                   <Recipe recipe={recipe} showActions />
                 </Grid>
               ))}
